@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>0xProgress_ — Builder</title>
+        <meta
+            name="description"
+            content="I build tools that work. Fast, reliable, low-resource. Go, Python, AI-accelerated. Shipping real software."
+        />
+
+        <style>
+            :root {
+                --ink: #0a0a0a;
+                --paper: #f7f5ef;
+                --paper-dim: #efece3;
+                --red: #c41e1e;
+                --gray: #6b6b66;
+                --line: #d8d5cb;
+
+                --display: "Archivo Black", "Arial Black", sans-serif;
+                --mono: "JetBrains Mono", "Courier New", monospace;
+                --body: "Source Serif 4", Georgia, serif;
+            }
+
+            @font-face {
+                font-family: "Archivo Black";
+                src: local("Archivo Black");
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                background: var(--paper);
+                color: var(--ink);
+                font-family: var(--body);
+                overflow-x: hidden;
+                cursor: none;
+            }
+
+            @media (max-width: 900px), (hover: none) {
+                body {
+                    cursor: auto;
+                }
+                #ink-cursor,
+                #ink-cursor-trail {
+                    display: none;
+                }
+            }
+
+            ::selection {
+                background: var(--red);
+                color: var(--paper);
+            }
+
+            /* ============ INK CURSOR ============ */
+            #ink-cursor {
+                position: fixed;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: var(--ink);
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                transition:
+                    width 0.2s,
+                    height 0.2s,
+                    background 0.2s;
+            }
+            #ink-cursor.bleed {
+                background: var(--red);
+                width: 34px;
+                height: 34px;
+                filter: blur(1px);
+            }
+            #ink-cursor-trail {
+                position: fixed;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                border: 1.5px solid var(--ink);
+                pointer-events: none;
+                z-index: 9998;
+                transform: translate(-50%, -50%);
+                transition:
+                    width 0.3s,
+                    height 0.3s,
+                    border-color 0.3s,
+                    opacity 0.3s;
+                opacity: 0.35;
+            }
+            #ink-cursor-trail.bleed {
+                border-color: var(--red);
+                width: 54px;
+                height: 54px;
+                opacity: 0.5;
+            }
+
+            /* ============ TEXTURE ============ */
+            .paper-grain {
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                z-index: 1;
+                opacity: 0.5;
+                mix-blend-mode: multiply;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            }
+
+            /* ============ NAV ============ */
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 24px 40px;
+                mix-blend-mode: difference;
+                color: #fff;
+            }
+            .logo-mark {
+                font-family: var(--mono);
+                font-size: 0.85rem;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+            }
+            .nav-links {
+                display: flex;
+                gap: 28px;
+                list-style: none;
+            }
+            .nav-links a {
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                color: #fff;
+                text-decoration: none;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                opacity: 0.8;
+                transition: opacity 0.2s;
+            }
+            .nav-links a:hover {
+                opacity: 1;
+            }
+
+            @media (max-width: 700px) {
+                .nav-links {
+                    gap: 14px;
+                }
+                .nav-links a {
+                    font-size: 0.6rem;
+                }
+                nav {
+                    padding: 18px 20px;
+                }
+            }
+
+            /* ============ VERTICAL SOCIAL RAIL ============ */
+            .social-rail {
+                position: fixed;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 90;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+            .social-rail a {
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                font-family: var(--mono);
+                font-size: 0.68rem;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--ink);
+                text-decoration: none;
+                padding: 14px 10px;
+                border-left: 1px solid var(--line);
+                transition:
+                    color 0.2s,
+                    border-color 0.2s,
+                    background 0.2s;
+                background: var(--paper);
+            }
+            .social-rail a:hover {
+                color: var(--paper);
+                background: var(--red);
+                border-color: var(--red);
+            }
+
+            @media (max-width: 700px) {
+                .social-rail {
+                    position: static;
+                    transform: none;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    margin-top: 40px;
+                }
+                .social-rail a {
+                    writing-mode: horizontal-tb;
+                    border-left: none;
+                    border: 1px solid var(--line);
+                    padding: 8px 14px;
+                }
+            }
+
+            /* ============ SECTIONS ============ */
+            section {
+                position: relative;
+                z-index: 2;
+                padding: 140px 60px;
+            }
+            @media (max-width: 700px) {
+                section {
+                    padding: 100px 24px;
+                }
+            }
+            .wrap {
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            /* ============ HERO ============ */
+            #hero {
+                min-height: 100svh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            .hero-eyebrow {
+                font-family: var(--mono);
+                font-size: 0.78rem;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--red);
+                margin-bottom: 18px;
+                opacity: 0;
+                animation: rise 0.8s 0.1s forwards;
+            }
+            .hero-name {
+                font-family: var(--display);
+                font-size: clamp(3.2rem, 12vw, 9.5rem);
+                line-height: 0.86;
+                letter-spacing: -0.01em;
+                text-transform: uppercase;
+                opacity: 0;
+                animation: rise 0.9s 0.25s forwards;
+            }
+            .hero-name .x {
+                color: var(--red);
+            }
+            .hero-sub {
+                font-family: var(--mono);
+                font-size: clamp(0.85rem, 2vw, 1.05rem);
+                color: var(--gray);
+                margin-top: 26px;
+                max-width: 540px;
+                line-height: 1.7;
+                opacity: 0;
+                animation: rise 0.9s 0.4s forwards;
+            }
+            .hero-actions {
+                margin-top: 44px;
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                opacity: 0;
+                animation: rise 0.9s 0.55s forwards;
+            }
+            @keyframes rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(18px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .hero-eyebrow,
+                .hero-name,
+                .hero-sub,
+                .hero-actions {
+                    animation: none;
+                    opacity: 1;
+                }
+            }
+
+            .btn {
+                font-family: var(--mono);
+                font-size: 0.72rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding: 15px 28px;
+                border: 1.5px solid var(--ink);
+                background: transparent;
+                color: var(--ink);
+                text-decoration: none;
+                display: inline-block;
+                transition:
+                    background 0.2s,
+                    color 0.2s,
+                    transform 0.2s;
+            }
+            .btn:hover {
+                background: var(--ink);
+                color: var(--paper);
+                transform: translate(-2px, -2px);
+            }
+            .btn-solid {
+                background: var(--ink);
+                color: var(--paper);
+            }
+            .btn-solid:hover {
+                background: var(--red);
+                border-color: var(--red);
+                color: #fff;
+            }
+
+            /* seal stamp */
+            .seal {
+                position: absolute;
+                width: 84px;
+                height: 84px;
+                border: 2px solid var(--red);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: var(--display);
+                font-size: 1.1rem;
+                color: var(--red);
+                transform: rotate(-8deg) scale(0);
+                right: 60px;
+                bottom: 60px;
+                opacity: 0.85;
+                animation: stamp 0.5s 0.9s cubic-bezier(0.2, 1.4, 0.4, 1)
+                    forwards;
+            }
+            @keyframes stamp {
+                0% {
+                    transform: rotate(-8deg) scale(2.4);
+                    opacity: 0;
+                }
+                60% {
+                    transform: rotate(-8deg) scale(0.9);
+                    opacity: 0.9;
+                }
+                100% {
+                    transform: rotate(-8deg) scale(1);
+                    opacity: 0.85;
+                }
+            }
+            @media (max-width: 700px) {
+                .seal {
+                    width: 60px;
+                    height: 60px;
+                    font-size: 0.8rem;
+                    right: 24px;
+                    bottom: 24px;
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .seal {
+                    animation: none;
+                    transform: rotate(-8deg) scale(1);
+                    opacity: 0.85;
+                }
+            }
+
+            /* ============ SECTION HEAD ============ */
+            .section-head {
+                display: flex;
+                align-items: baseline;
+                gap: 18px;
+                margin-bottom: 50px;
+                border-bottom: 1.5px solid var(--ink);
+                padding-bottom: 18px;
+            }
+            .section-tag {
+                font-family: var(--mono);
+                font-size: 0.7rem;
+                color: var(--red);
+                letter-spacing: 0.1em;
+            }
+            .section-title {
+                font-family: var(--display);
+                font-size: clamp(1.6rem, 4vw, 2.4rem);
+                text-transform: uppercase;
+                letter-spacing: -0.01em;
+            }
+
+            /* reveal on scroll */
+            .reveal {
+                opacity: 0;
+                transform: translateY(28px);
+                transition:
+                    opacity 0.7s ease,
+                    transform 0.7s ease;
+            }
+            .reveal.in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* ============ ABOUT ============ */
+            #about .about-grid {
+                display: grid;
+                grid-template-columns: 1.3fr 1fr;
+                gap: 60px;
+            }
+            @media (max-width: 800px) {
+                #about .about-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .about-text {
+                font-size: 1.05rem;
+                line-height: 1.85;
+                color: #2a2a26;
+            }
+            .about-text p {
+                margin-bottom: 1.4em;
+            }
+            .about-text strong {
+                color: var(--ink);
+                font-weight: 700;
+            }
+            .about-text .accent {
+                color: var(--red);
+                font-weight: 600;
+            }
+
+            .resume-card {
+                border: 1.5px solid var(--ink);
+                padding: 32px;
+                background: var(--paper-dim);
+            }
+            .resume-card h3 {
+                font-family: var(--mono);
+                font-size: 0.78rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                color: var(--gray);
+            }
+            .resume-card p {
+                font-size: 0.88rem;
+                color: var(--gray);
+                line-height: 1.6;
+                margin-bottom: 24px;
+            }
+
+            /* ============ ANIMATED ELLIPSIS ============ */
+            .dots-anim {
+                display: inline-block;
+                width: 1.2em;
+                text-align: left;
+            }
+            .dots-anim::after {
+                content: "";
+                animation: dots 1.8s steps(4, end) infinite;
+            }
+            @keyframes dots {
+                0% {
+                    content: "";
+                }
+                25% {
+                    content: ".";
+                }
+                50% {
+                    content: "..";
+                }
+                75% {
+                    content: "...";
+                }
+                100% {
+                    content: "";
+                }
+            }
+
+            /* ============ PROJECTS ============ */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1px;
+                background: var(--line);
+                border: 1.5px solid var(--ink);
+            }
+            .project-card {
+                background: var(--paper);
+                padding: 32px;
+                transition: background 0.25s;
+            }
+            .project-card:hover {
+                background: var(--paper-dim);
+            }
+            .project-status {
+                font-family: var(--mono);
+                font-size: 0.62rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--red);
+                margin-bottom: 14px;
+                display: inline-block;
+                border: 1px solid var(--red);
+                padding: 3px 9px;
+            }
+            .project-card h3 {
+                font-family: var(--display);
+                font-size: 1.15rem;
+                text-transform: uppercase;
+                margin-bottom: 12px;
+                letter-spacing: -0.01em;
+            }
+            .project-card p {
+                font-size: 0.85rem;
+                color: var(--gray);
+                line-height: 1.65;
+            }
+
+            /* ============ FEED (commits) ============ */
+            .feed-list {
+                border-top: 1.5px solid var(--ink);
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+            .feed-row {
+                display: flex;
+                gap: 20px;
+                align-items: baseline;
+                padding: 14px 0;
+                border-bottom: 1px solid var(--line);
+                font-family: var(--mono);
+                font-size: 0.78rem;
+            }
+            .feed-row .feed-user {
+                color: var(--ink);
+                font-weight: 600;
+                min-width: 90px;
+                flex-shrink: 0;
+            }
+            .feed-row .feed-repo {
+                color: var(--red);
+                min-width: 150px;
+                flex-shrink: 0;
+                font-weight: 500;
+            }
+            .feed-row .feed-msg {
+                flex: 1;
+                color: var(--ink);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                min-width: 100px;
+            }
+            .feed-row .feed-time {
+                color: var(--gray);
+                font-size: 0.68rem;
+                white-space: nowrap;
+                min-width: 60px;
+                flex-shrink: 0;
+            }
+            .feed-empty {
+                font-family: var(--mono);
+                font-size: 0.82rem;
+                color: var(--gray);
+                padding: 24px 0;
+            }
+            .feed-empty a {
+                color: var(--red);
+            }
+
+            /* ============ CONTACT ============ */
+            #contact {
+                text-align: center;
+                padding-bottom: 180px;
+            }
+            #contact .section-head {
+                justify-content: center;
+            }
+            .contact-line {
+                font-family: var(--display);
+                font-size: clamp(1.8rem, 5vw, 3.2rem);
+                text-transform: uppercase;
+                line-height: 1.15;
+                max-width: 780px;
+                margin: 0 auto 36px;
+            }
+            .contact-line .x {
+                color: var(--red);
+            }
+
+            /* ============ FOOTER ============ */
+            footer {
+                border-top: 1.5px solid var(--ink);
+                padding: 30px 60px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: var(--mono);
+                font-size: 0.68rem;
+                color: var(--gray);
+                letter-spacing: 0.05em;
+            }
+            @media (max-width: 700px) {
+                footer {
+                    flex-direction: column;
+                    gap: 10px;
+                    padding: 24px 24px;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="paper-grain"></div>
+        <div id="ink-cursor"></div>
+        <div id="ink-cursor-trail"></div>
+
+        <nav>
+            <div class="logo-mark">0x_</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#feed">Feed</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- SOCIAL RAIL — replace with your real links -->
+        <div class="social-rail">
+            <a href="https://x.com/0xProgress_" target="_blank" rel="noopener"
+                >X.com</a
+            >
+            <!--<a href="I am coming for you" target="_blank" rel="noopener">LinkedIn</a>-->
+            <a href="mailto:progressuwhuseba@gmail.com">Mail</a>
+            <a
+                href="https://discord.com/users/1214231706698252320"
+                target="_blank"
+                rel="noopener"
+                >Discord</a
+            >
+            <!--<a href="# I left insta" target="_blank" rel="noopener">Instagram</a>-->
+        </div>
+
+        <!-- ============ HERO ============ -->
+        <section id="hero">
+            <div class="wrap">
+                <div class="hero-eyebrow">⌁ Builder · Automator</div>
+                <h1 class="hero-name">0<span class="x">x</span>Progress_</h1>
+                <p class="hero-sub">
+                    I build tools that work. Fast, reliable, low-resource — the
+                    kind of software you can actually depend on.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-solid">See the work</a>
+                    <a href="#contact" class="btn">Get in touch</a>
+                </div>
+            </div>
+            <div class="seal">0x</div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section id="about">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-tag">01</span>
+                    <h2 class="section-title">About</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>
+                            I build tools that work. Fast, reliable,
+                            low-resource — the kind of software you can actually
+                            depend on.
+                        </p>
+                        <p>
+                            I've been doing this since I was 14, learning by
+                            breaking and rebuilding systems. AI accelerated my
+                            learning, but I still write the code. I still
+                            understand what's happening under the hood.
+                        </p>
+                        <p>
+                            I don't have a niche. I solve problems I notice. If
+                            something's broken, hard to use, or missing good
+                            docs — I fix it. I automate everything I can, so I
+                            can ship more, faster.
+                        </p>
+                        <p>
+                            I've written Go, Python.. I've built CLIs, bots,
+                            medical triage tools, env diffing, retry logic,
+                            WhatsApp bridges. I've revived dead projects. I've
+                            shipped.
+                        </p>
+                        <p>
+                            Fun Part is → I'm not finished. I'm just getting
+                            started<span class="dots-anim"></span>
+                        </p>
+                    </div>
+                    <div class="resume-card reveal">
+                        <h3>Full background</h3>
+                        <p>
+                            Education, skills, and project history — laid out
+                            properly.
+                        </p>
+                        <a href="resume.docx" class="btn btn-solid" download
+                            >Download résumé</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PROJECTS ============ -->
+        <section id="projects">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-tag">02</span>
+                    <h2 class="section-title">Work</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <span class="project-status">In progress</span>
+                        <h3>AI Medical Triage</h3>
+                        <p>
+                            Privacy-first conversational health tool built on
+                            Qwen AI, for low-resource regions including Nigeria.
+                            Backend complete — preparing for the Moonshot
+                            competition.
+                        </p>
+                    </div>
+                    <div class="project-card reveal">
+                        <span class="project-status">Shipped</span>
+                        <h3>AVlast Bot</h3>
+                        <p>
+                            A WhatsApp assistant that actually converses,
+                            instead of responding only to fixed commands.
+                        </p>
+                    </div>
+                    <div class="project-card reveal">
+                        <span class="project-status">Revived</span>
+                        <h3>Simcoin</h3>
+                        <p>
+                            Picked up a dead Discord RPG economy bot after the
+                            original creator left, and kept it running. Proof I
+                            can step into someone else's codebase and carry it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ COMMIT FEED ============ -->
+        <section id="feed">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-tag">03</span>
+                    <h2 class="section-title">Latest activity</h2>
+                </div>
+                <div class="feed-list reveal" id="feedList">
+                    <!-- populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-tag">04</span>
+                    <h2 class="section-title">Contact</h2>
+                </div>
+                <p class="contact-line reveal">
+                    Got something worth <span class="x">building</span>? Reach
+                    out <br />
+                    → I read everything.
+                </p>
+                <a
+                    href="mailto:progressuwhuseba@gmail.com"
+                    class="btn btn-solid reveal"
+                    >Say hello</a
+                >
+            </div>
+        </section>
+
+        <footer>
+            <span>© 2026 0xProgress_</span>
+            <span>Built over boundaries</span>
+        </footer>
+
+        <script>
+            /* ============ INK CURSOR ============ */
+            (function () {
+                const cur = document.getElementById("ink-cursor");
+                const trail = document.getElementById("ink-cursor-trail");
+                if (!cur || matchMedia("(hover:none)").matches) return;
+
+                let mx = 0,
+                    my = 0,
+                    tx = 0,
+                    ty = 0;
+                window.addEventListener("mousemove", (e) => {
+                    mx = e.clientX;
+                    my = e.clientY;
+                    cur.style.left = mx + "px";
+                    cur.style.top = my + "px";
+                });
+                function loop() {
+                    tx += (mx - tx) * 0.15;
+                    ty += (my - ty) * 0.15;
+                    trail.style.left = tx + "px";
+                    trail.style.top = ty + "px";
+                    requestAnimationFrame(loop);
+                }
+                loop();
+
+                document.querySelectorAll("a, button, .btn").forEach((el) => {
+                    el.addEventListener("mouseenter", () => {
+                        cur.classList.add("bleed");
+                        trail.classList.add("bleed");
+                    });
+                    el.addEventListener("mouseleave", () => {
+                        cur.classList.remove("bleed");
+                        trail.classList.remove("bleed");
+                    });
+                });
+            })();
+
+            /* ============ SCROLL REVEAL ============ */
+            (function () {
+                const items = document.querySelectorAll(".reveal");
+                const io = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((e) => {
+                            if (e.isIntersecting) {
+                                e.target.classList.add("in");
+                                io.unobserve(e.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.15 },
+                );
+                items.forEach((i) => io.observe(i));
+            })();
+
+            /* ============ GITHUB COMMIT FEED ============ */
+            (function () {
+                const feedEl = document.getElementById("feedList");
+                const USERNAME = "0xProgress";
+
+                // Show loading state
+                feedEl.innerHTML = `<div class="feed-empty">⏳ Loading commits...</div>`;
+
+                fetch(
+                    `https://api.github.com/users/${USERNAME}/events/public?per_page=10`,
+                    {
+                        headers: { Accept: "application/vnd.github.v3+json" },
+                    },
+                )
+                    .then((r) => {
+                        if (!r.ok)
+                            throw new Error(`GitHub API error: ${r.status}`);
+                        return r.json();
+                    })
+                    .then((events) => {
+                        // Filter out CreateEvents (no commit messages) and keep only PushEvents
+                        const pushEvents = events.filter(
+                            (e) => e.type === "PushEvent",
+                        );
+
+                        if (pushEvents.length === 0) {
+                            feedEl.innerHTML = `<div class="feed-empty">No recent pushes.</div>`;
+                            return;
+                        }
+
+                        // Take first 6 push events
+                        const recent = pushEvents.slice(0, 6);
+
+                        // For each push event, fetch the commit details using the head SHA
+                        const commitPromises = recent.map((event) => {
+                            const repo = event.repo.name; // "0xProgress/repo"
+                            const sha = event.payload.head; // commit SHA
+                            const when = new Date(
+                                event.created_at,
+                            ).toLocaleDateString("en-US", {
+                                month: "short",
+                                day: "numeric",
+                            });
+
+                            // Fetch commit details
+                            return fetch(
+                                `https://api.github.com/repos/${repo}/commits/${sha}`,
+                                {
+                                    headers: {
+                                        Accept: "application/vnd.github.v3+json",
+                                    },
+                                },
+                            )
+                                .then((res) => {
+                                    if (!res.ok)
+                                        throw new Error("Commit fetch failed");
+                                    return res.json();
+                                })
+                                .then((commitData) => {
+                                    // Extract commit message (first line)
+                                    const message =
+                                        commitData.commit.message.split(
+                                            "\n",
+                                        )[0];
+                                    return {
+                                        repo: repo,
+                                        shortRepo: repo.split("/")[1],
+                                        message: message,
+                                        date: when,
+                                    };
+                                })
+                                .catch(() => {
+                                    // Fallback if commit fetch fails
+                                    return {
+                                        repo: repo,
+                                        shortRepo: repo.split("/")[1],
+                                        message: "pushed",
+                                        date: when,
+                                    };
+                                });
+                        });
+
+                        // Wait for all commit fetches to finish
+                        Promise.all(commitPromises)
+                            .then((results) => {
+                                let html = "";
+                                results.forEach((item) => {
+                                    html += `
+                          <div class="feed-row">
+                            <span class="feed-user">${USERNAME}</span>
+                            <span class="feed-repo">${item.shortRepo}</span>
+                            <span class="feed-msg">${item.message}</span>
+                            <span class="feed-time">${item.date}</span>
+                          </div>
+                        `;
+                                });
+                                feedEl.innerHTML = html;
+                            })
+                            .catch((err) => {
+                                console.warn("Error fetching commits:", err);
+                                feedEl.innerHTML = `<div class="feed-empty">Could not load commit messages.</div>`;
+                            });
+                    })
+                    .catch((err) => {
+                        console.warn("GitHub feed error:", err);
+                        feedEl.innerHTML = `
+                    <div class="feed-empty">
+                      ⚡ Couldn't load live feed.<br>
+                      <a href="https://github.com/${USERNAME}" target="_blank">github.com/${USERNAME}</a>
+                    </div>
+                  `;
+                    });
+            })();
+        </script>
+    </body>
+</html>
