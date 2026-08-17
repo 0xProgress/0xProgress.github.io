@@ -1,0 +1,81 @@
+name: Build Site Data
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Fetch repository list
+        run: |
+          gh api users/0xProgress/repos --paginate --jq '.[] | select(.fork == false) | {name: .name, description: .description, html_url: .html_url, topics: .topics, language: .language, updated_at: .updated_at}' > repos.json
+
+      - name: Compute total commits
+        run: |
+          TOTAL=0
+          for repo in $(jq -r '.name' repos.json); do
+            contrib=$(gh api repos/0xProgress/$repo/contributors --jq '.[] | select(.login=="0xProgress") | .total' 2>/dev/null || echo 0)
+            TOTAL=$((TOTAL + contrib))
+          done
+          echo "TOTAL_COMMITS=$TOTAL" >> $GITHUB_ENV
+
+      - name: Fetch recent commit events
+        run: |
+          gh api users/0xProgress/events/public?per_page=20 --jq '.[] | select(.type=="PushEvent") | {repo: .repo.name, sha: .payload.head, created_at: .created_at}' > events.json
+
+          echo '[]' > commits.json
+          while read -r event; do
+            repo=$(echo "$event" | jq -r '.repo')
+            sha=$(echo "$event" | jq -r '.sha')
+            date=$(echo "$event" | jq -r '.created_at')
+            msg=$(gh api repos/$repo/commits/$sha --jq '.commit.message | split("\n")[0]' 2>/dev/null || echo "pushed")
+            jq --arg repo "$repo" --arg sha "$sha" --arg date "$date" --arg msg "$msg" \
+              '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' commits.json > tmp && mv tmp commits.json
+          done < <(jq -c '.' events.json)
+
+          jq '.[:6]' commits.json > recent_commits.json
+
+      - name: Build final site-data.json
+        run: |
+          jq -s '{projects: ., commits: [], totalCommits: $ENV.TOTAL_COMMITS, currentFocus: "Golang"}' repos.json > site-data.json
+
+          jq --slurpfile commits recent_commits.json '.commits = $commits[0]' site-data.json > tmp && mv tmp site-data.json
+
+          jq --arg date "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" '.updatedAt = $date' site-data.json > tmp && mv tmp site-data.json
+
+          jq '.projects |= map({name: .name, description: .description, repoUrl: .html_url, status: "Active", tech: (.topics // []), updatedAt: .updated_at})' site-data.json > tmp && mv tmp site-data.json
+
+          jq '.projects |= map(. + {status: (if (now - (.updatedAt | fromdate)) < 2592000 then "Active" elif (now - (.updatedAt | fromdate)) < 7776000 then "Maintenance" else "Stable" end)})' site-data.json > tmp && mv tmp site-data.json
+
+          jq '.projects |= map(select(.description != null and .description != ""))' site-data.json > tmp && mv tmp site-data.json
+
+          jq '.commits |= map({username: "0xProgress", repo: (.repo | split("/")[1]), message: .message, date: (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d"))})' site-data.json > tmp && mv tmp site-data.json
+
+      - name: Create data directory if missing
+        run: mkdir -p data
+
+      - name: Move site-data.json to data/
+        run: mv site-data.json data/site-data.json
+
+      - name: Commit and push
+        run: |
+          git config user.name "0xProgress"
+          git config user.email "progressuwhuseba@gmail.com"
+          git add data/site-data.json
+          git diff --staged --quiet || git commit -m "📊 Update site data [skip ci]"
+          git push

@@ -3,6 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="favicon/favicon-96x96.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="favicon/site.webmanifest" />
         <title>0xProgress_ — Builder</title>
         <meta
             name="description"
@@ -179,15 +192,18 @@
                 gap: 0;
             }
             .social-rail a {
-                writing-mode: vertical-rl;
-                text-orientation: mixed;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
                 font-family: var(--mono);
                 font-size: 0.68rem;
                 letter-spacing: 0.12em;
                 text-transform: uppercase;
                 color: var(--ink);
                 text-decoration: none;
-                padding: 14px 10px;
+                padding: 10px;
                 border-left: 1px solid var(--line);
                 transition:
                     color 0.2s,
@@ -200,6 +216,15 @@
                 background: var(--red);
                 border-color: var(--red);
             }
+            .social-rail a svg {
+                width: 22px;
+                height: 22px;
+                fill: currentColor;
+                transition: fill 0.2s;
+            }
+            .social-rail a:hover svg {
+                fill: var(--paper);
+            }
 
             @media (max-width: 700px) {
                 .social-rail {
@@ -211,10 +236,11 @@
                     margin-top: 40px;
                 }
                 .social-rail a {
-                    writing-mode: horizontal-tb;
+                    width: 44px;
+                    height: 44px;
                     border-left: none;
                     border: 1px solid var(--line);
-                    padding: 8px 14px;
+                    padding: 8px;
                 }
             }
 
@@ -313,7 +339,9 @@
                 background: transparent;
                 color: var(--ink);
                 text-decoration: none;
-                display: inline-block;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
                 transition:
                     background 0.2s,
                     color 0.2s,
@@ -323,6 +351,12 @@
                 background: var(--ink);
                 color: var(--paper);
                 transform: translate(-2px, -2px);
+            }
+            .btn svg {
+                width: 18px;
+                height: 18px;
+                fill: currentColor;
+                flex-shrink: 0;
             }
             .btn-solid {
                 background: var(--ink);
@@ -448,6 +482,7 @@
                 font-weight: 600;
             }
 
+            /* ============ RESUME CARD STATS ============ */
             .resume-card {
                 border: 1.5px solid var(--ink);
                 padding: 32px;
@@ -458,14 +493,81 @@
                 font-size: 0.78rem;
                 letter-spacing: 0.1em;
                 text-transform: uppercase;
-                margin-bottom: 10px;
+                margin-bottom: 16px;
                 color: var(--gray);
+                display: flex;
+                align-items: center;
+                gap: 10px;
             }
-            .resume-card p {
-                font-size: 0.88rem;
+            .resume-card h3 svg {
+                width: 20px;
+                height: 20px;
+                fill: var(--gray);
+            }
+            .resume-card .stat-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--line);
+                font-family: var(--mono);
+            }
+            .resume-card .stat-item:last-of-type {
+                border-bottom: none;
+            }
+            .resume-card .stat-number {
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: var(--ink);
+                font-family: var(--display);
+                letter-spacing: -0.02em;
+            }
+            .resume-card .stat-label {
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
                 color: var(--gray);
-                line-height: 1.6;
-                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .resume-card .stat-label svg {
+                width: 16px;
+                height: 16px;
+                fill: var(--gray);
+            }
+            .resume-card .focus-item {
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: 1.5px solid var(--ink);
+                border-bottom: none;
+            }
+            .resume-card .focus-tag {
+                color: var(--red);
+                font-size: 1.1rem;
+            }
+            .resume-card .btn {
+                margin-top: 18px;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            .resume-card .btn.disabled {
+                opacity: 0.4;
+                pointer-events: none;
+                cursor: not-allowed;
+            }
+            .resume-card .stat-loading {
+                font-family: var(--mono);
+                font-size: 0.8rem;
+                color: var(--gray);
+                padding: 8px 0;
+            }
+            @media (max-width: 700px) {
+                .resume-card .stat-number {
+                    font-size: 1.2rem;
+                }
             }
 
             /* ============ ANIMATED ELLIPSIS ============ */
@@ -496,44 +598,216 @@
                 }
             }
 
-            /* ============ PROJECTS ============ */
-            .projects-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1px;
-                background: var(--line);
+            /* ============ CAROUSEL ============ */
+            .carousel-container {
+                position: relative;
+                overflow: hidden;
                 border: 1.5px solid var(--ink);
-            }
-            .project-card {
                 background: var(--paper);
-                padding: 32px;
-                transition: background 0.25s;
+                min-height: 320px;
             }
-            .project-card:hover {
-                background: var(--paper-dim);
+
+            .carousel-track {
+                display: flex;
+                transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                will-change: transform;
             }
-            .project-status {
+
+            .carousel-slide {
+                flex: 0 0 100%;
+                padding: 48px 56px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 280px;
+            }
+
+            .carousel-slide .project-status {
                 font-family: var(--mono);
                 font-size: 0.62rem;
                 letter-spacing: 0.1em;
                 text-transform: uppercase;
                 color: var(--red);
-                margin-bottom: 14px;
                 display: inline-block;
                 border: 1px solid var(--red);
                 padding: 3px 9px;
+                margin-bottom: 16px;
+                align-self: flex-start;
             }
-            .project-card h3 {
+
+            .carousel-slide h3 {
                 font-family: var(--display);
-                font-size: 1.15rem;
+                font-size: clamp(1.4rem, 3vw, 2rem);
                 text-transform: uppercase;
-                margin-bottom: 12px;
                 letter-spacing: -0.01em;
+                margin-bottom: 12px;
             }
-            .project-card p {
-                font-size: 0.85rem;
+
+            .carousel-slide .project-description {
+                font-size: 0.95rem;
                 color: var(--gray);
-                line-height: 1.65;
+                line-height: 1.7;
+                max-width: 640px;
+                margin-bottom: 20px;
+            }
+
+            .carousel-slide .project-tech {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-bottom: 20px;
+            }
+
+            .carousel-slide .project-tech span {
+                font-family: var(--mono);
+                font-size: 0.6rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                padding: 3px 10px;
+                border: 1px solid var(--line);
+                color: var(--gray);
+            }
+
+            .carousel-slide .project-link {
+                align-self: flex-start;
+            }
+
+            /* Carousel Buttons - Hidden by default, visible on hover */
+            .carousel-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                border: 1.5px solid var(--ink);
+                background: var(--paper);
+                color: var(--ink);
+                font-size: 1.4rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: var(--mono);
+                line-height: 1;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .carousel-container:hover .carousel-btn {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .carousel-btn:hover {
+                background: var(--ink);
+                color: var(--paper);
+            }
+
+            .carousel-prev {
+                left: 12px;
+            }
+
+            .carousel-next {
+                right: 12px;
+            }
+
+            /* Dots - Fluid/Infinite style */
+            .carousel-dots {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                padding: 16px 0 20px 0;
+                background: var(--paper);
+                transition: opacity 0.3s;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                border: 1.5px solid var(--ink);
+                background: transparent;
+                cursor: pointer;
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                padding: 0;
+                position: relative;
+            }
+
+            .carousel-dot.active {
+                background: var(--ink);
+                transform: scale(1.2);
+            }
+
+            .carousel-dot::after {
+                content: "";
+                position: absolute;
+                inset: -4px;
+                border-radius: 50%;
+                border: 1.5px solid transparent;
+                transition: all 0.4s ease;
+            }
+
+            .carousel-dot.active::after {
+                border-color: var(--red);
+                animation: dotPulse 1.5s ease-in-out infinite;
+            }
+
+            @keyframes dotPulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                    opacity: 0.6;
+                }
+                50% {
+                    transform: scale(1.3);
+                    opacity: 1;
+                }
+            }
+
+            .carousel-dot:hover {
+                background: var(--red);
+                border-color: var(--red);
+                transform: scale(1.1);
+            }
+
+            /* Suggest slide special styling */
+            .carousel-slide.suggest-slide .project-status {
+                color: var(--gray);
+                border-color: var(--gray);
+            }
+
+            .carousel-slide.suggest-slide .suggest-icon {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+            .carousel-slide.suggest-slide .suggest-icon svg {
+                width: 32px;
+                height: 32px;
+                fill: var(--gray);
+            }
+
+            @media (max-width: 700px) {
+                .carousel-slide {
+                    padding: 32px 28px;
+                    min-height: 240px;
+                }
+                .carousel-btn {
+                    width: 36px;
+                    height: 36px;
+                    font-size: 1.2rem;
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+                .carousel-prev {
+                    left: 6px;
+                }
+                .carousel-next {
+                    right: 6px;
+                }
             }
 
             /* ============ FEED (commits) ============ */
@@ -646,20 +920,61 @@
             </ul>
         </nav>
 
-        <!-- SOCIAL RAIL — replace with your real links -->
+        <!-- ============ SOCIAL RAIL (SVG) ============ -->
         <div class="social-rail">
-            <a href="https://x.com/0xProgress_" target="_blank" rel="noopener"
-                >X.com</a
+            <a
+                href="https://x.com/0xProgress_"
+                target="_blank"
+                rel="noopener"
+                aria-label="X (Twitter)"
             >
-            <!--<a href="I am coming for you" target="_blank" rel="noopener">LinkedIn</a>-->
-            <a href="mailto:progressuwhuseba@gmail.com">Mail</a>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                    />
+                </svg>
+            </a>
+            <a href="mailto:progressuwhuseba@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
+                    />
+                    <path
+                        d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
+                    />
+                </svg>
+            </a>
             <a
                 href="https://discord.com/users/1214231706698252320"
                 target="_blank"
                 rel="noopener"
-                >Discord</a
+                aria-label="Discord"
             >
-            <!--<a href="# I left insta" target="_blank" rel="noopener">Instagram</a>-->
+                <svg
+                    viewBox="0 -28.5 256 256"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    preserveAspectRatio="xMidYMid"
+                    fill="#000000"
+                >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path
+                                d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
+                                fill="#000000"
+                                fill-rule="nonzero"
+                            ></path>
+                        </g>
+                    </g>
+                </svg>
+            </a>
         </div>
 
         <!-- ============ HERO ============ -->
@@ -717,54 +1032,108 @@
                         </p>
                     </div>
                     <div class="resume-card reveal">
-                        <h3>Full background</h3>
-                        <p>
-                            Education, skills, and project history — laid out
-                            properly.
-                        </p>
-                        <a href="resume.docx" class="btn btn-solid" download
-                            >Download résumé</a
+                        <h3>
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
+                                />
+                            </svg>
+                            Activity Stats
+                        </h3>
+                        <div id="statsContent">
+                            <div class="stat-item">
+                                <span class="stat-number" id="commitCount"
+                                    >...</span
+                                >
+                                <span class="stat-label">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm0-12a1 1 0 011 1v2a1 1 0 01-2 0V4a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zM4 11h2a1 1 0 010 2H4a1 1 0 010-2zm14 0h2a1 1 0 010 2h-2a1 1 0 010-2z"
+                                        />
+                                    </svg>
+                                    total commits
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="repoCount"
+                                    >...</span
+                                >
+                                <span class="stat-label">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm0 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
+                                        />
+                                    </svg>
+                                    projects shipped
+                                </span>
+                            </div>
+                            <div class="stat-item focus-item">
+                                <span class="stat-label">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M13 2L4 14h6l-2 8 9-12h-6l2-8z"
+                                        />
+                                    </svg>
+                                    Current Focus
+                                </span>
+                                <span
+                                    class="stat-number focus-tag"
+                                    id="currentFocus"
+                                    >Golang</span
+                                >
+                            </div>
+                        </div>
+                        <a
+                            href="resume.docx"
+                            class="btn btn-solid"
+                            download
+                            id="resumeBtn"
                         >
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"
+                                />
+                                <path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z" />
+                                <path d="M8 17h8v2H8z" />
+                            </svg>
+                            Download Résumé
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ PROJECTS ============ -->
+        <!-- ============ PROJECTS CAROUSEL ============ -->
         <section id="projects">
             <div class="wrap">
                 <div class="section-head reveal">
                     <span class="section-tag">02</span>
                     <h2 class="section-title">Work</h2>
                 </div>
-                <div class="projects-grid">
-                    <div class="project-card reveal">
-                        <span class="project-status">In progress</span>
-                        <h3>AI Medical Triage</h3>
-                        <p>
-                            Privacy-first conversational health tool built on
-                            Qwen AI, for low-resource regions including Nigeria.
-                            Backend complete — preparing for the Moonshot
-                            competition.
-                        </p>
+
+                <div class="carousel-container reveal">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- populated by JavaScript -->
                     </div>
-                    <div class="project-card reveal">
-                        <span class="project-status">Shipped</span>
-                        <h3>AVlast Bot</h3>
-                        <p>
-                            A WhatsApp assistant that actually converses,
-                            instead of responding only to fixed commands.
-                        </p>
-                    </div>
-                    <div class="project-card reveal">
-                        <span class="project-status">Revived</span>
-                        <h3>Simcoin</h3>
-                        <p>
-                            Picked up a dead Discord RPG economy bot after the
-                            original creator left, and kept it running. Proof I
-                            can step into someone else's codebase and carry it.
-                        </p>
-                    </div>
+
+                    <!-- Carousel Controls -->
+                    <button
+                        class="carousel-btn carousel-prev"
+                        id="carouselPrev"
+                        aria-label="Previous project"
+                    >
+                        ‹
+                    </button>
+                    <button
+                        class="carousel-btn carousel-next"
+                        id="carouselNext"
+                        aria-label="Next project"
+                    >
+                        ›
+                    </button>
+
+                    <!-- Dots Indicator -->
+                    <div class="carousel-dots" id="carouselDots"></div>
                 </div>
             </div>
         </section>
@@ -797,8 +1166,17 @@
                 <a
                     href="mailto:progressuwhuseba@gmail.com"
                     class="btn btn-solid reveal"
-                    >Say hello</a
                 >
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
+                        />
+                        <path
+                            d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
+                        />
+                    </svg>
+                    Say hello
+                </a>
             </div>
         </section>
 
@@ -862,117 +1240,384 @@
                 items.forEach((i) => io.observe(i));
             })();
 
-            /* ============ GITHUB COMMIT FEED ============ */
+            /* ============ RESUME CARD STATS ============ */
             (function () {
-                const feedEl = document.getElementById("feedList");
-                const USERNAME = "0xProgress";
+                const commitEl = document.getElementById("commitCount");
+                const repoEl = document.getElementById("repoCount");
+                const focusEl = document.getElementById("currentFocus");
 
-                // Show loading state
-                feedEl.innerHTML = `<div class="feed-empty">⏳ Loading commits...</div>`;
-
-                fetch(
-                    `https://api.github.com/users/${USERNAME}/events/public?per_page=10`,
-                    {
-                        headers: { Accept: "application/vnd.github.v3+json" },
-                    },
-                )
+                fetch("data/site-data.json")
                     .then((r) => {
-                        if (!r.ok)
-                            throw new Error(`GitHub API error: ${r.status}`);
+                        if (!r.ok) throw new Error("Failed to load data");
                         return r.json();
                     })
-                    .then((events) => {
-                        // Filter out CreateEvents (no commit messages) and keep only PushEvents
-                        const pushEvents = events.filter(
-                            (e) => e.type === "PushEvent",
-                        );
+                    .then((data) => {
+                        const totalCommits = data.totalCommits || "—";
+                        commitEl.textContent = totalCommits.toLocaleString();
 
-                        if (pushEvents.length === 0) {
-                            feedEl.innerHTML = `<div class="feed-empty">No recent pushes.</div>`;
+                        const repoCount = data.projects
+                            ? data.projects.length
+                            : "—";
+                        repoEl.textContent = repoCount;
+
+                        const focus = data.currentFocus || "Golang";
+                        focusEl.textContent = focus;
+                    })
+                    .catch((err) => {
+                        console.warn("Stats error:", err);
+                        commitEl.textContent = "—";
+                        repoEl.textContent = "—";
+                    });
+            })();
+
+            /* ============ RESUME BUTTON ADAPTIVE ============ */
+            (function () {
+                const btn = document.getElementById("resumeBtn");
+                fetch("resume.docx", { method: "HEAD" })
+                    .then((res) => {
+                        if (!res.ok) {
+                            btn.classList.add("disabled");
+                            btn.innerHTML = `
+                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"/><path d="M8 17h8v2H8z"/></svg>
+                                Résumé (coming soon)
+                            `;
+                            btn.href = "#";
+                        }
+                    })
+                    .catch(() => {
+                        // fallback if fetch fails (treat as missing)
+                        btn.classList.add("disabled");
+                        btn.innerHTML = `
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"/><path d="M8 17h8v2H8z"/></svg>
+                            Résumé (coming soon)
+                        `;
+                        btn.href = "#";
+                    });
+            })();
+
+            /* ============ PROJECTS CAROUSEL ============ */
+            (function () {
+                const track = document.getElementById("carouselTrack");
+                const dotsContainer = document.getElementById("carouselDots");
+                const prevBtn = document.getElementById("carouselPrev");
+                const nextBtn = document.getElementById("carouselNext");
+
+                let currentIndex = 0;
+                let slides = [];
+                let autoPlayInterval = null;
+                let loopCount = 0;
+                let isTransitioning = false;
+
+                // Load from local data file
+                fetch("data/site-data.json")
+                    .then((r) => {
+                        if (!r.ok) throw new Error("Failed to load data");
+                        return r.json();
+                    })
+                    .then((data) => {
+                        slides = data.projects || [];
+                        if (slides.length === 0) throw new Error("no projects");
+
+                        // Add the "Suggest" slide at the end with SVG icons
+                        slides.push({
+                            name: "Suggest a Project",
+                            description:
+                                "Have an idea? I'm always looking for the next thing to build. Share your concept and I might just ship it.",
+                            repoUrl:
+                                "https://github.com/0xProgress/0xProgress/issues/new",
+                            status: "Your Idea → My Code",
+                            tech: ["💡", "🚀", "✨"], // keep emoji as tech tags for fun
+                            isSuggest: true,
+                            suggestIcons: `
+                                <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 2.5 1.5 4.5 3 5.5v3a1 1 0 001 1h6a1 1 0 001-1v-3c1.5-1 3-3 3-5.5a7 7 0 00-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2L4 14h5l-1 8 9-10h-5l1-10z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-4 4 2 6-6-4-6 4 2-6-4-4h6z"/></svg>
+                            `,
+                        });
+
+                        renderCarousel();
+                        startAutoPlay();
+                    })
+                    .catch((err) => {
+                        console.warn("Carousel error:", err);
+                        // Fallback data
+                        slides = [
+                            {
+                                name: "AI Medical Triage",
+                                description:
+                                    "Privacy-first conversational health tool built on Qwen AI.",
+                                repoUrl:
+                                    "https://github.com/0xProgress/AI-Medical-Triage",
+                                status: "In progress",
+                                tech: ["TypeScript", "React", "AI"],
+                            },
+                            {
+                                name: "retry",
+                                description:
+                                    "Retry any command with exponential backoff. Zero config.",
+                                repoUrl: "https://github.com/0xProgress/retry",
+                                status: "Shipped",
+                                tech: ["Go"],
+                            },
+                            {
+                                name: "Suggest a Project",
+                                description:
+                                    "Have an idea? I'm always looking for the next thing to build.",
+                                repoUrl:
+                                    "https://github.com/0xProgress/0xProgress/issues/new",
+                                status: "Your Idea → My Code",
+                                tech: ["💡", "🚀", "✨"],
+                                isSuggest: true,
+                                suggestIcons: `
+                                    <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 2.5 1.5 4.5 3 5.5v3a1 1 0 001 1h6a1 1 0 001-1v-3c1.5-1 3-3 3-5.5a7 7 0 00-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2L4 14h5l-1 8 9-10h-5l1-10z"/></svg>
+                                    <svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-4 4 2 6-6-4-6 4 2-6-4-4h6z"/></svg>
+                                `,
+                            },
+                        ];
+                        renderCarousel();
+                        startAutoPlay();
+                    });
+
+                function renderCarousel() {
+                    // Build slides
+                    track.innerHTML = slides
+                        .map((project, index) => {
+                            const isSuggest = project.isSuggest || false;
+                            return `
+                            <div class="carousel-slide ${isSuggest ? "suggest-slide" : ""}" data-index="${index}">
+                                ${isSuggest ? `<div class="suggest-icon">${project.suggestIcons}</div>` : ""}
+                                <span class="project-status">${project.status}</span>
+                                <h3>${project.name}</h3>
+                                <p class="project-description">${project.description}</p>
+                                <div class="project-tech">
+                                    ${project.tech.map((t) => `<span>${t}</span>`).join("")}
+                                </div>
+                                <a href="${project.repoUrl}" target="_blank" rel="noopener" class="btn btn-solid project-link">
+                                    ${isSuggest ? "Suggest on GitHub" : "View on GitHub"}
+                                </a>
+                            </div>
+                        `;
+                        })
+                        .join("");
+
+                    // Build dots
+                    dotsContainer.innerHTML = slides
+                        .map(
+                            (_, index) => `
+                        <button class="carousel-dot ${index === 0 ? "active" : ""}" data-index="${index}" aria-label="Go to slide ${index + 1}"></button>
+                    `,
+                        )
+                        .join("");
+
+                    document
+                        .querySelectorAll(".carousel-dot")
+                        .forEach((dot) => {
+                            dot.addEventListener("click", () => {
+                                const index = parseInt(dot.dataset.index);
+                                goToSlide(index);
+                                resetAutoPlay();
+                            });
+                        });
+
+                    goToSlide(0);
+                }
+
+                function goToSlide(index) {
+                    if (isTransitioning) return;
+
+                    const totalSlides = slides.length;
+
+                    // Handle infinite loop
+                    if (index >= totalSlides) {
+                        // Going to the end of the array (suggest slide)
+                        loopCount++;
+                        // If we've looped twice, show the suggest slide and stop autoplay
+                        if (loopCount >= 2) {
+                            currentIndex = totalSlides - 1;
+                            updateCarousel();
+                            // Show a subtle notification
+                            showSuggestNotification();
+                            stopAutoPlay();
+                            return;
+                        }
+                        // If we're on the suggest slide and going forward, loop back to start
+                        if (currentIndex === totalSlides - 1) {
+                            // We're at the suggest slide, loop back to first
+                            currentIndex = 0;
+                            updateCarousel();
+                            return;
+                        }
+                        // Otherwise, just go to the next slide (which might be suggest)
+                        currentIndex = index;
+                        updateCarousel();
+                        return;
+                    }
+
+                    if (index < 0) {
+                        // Going backward from first slide, jump to suggest slide
+                        currentIndex = totalSlides - 1;
+                        updateCarousel();
+                        return;
+                    }
+
+                    currentIndex = index;
+                    updateCarousel();
+                }
+
+                function updateCarousel() {
+                    isTransitioning = true;
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                    // Update dots
+                    document
+                        .querySelectorAll(".carousel-dot")
+                        .forEach((dot, i) => {
+                            dot.classList.toggle("active", i === currentIndex);
+                        });
+
+                    // Check if we're on the suggest slide
+                    if (slides[currentIndex]?.isSuggest) {
+                        // On suggest slide, slow down or pause autoplay
+                        // This is handled by the autoplay logic
+                    }
+
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 700);
+                }
+
+                function showSuggestNotification() {
+                    // Create a subtle notification
+                    const container = document.querySelector(
+                        ".carousel-container",
+                    );
+                    const note = document.createElement("div");
+                    note.style.cssText = `
+                        position: absolute;
+                        bottom: 70px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: var(--ink);
+                        color: var(--paper);
+                        padding: 8px 20px;
+                        font-family: var(--mono);
+                        font-size: 0.7rem;
+                        border-radius: 4px;
+                        opacity: 0;
+                        transition: opacity 0.5s ease;
+                        z-index: 20;
+                        white-space: nowrap;
+                        pointer-events: none;
+                    `;
+                    note.textContent =
+                        "✨ Got a project idea? Suggest one above!";
+                    container.appendChild(note);
+
+                    setTimeout(() => {
+                        note.style.opacity = "1";
+                    }, 100);
+                    setTimeout(() => {
+                        note.style.opacity = "0";
+                    }, 5000);
+                    setTimeout(() => {
+                        note.remove();
+                    }, 6000);
+                }
+
+                function startAutoPlay() {
+                    if (autoPlayInterval) clearInterval(autoPlayInterval);
+                    autoPlayInterval = setInterval(() => {
+                        if (slides[currentIndex]?.isSuggest) {
+                            // If we're on the suggest slide, pause briefly
+                            return;
+                        }
+                        goToSlide(currentIndex + 1);
+                    }, 4000);
+                }
+
+                function stopAutoPlay() {
+                    if (autoPlayInterval) {
+                        clearInterval(autoPlayInterval);
+                        autoPlayInterval = null;
+                    }
+                }
+
+                function resetAutoPlay() {
+                    stopAutoPlay();
+                    startAutoPlay();
+                }
+
+                // Previous/Next buttons
+                if (prevBtn) {
+                    prevBtn.addEventListener("click", () => {
+                        goToSlide(currentIndex - 1);
+                        resetAutoPlay();
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener("click", () => {
+                        goToSlide(currentIndex + 1);
+                        resetAutoPlay();
+                    });
+                }
+
+                // Pause on hover
+                const container = document.querySelector(".carousel-container");
+                if (container) {
+                    container.addEventListener("mouseenter", () => {
+                        stopAutoPlay();
+                    });
+                    container.addEventListener("mouseleave", () => {
+                        if (slides[currentIndex]?.isSuggest) {
+                            // If on suggest slide, don't restart
+                            return;
+                        }
+                        startAutoPlay();
+                    });
+                }
+            })();
+
+            /* ============ GITHUB COMMIT FEED (static from JSON) ============ */
+            (function () {
+                const feedEl = document.getElementById("feedList");
+
+                // Load from local data file
+                fetch("data/site-data.json")
+                    .then((r) => {
+                        if (!r.ok) throw new Error("Failed to load data");
+                        return r.json();
+                    })
+                    .then((data) => {
+                        const commits = data.commits;
+
+                        if (!commits || commits.length === 0) {
+                            feedEl.innerHTML = `<div class="feed-empty">No recent commits.</div>`;
                             return;
                         }
 
-                        // Take first 6 push events
-                        const recent = pushEvents.slice(0, 6);
-
-                        // For each push event, fetch the commit details using the head SHA
-                        const commitPromises = recent.map((event) => {
-                            const repo = event.repo.name; // "0xProgress/repo"
-                            const sha = event.payload.head; // commit SHA
-                            const when = new Date(
-                                event.created_at,
-                            ).toLocaleDateString("en-US", {
-                                month: "short",
-                                day: "numeric",
-                            });
-
-                            // Fetch commit details
-                            return fetch(
-                                `https://api.github.com/repos/${repo}/commits/${sha}`,
-                                {
-                                    headers: {
-                                        Accept: "application/vnd.github.v3+json",
-                                    },
-                                },
-                            )
-                                .then((res) => {
-                                    if (!res.ok)
-                                        throw new Error("Commit fetch failed");
-                                    return res.json();
-                                })
-                                .then((commitData) => {
-                                    // Extract commit message (first line)
-                                    const message =
-                                        commitData.commit.message.split(
-                                            "\n",
-                                        )[0];
-                                    return {
-                                        repo: repo,
-                                        shortRepo: repo.split("/")[1],
-                                        message: message,
-                                        date: when,
-                                    };
-                                })
-                                .catch(() => {
-                                    // Fallback if commit fetch fails
-                                    return {
-                                        repo: repo,
-                                        shortRepo: repo.split("/")[1],
-                                        message: "pushed",
-                                        date: when,
-                                    };
-                                });
+                        let html = "";
+                        commits.forEach((item) => {
+                            html += `
+                                <div class="feed-row">
+                                    <span class="feed-user">${item.username}</span>
+                                    <span class="feed-repo">${item.repo}</span>
+                                    <span class="feed-msg">${item.message}</span>
+                                    <span class="feed-time">${item.date}</span>
+                                </div>
+                            `;
                         });
-
-                        // Wait for all commit fetches to finish
-                        Promise.all(commitPromises)
-                            .then((results) => {
-                                let html = "";
-                                results.forEach((item) => {
-                                    html += `
-                          <div class="feed-row">
-                            <span class="feed-user">${USERNAME}</span>
-                            <span class="feed-repo">${item.shortRepo}</span>
-                            <span class="feed-msg">${item.message}</span>
-                            <span class="feed-time">${item.date}</span>
-                          </div>
-                        `;
-                                });
-                                feedEl.innerHTML = html;
-                            })
-                            .catch((err) => {
-                                console.warn("Error fetching commits:", err);
-                                feedEl.innerHTML = `<div class="feed-empty">Could not load commit messages.</div>`;
-                            });
+                        feedEl.innerHTML = html;
                     })
                     .catch((err) => {
-                        console.warn("GitHub feed error:", err);
+                        console.warn("Feed error:", err);
                         feedEl.innerHTML = `
-                    <div class="feed-empty">
-                      ⚡ Couldn't load live feed.<br>
-                      <a href="https://github.com/${USERNAME}" target="_blank">github.com/${USERNAME}</a>
-                    </div>
-                  `;
+                            <div class="feed-empty">
+                                ⚡ Feed unavailable.<br>
+                                <a href="https://github.com/0xProgress" target="_blank">github.com/0xProgress</a>
+                            </div>
+                        `;
                     });
             })();
         </script>
