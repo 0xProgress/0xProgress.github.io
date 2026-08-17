@@ -1,0 +1,117 @@
+{
+  "projects": [
+    {
+      "name": "0xmobilehub",
+      "description": "Self-hosted Android ↔ Linux desktop bridge. No cloud. No accounts.",
+      "repoUrl": "https://github.com/0xProgress/0xmobilehub",
+      "status": "Active",
+      "tech": [],
+      "updatedAt": "2026-08-16T19:32:22Z"
+    },
+    {
+      "name": "0xProgress",
+      "description": ":root repo",
+      "repoUrl": "https://github.com/0xProgress/0xProgress",
+      "status": "Active",
+      "tech": [],
+      "updatedAt": "2026-08-17T16:13:40Z"
+    },
+    {
+      "name": "AI-Medical-Triage",
+      "description": "AI Medical Triage is a free and privacy-first medical triage assistant. Describe your symptoms in plain English, answer a few follow-up questions, and get an evidence-based assessment of possible conditions — complete with a downloadable report to share with your doctor. No ads, no accounts, no data stored. Built with love in the open",
+      "repoUrl": "https://github.com/0xProgress/AI-Medical-Triage",
+      "status": "Maintenance",
+      "tech": [],
+      "updatedAt": "2026-06-27T15:03:29Z"
+    },
+    {
+      "name": "Avlast-MD",
+      "description": "Self-hosted WhatsApp bot framework. Plugins, dashboard, multi-session.",
+      "repoUrl": "https://github.com/0xProgress/Avlast-MD",
+      "status": "Maintenance",
+      "tech": [],
+      "updatedAt": "2026-06-10T13:12:26Z"
+    },
+    {
+      "name": "envdiff",
+      "description": "Compare .env files in one command. Zero config.",
+      "repoUrl": "https://github.com/0xProgress/envdiff",
+      "status": "Maintenance",
+      "tech": [],
+      "updatedAt": "2026-06-02T19:29:05Z"
+    },
+    {
+      "name": "glowing-fiesta",
+      "description": "Boot.Dev AI Agent task.. Might iterate later on",
+      "repoUrl": "https://github.com/0xProgress/glowing-fiesta",
+      "status": "Active",
+      "tech": [],
+      "updatedAt": "2026-08-17T15:11:51Z"
+    },
+    {
+      "name": "LASUED-Exam-Schedule-Comparator",
+      "description": "Compare exam halls, times, and batches with any classmate, directly from the school docket",
+      "repoUrl": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator",
+      "status": "Maintenance",
+      "tech": [],
+      "updatedAt": "2026-06-16T18:17:41Z"
+    },
+    {
+      "name": "retry",
+      "description": "Retry any command with exponential backoff",
+      "repoUrl": "https://github.com/0xProgress/retry",
+      "status": "Maintenance",
+      "tech": [],
+      "updatedAt": "2026-07-18T13:07:14Z"
+    },
+    {
+      "name": "verbose-lamp",
+      "description": "Asteroids game task from boot.dev",
+      "repoUrl": "https://github.com/0xProgress/verbose-lamp",
+      "status": "Active",
+      "tech": [],
+      "updatedAt": "2026-07-28T21:46:50Z"
+    }
+  ],
+  "commits": [
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress",
+      "message": "Fixed workflow file to use github API -  I noticed github take time before they update gh search which have to index all repos",
+      "date": "Aug 17"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress",
+      "message": "Fixed workflow file to use github API -  I noticed github take time before they update gh search which have to index all repos",
+      "date": "Aug 17"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "Baileys",
+      "message": "fix: advertise WIN_HYBRID instead of retired WIN32 web sub-platform (#2741)",
+      "date": "Aug 15"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress",
+      "message": "Format commit messages in update-prs.yml",
+      "date": "Aug 12"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress",
+      "message": "Update latest activity in README",
+      "date": "Aug 12"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress",
+      "message": "Fix command to fetch latest commits in workflow",
+      "date": "Aug 12"
+    }
+  ],
+  "totalCommits": "0",
+  "currentFocus": "Golang",
+  "updatedAt": "2026-08-17T23:09:59Z"
+}
