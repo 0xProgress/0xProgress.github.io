@@ -17,6 +17,14 @@
       "updatedAt": "2026-08-17T16:13:40Z"
     },
     {
+      "name": "0xProgress.github.io",
+      "description": "0xProgress.github.io",
+      "repoUrl": "https://github.com/0xProgress/0xProgress.github.io",
+      "status": "Active",
+      "tech": [],
+      "updatedAt": "2026-08-17T23:57:02Z"
+    },
+    {
       "name": "AI-Medical-Triage",
       "description": "AI Medical Triage is a free and privacy-first medical triage assistant. Describe your symptoms in plain English, answer a few follow-up questions, and get an evidence-based assessment of possible conditions — complete with a downloadable report to share with your doctor. No ads, no accounts, no data stored. Built with love in the open",
       "repoUrl": "https://github.com/0xProgress/AI-Medical-Triage",
@@ -113,5 +121,5 @@
   ],
   "totalCommits": "0",
   "currentFocus": "Golang",
-  "updatedAt": "2026-08-17T23:44:37Z"
+  "updatedAt": "2026-08-18T00:49:28Z"
 }
