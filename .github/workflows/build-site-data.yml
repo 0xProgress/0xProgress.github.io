@@ -56,16 +56,22 @@ jobs:
 
       - name: Fetch recent commit events
         run: |
-          gh api users/0xProgress/events/public?per_page=20 --jq '.[] | select(.type=="PushEvent") | {repo: .repo.name, sha: .payload.head, created_at: .created_at}' > events.json
+          gh api users/0xProgress/events/public?per_page=20 --jq '.[] | select(.type=="PushEvent" and .created_at != null) | {repo: .repo.name, sha: .payload.head, created_at: .created_at}' > events.json
 
           echo '[]' > commits.json
           while read -r event; do
             repo=$(echo "$event" | jq -r '.repo')
             sha=$(echo "$event" | jq -r '.sha')
             date=$(echo "$event" | jq -r '.created_at')
-            msg=$(gh api repos/$repo/commits/$sha --jq '.commit.message | split("\n")[0]' 2>/dev/null || echo "pushed")
-            jq --arg repo "$repo" --arg sha "$sha" --arg date "$date" --arg msg "$msg" \
-              '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' commits.json > tmp && mv tmp commits.json
+            
+            # Only fetch commit message if SHA exists and is not null
+            if [ -n "$sha" ] && [ "$sha" != "null" ]; then
+              msg=$(gh api repos/$repo/commits/$sha --jq '.commit.message | split("\n")[0]' 2>/dev/null || echo "")
+              if [ -n "$msg" ] && [ "$msg" != "null" ]; then
+                jq --arg repo "$repo" --arg sha "$sha" --arg date "$date" --arg msg "$msg" \
+                  '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' commits.json > tmp && mv tmp commits.json
+              fi
+            fi
           done < <(jq -c '.' events.json)
 
           jq '.[:6]' commits.json > recent_commits.json
@@ -98,7 +104,7 @@ jobs:
             username: "0xProgress",
             repo: (.repo | split("/")[1]),
             message: .message,
-            date: (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d"))
+            date: (if .date and .date != "" and .date != null then (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d")) else "" end)
           })' site-data.json > tmp && mv tmp site-data.json
 
           if [ "$(jq '.commits | length' site-data.json)" -eq 0 ]; then
@@ -121,5 +127,5 @@ jobs:
           git config user.name "0xProgress"
           git config user.email "progressuwhuseba@gmail.com"
           git add data/site-data.json
-          git diff --staged --quiet || git commit -m "📊 Update site data [skip ci]"
+          git diff --staged --quiet || git commit -m "Automatic update for site data [skip ci]"
           git push
