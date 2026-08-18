@@ -15,7 +15,7 @@
       "language": "HTML",
       "name": "0xProgress.github.io",
       "topics": [],
-      "updated_at": "2026-08-18T06:32:10Z",
+      "updated_at": "2026-08-18T08:13:03Z",
       "tech": [
         "HTML"
       ]
@@ -106,6 +106,12 @@
     {
       "username": "0xProgress",
       "repo": "0xProgress.github.io",
+      "message": "fix: site generation and data fetching",
+      "date": "Aug 18"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress.github.io",
       "message": "feat: Implemented SEO for porfolio website",
       "date": "Aug 17"
     },
@@ -132,15 +138,9 @@
       "repo": "0xProgress",
       "message": "Format commit messages in update-prs.yml",
       "date": "Aug 12"
-    },
-    {
-      "username": "0xProgress",
-      "repo": "0xProgress",
-      "message": "Update latest activity in README",
-      "date": "Aug 12"
     }
   ],
-  "totalCommits": "68",
+  "totalCommits": "69",
   "currentFocus": "Golang",
-  "updatedAt": "2026-08-18T08:12:45Z"
+  "updatedAt": "2026-08-18T08:35:55Z"
 }
