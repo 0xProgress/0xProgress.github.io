@@ -16,7 +16,7 @@
       "language": "HTML",
       "name": "0xProgress.github.io",
       "topics": [],
-      "updated_at": "2026-08-18T09:33:25Z",
+      "updated_at": "2026-08-18T09:36:46Z",
       "tech": [
         "HTML"
       ],
@@ -115,6 +115,12 @@
     {
       "username": "0xProgress",
       "repo": "0xProgress.github.io",
+      "message": "Refactor commit message fetching logic in workflow",
+      "date": "Aug 18"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress.github.io",
       "message": "Delete data/site-data.json.. Figuring out cause of stale data",
       "date": "Aug 18"
     },
@@ -141,17 +147,11 @@
       "repo": "0xProgress",
       "message": "Fixed workflow file to use github API -  I noticed github take time before they update gh search which have to index all repos",
       "date": "Aug 17"
-    },
-    {
-      "username": "0xProgress",
-      "repo": "0xProgress",
-      "message": "Fixed workflow file to use github API -  I noticed github take time before they update gh search which have to index all repos",
-      "date": "Aug 17"
     }
   ],
   "totalCommits": "72",
   "currentFocus": "Golang",
   "totalPRs": "6",
   "totalIssues": "0",
-  "updatedAt": "2026-08-18T09:34:15Z"
+  "updatedAt": "2026-08-18T09:48:29Z"
 }
