@@ -1,0 +1,157 @@
+{
+  "projects": [
+    {
+      "description": "Self-hosted Android ↔ Linux desktop bridge. No cloud. No accounts.",
+      "html_url": "https://github.com/0xProgress/0xmobilehub",
+      "language": null,
+      "name": "0xmobilehub",
+      "topics": [],
+      "updated_at": "2026-08-16T19:32:22Z",
+      "tech": [],
+      "repoUrl": "https://github.com/0xProgress/0xmobilehub"
+    },
+    {
+      "description": "0xProgress.github.io",
+      "html_url": "https://github.com/0xProgress/0xProgress.github.io",
+      "language": "HTML",
+      "name": "0xProgress.github.io",
+      "topics": [],
+      "updated_at": "2026-08-18T08:43:21Z",
+      "tech": [
+        "HTML"
+      ],
+      "repoUrl": "https://github.com/0xProgress/0xProgress.github.io"
+    },
+    {
+      "description": "AI Medical Triage is a free and privacy-first medical triage assistant. Describe your symptoms in plain English, answer a few follow-up questions, and get an evidence-based assessment of possible conditions — complete with a downloadable report to share with your doctor. No ads, no accounts, no data stored. Built with love in the open",
+      "html_url": "https://github.com/0xProgress/AI-Medical-Triage",
+      "language": "TypeScript",
+      "name": "AI-Medical-Triage",
+      "topics": [],
+      "updated_at": "2026-06-27T15:03:29Z",
+      "tech": [
+        "CSS",
+        "HTML",
+        "TypeScript"
+      ],
+      "repoUrl": "https://github.com/0xProgress/AI-Medical-Triage"
+    },
+    {
+      "description": "Self-hosted WhatsApp bot framework. Plugins, dashboard, multi-session.",
+      "html_url": "https://github.com/0xProgress/Avlast-MD",
+      "language": null,
+      "name": "Avlast-MD",
+      "topics": [],
+      "updated_at": "2026-06-10T13:12:26Z",
+      "tech": [],
+      "repoUrl": "https://github.com/0xProgress/Avlast-MD"
+    },
+    {
+      "description": "Compare .env files in one command. Zero config.",
+      "html_url": "https://github.com/0xProgress/envdiff",
+      "language": "Python",
+      "name": "envdiff",
+      "topics": [],
+      "updated_at": "2026-06-02T19:29:05Z",
+      "tech": [
+        "Makefile",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/0xProgress/envdiff"
+    },
+    {
+      "description": "Boot.Dev AI Agent task.. Might iterate later on",
+      "html_url": "https://github.com/0xProgress/glowing-fiesta",
+      "language": "Python",
+      "name": "glowing-fiesta",
+      "topics": [],
+      "updated_at": "2026-08-17T15:11:51Z",
+      "tech": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/0xProgress/glowing-fiesta"
+    },
+    {
+      "description": "Compare exam halls, times, and batches with any classmate, directly from the school docket",
+      "html_url": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator",
+      "language": "HTML",
+      "name": "LASUED-Exam-Schedule-Comparator",
+      "topics": [],
+      "updated_at": "2026-06-16T18:17:41Z",
+      "tech": [
+        "HTML",
+        "Python"
+      ],
+      "repoUrl": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator"
+    },
+    {
+      "description": "Retry any command with exponential backoff",
+      "html_url": "https://github.com/0xProgress/retry",
+      "language": "Go",
+      "name": "retry",
+      "topics": [],
+      "updated_at": "2026-07-18T13:07:14Z",
+      "tech": [
+        "Go",
+        "Makefile",
+        "Shell"
+      ],
+      "repoUrl": "https://github.com/0xProgress/retry"
+    },
+    {
+      "description": "Asteroids game task from boot.dev",
+      "html_url": "https://github.com/0xProgress/verbose-lamp",
+      "language": "Python",
+      "name": "verbose-lamp",
+      "topics": [],
+      "updated_at": "2026-07-28T21:46:50Z",
+      "tech": [
+        "Python"
+      ],
+      "repoUrl": "https://github.com/0xProgress/verbose-lamp"
+    }
+  ],
+  "commits": [
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress.github.io",
+      "message": "Delete data/site-data.json.. Figuring out cause of stale data",
+      "date": "Aug 18"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress.github.io",
+      "message": "📊 Update site data [skip ci]",
+      "date": "Aug 18"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress.github.io",
+      "message": "fix: site generation and data fetching",
+      "date": "Aug 18"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress.github.io",
+      "message": "feat: Implemented SEO for porfolio website",
+      "date": "Aug 17"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress",
+      "message": "Fixed workflow file to use github API -  I noticed github take time before they update gh search which have to index all repos",
+      "date": "Aug 17"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress",
+      "message": "Fixed workflow file to use github API -  I noticed github take time before they update gh search which have to index all repos",
+      "date": "Aug 17"
+    }
+  ],
+  "totalCommits": "71",
+  "currentFocus": "Golang",
+  "totalPRs": "6",
+  "totalIssues": "0",
+  "updatedAt": "2026-08-18T09:31:32Z"
+}
