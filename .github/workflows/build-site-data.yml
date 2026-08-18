@@ -29,10 +29,22 @@ jobs:
         run: |
           TOTAL=0
           for repo in $(jq -r '.name' repos.json); do
-            contrib=$(gh api repos/0xProgress/$repo/contributors --jq '.[] | select(.login=="0xProgress") | .total' 2>/dev/null || echo 0)
+            echo "Counting commits for $repo..."
+            contrib=$(gh api repos/0xProgress/$repo/contributors --jq '.[] | select(.login=="0xProgress") | .contributions' 2>/dev/null || echo 0)
             TOTAL=$((TOTAL + contrib))
+            echo "  Found $contrib commits"
           done
           echo "TOTAL_COMMITS=$TOTAL" >> $GITHUB_ENV
+          echo "Total commits across all repos: $TOTAL"
+
+      - name: Fetch languages for each repo
+        run: |
+          echo '{}' > languages.json
+          for repo in $(jq -r '.name' repos.json); do
+            echo "Fetching languages for $repo..."
+            langs=$(gh api repos/0xProgress/$repo/languages --jq 'keys' 2>/dev/null || echo '[]')
+            jq --arg repo "$repo" --argjson langs "$langs" '. + {($repo): $langs}' languages.json > tmp && mv tmp languages.json
+          done
 
       - name: Fetch recent commit events
         run: |
@@ -58,18 +70,38 @@ jobs:
 
           jq --arg date "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" '.updatedAt = $date' site-data.json > tmp && mv tmp site-data.json
 
-          jq '.projects |= map({name: .name, description: .description, repoUrl: .html_url, status: "Active", tech: (.topics // []), updatedAt: .updated_at})' site-data.json > tmp && mv tmp site-data.json
+          for repo in $(jq -r '.projects[].name' site-data.json); do
+            langs=$(jq --arg repo "$repo" '.[$repo] // []' languages.json)
+            jq --arg repo "$repo" --argjson langs "$langs" \
+              '.projects |= map(if .name == $repo then . + {tech: $langs} else . end)' site-data.json > tmp && mv tmp site-data.json
+          done
+
+          jq '.projects |= map(. + {tech: (if .tech and (.tech | length) > 0 then .tech else [.language] | map(select(. != null and . != "null")) end)})' site-data.json > tmp && mv tmp site-data.json
 
           jq '.projects |= map(. + {status: (if (now - (.updatedAt | fromdate)) < 2592000 then "Active" elif (now - (.updatedAt | fromdate)) < 7776000 then "Maintenance" else "Stable" end)})' site-data.json > tmp && mv tmp site-data.json
 
-          jq '.projects |= map(select(.description != null and .description != ""))' site-data.json > tmp && mv tmp site-data.json
+          jq '.projects |= map(select(.description != null and .description != "" and .description != ":root repo"))' site-data.json > tmp && mv tmp site-data.json
 
-          jq '.commits |= map({username: "0xProgress", repo: (.repo | split("/")[1]), message: .message, date: (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d"))})' site-data.json > tmp && mv tmp site-data.json
+          jq '.commits |= map({
+            username: "0xProgress",
+            repo: (.repo | split("/")[1]),
+            message: .message,
+            date: (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d"))
+          })' site-data.json > tmp && mv tmp site-data.json
 
-      - name: Create data directory if missing
+          if [ "$(jq '.commits | length' site-data.json)" -eq 0 ]; then
+            jq '.commits = [{
+              username: "0xProgress",
+              repo: "0xProgress",
+              message: "No recent commits — building something soon.",
+              date: ""
+            }]' site-data.json > tmp && mv tmp site-data.json
+          fi
+
+      - name: Create data directory
         run: mkdir -p data
 
-      - name: Move site-data.json to data/
+      - name: Move site-data.json to data
         run: mv site-data.json data/site-data.json
 
       - name: Commit and push
