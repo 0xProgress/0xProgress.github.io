@@ -3,11 +3,13 @@
     {
       "description": "Self-hosted Android ↔ Linux desktop bridge. No cloud. No accounts.",
       "html_url": "https://github.com/0xProgress/0xmobilehub",
-      "language": null,
+      "language": "Go",
       "name": "0xmobilehub",
       "topics": [],
-      "updated_at": "2026-08-16T19:32:22Z",
-      "tech": [],
+      "updated_at": "2026-08-22T17:13:22Z",
+      "tech": [
+        "Go"
+      ],
       "repoUrl": "https://github.com/0xProgress/0xmobilehub"
     },
     {
@@ -16,7 +18,7 @@
       "language": "HTML",
       "name": "0xProgress.github.io",
       "topics": [],
-      "updated_at": "2026-08-22T06:27:53Z",
+      "updated_at": "2026-08-22T12:24:40Z",
       "tech": [
         "HTML"
       ],
@@ -114,6 +116,18 @@
   "commits": [
     {
       "username": "0xProgress",
+      "repo": "0xmobilehub",
+      "message": "fix - attempt 1 to wire implementation for complete feature set with real-time device sync, notifications, clipboard, SMS, calls, file transfer, and settings UI",
+      "date": "Aug 22"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xmobilehub",
+      "message": "Genesis - Work in Progress...",
+      "date": "Aug 22"
+    },
+    {
+      "username": "0xProgress",
       "repo": "0xProgress.github.io",
       "message": "Refactor commit message fetching logic in workflow",
       "date": "Aug 18"
@@ -135,23 +149,11 @@
       "repo": "0xProgress.github.io",
       "message": "fix: site generation and data fetching",
       "date": "Aug 18"
-    },
-    {
-      "username": "0xProgress",
-      "repo": "0xProgress.github.io",
-      "message": "feat: Implemented SEO for porfolio website",
-      "date": "Aug 17"
-    },
-    {
-      "username": "0xProgress",
-      "repo": "0xProgress",
-      "message": "Fixed workflow file to use github API -  I noticed github take time before they update gh search which have to index all repos",
-      "date": "Aug 17"
     }
   ],
-  "totalCommits": "91",
+  "totalCommits": "94",
   "currentFocus": "Golang",
   "totalPRs": "6",
   "totalIssues": "0",
-  "updatedAt": "2026-08-22T12:24:21Z"
+  "updatedAt": "2026-08-22T18:19:07Z"
 }
