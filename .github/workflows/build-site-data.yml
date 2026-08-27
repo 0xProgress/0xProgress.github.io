@@ -64,7 +64,6 @@ jobs:
             sha=$(echo "$event" | jq -r '.sha')
             date=$(echo "$event" | jq -r '.created_at')
             
-            # Only fetch commit message if SHA exists and is not null
             if [ -n "$sha" ] && [ "$sha" != "null" ]; then
               msg=$(gh api repos/$repo/commits/$sha --jq '.commit.message | split("\n")[0]' 2>/dev/null || echo "")
               if [ -n "$msg" ] && [ "$msg" != "null" ]; then
@@ -94,17 +93,19 @@ jobs:
 
           jq '.projects |= map(. + {tech: (if .tech and (.tech | length) > 0 then .tech else [.language] | map(select(. != null and . != "null")) end)})' site-data.json > tmp && mv tmp site-data.json
 
-          jq '.projects |= map(. + {status: (if (now - (.updatedAt | fromdate)) < 2592000 then "Active" elif (now - (.updatedAt | fromdate)) < 7776000 then "Maintenance" else "Stable" end)})' site-data.json > tmp && mv tmp site-data.json
+          # ✅ FIX 1: Use .updated_at (from API) instead of .updatedAt. Added try/catch to default to "Stable" if parsing fails.
+          jq '.projects |= map(. + {status: (try (if (now - (.updated_at | fromdate)) < 2592000 then "Active" elif (now - (.updated_at | fromdate)) < 7776000 then "Maintenance" else "Stable" end) catch "Stable")})' site-data.json > tmp && mv tmp site-data.json
 
           jq '.projects |= map(select(.description != null and .description != "" and .description != ":root repo"))' site-data.json > tmp && mv tmp site-data.json
 
           jq '.projects |= map(. + {repoUrl: .html_url})' site-data.json > tmp && mv tmp site-data.json
 
+          # ✅ FIX 2: Wrapped date parsing in try/catch so malformed dates (or the string "null") won't crash the entire workflow.
           jq '.commits |= map({
             username: "0xProgress",
-            repo: (.repo | split("/")[1]),
-            message: .message,
-            date: (if .date and .date != "" and .date != null then (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d")) else "" end)
+            repo: ((.repo | split("/")[1]) // "unknown"),
+            message: (.message // "No message"),
+            date: (try (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d")) catch "")
           })' site-data.json > tmp && mv tmp site-data.json
 
           if [ "$(jq '.commits | length' site-data.json)" -eq 0 ]; then
