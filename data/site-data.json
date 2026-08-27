@@ -10,6 +10,7 @@
       "tech": [
         "Go"
       ],
+      "status": "Active",
       "repoUrl": "https://github.com/0xProgress/0xmobilehub"
     },
     {
@@ -18,10 +19,11 @@
       "language": "HTML",
       "name": "0xProgress.github.io",
       "topics": [],
-      "updated_at": "2026-08-27T06:34:07Z",
+      "updated_at": "2026-08-27T10:39:39Z",
       "tech": [
         "HTML"
       ],
+      "status": "Active",
       "repoUrl": "https://github.com/0xProgress/0xProgress.github.io"
     },
     {
@@ -36,6 +38,7 @@
         "HTML",
         "TypeScript"
       ],
+      "status": "Maintenance",
       "repoUrl": "https://github.com/0xProgress/AI-Medical-Triage"
     },
     {
@@ -46,6 +49,7 @@
       "topics": [],
       "updated_at": "2026-06-10T13:12:26Z",
       "tech": [],
+      "status": "Maintenance",
       "repoUrl": "https://github.com/0xProgress/Avlast-MD"
     },
     {
@@ -59,6 +63,7 @@
         "Makefile",
         "Python"
       ],
+      "status": "Maintenance",
       "repoUrl": "https://github.com/0xProgress/envdiff"
     },
     {
@@ -71,6 +76,7 @@
       "tech": [
         "Python"
       ],
+      "status": "Active",
       "repoUrl": "https://github.com/0xProgress/glowing-fiesta"
     },
     {
@@ -84,6 +90,7 @@
         "HTML",
         "Python"
       ],
+      "status": "Maintenance",
       "repoUrl": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator"
     },
     {
@@ -98,6 +105,7 @@
         "Makefile",
         "Shell"
       ],
+      "status": "Maintenance",
       "repoUrl": "https://github.com/0xProgress/retry"
     },
     {
@@ -110,6 +118,7 @@
       "tech": [
         "Python"
       ],
+      "status": "Active",
       "repoUrl": "https://github.com/0xProgress/verbose-lamp"
     }
   ],
@@ -155,5 +164,5 @@
   "currentFocus": "Golang",
   "totalPRs": "7",
   "totalIssues": "0",
-  "updatedAt": "2026-08-27T10:38:32Z"
+  "updatedAt": "2026-08-27T11:00:40Z"
 }
