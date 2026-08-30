@@ -19,7 +19,7 @@
       "language": "HTML",
       "name": "0xProgress.github.io",
       "topics": [],
-      "updated_at": "2026-08-27T10:39:39Z",
+      "updated_at": "2026-08-27T11:00:54Z",
       "tech": [
         "HTML"
       ],
@@ -80,6 +80,19 @@
       "repoUrl": "https://github.com/0xProgress/glowing-fiesta"
     },
     {
+      "description": "Official Repo of Roommate Discord Bot",
+      "html_url": "https://github.com/0xProgress/ideal-potato",
+      "language": "Python",
+      "name": "ideal-potato",
+      "topics": [],
+      "updated_at": "2026-08-28T13:12:24Z",
+      "tech": [
+        "Python"
+      ],
+      "status": "Active",
+      "repoUrl": "https://github.com/0xProgress/ideal-potato"
+    },
+    {
       "description": "Compare exam halls, times, and batches with any classmate, directly from the school docket",
       "html_url": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator",
       "language": "HTML",
@@ -118,51 +131,51 @@
       "tech": [
         "Python"
       ],
-      "status": "Active",
+      "status": "Maintenance",
       "repoUrl": "https://github.com/0xProgress/verbose-lamp"
     }
   ],
   "commits": [
     {
       "username": "0xProgress",
-      "repo": "0xmobilehub",
-      "message": "fix - attempt 1 to wire implementation for complete feature set with real-time device sync, notifications, clipboard, SMS, calls, file transfer, and settings UI",
-      "date": "Aug 22"
+      "repo": "ideal-potato",
+      "message": "Genesis - Who says we shouldn't finetune the roomie (bugfixes - mini fixes)",
+      "date": "Aug 28"
     },
     {
       "username": "0xProgress",
-      "repo": "0xmobilehub",
-      "message": "Genesis - Work in Progress...",
-      "date": "Aug 22"
+      "repo": "ideal-potato",
+      "message": "Genesis - The Beginning of Roomie",
+      "date": "Aug 27"
     },
     {
       "username": "0xProgress",
-      "repo": "0xProgress.github.io",
-      "message": "Refactor commit message fetching logic in workflow",
-      "date": "Aug 18"
+      "repo": "ideal-potato",
+      "message": "Create CNAME",
+      "date": "Aug 27"
     },
     {
       "username": "0xProgress",
-      "repo": "0xProgress.github.io",
-      "message": "Delete data/site-data.json.. Figuring out cause of stale data",
-      "date": "Aug 18"
-    },
-    {
-      "username": "0xProgress",
-      "repo": "0xProgress.github.io",
-      "message": "📊 Update site data [skip ci]",
-      "date": "Aug 18"
+      "repo": "ideal-potato",
+      "message": "Update CNAME",
+      "date": "Aug 27"
     },
     {
       "username": "0xProgress",
       "repo": "0xProgress.github.io",
-      "message": "fix: site generation and data fetching",
-      "date": "Aug 18"
+      "message": "Enhance site data workflow with error handling",
+      "date": "Aug 27"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xProgress.github.io",
+      "message": "Change cron schedule to run weekly on Sundays",
+      "date": "Aug 27"
     }
   ],
-  "totalCommits": "118",
+  "totalCommits": "129",
   "currentFocus": "Golang",
   "totalPRs": "7",
   "totalIssues": "0",
-  "updatedAt": "2026-08-27T11:00:40Z"
+  "updatedAt": "2026-08-30T03:39:56Z"
 }
