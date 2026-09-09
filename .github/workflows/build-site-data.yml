@@ -54,26 +54,37 @@ jobs:
             jq --arg repo "$repo" --argjson langs "$langs" '. + {($repo): $langs}' languages.json > tmp && mv tmp languages.json
           done
 
-      - name: Fetch recent commit events
+      # ✅ NEW STEP: Get ONE latest commit per repo, then sort globally
+      - name: Fetch latest commit per repository
         run: |
-          gh api users/0xProgress/events/public?per_page=20 --jq '.[] | select(.type=="PushEvent" and .created_at != null) | {repo: .repo.name, sha: .payload.head, created_at: .created_at}' > events.json
-
-          echo '[]' > commits.json
-          while read -r event; do
-            repo=$(echo "$event" | jq -r '.repo')
-            sha=$(echo "$event" | jq -r '.sha')
-            date=$(echo "$event" | jq -r '.created_at')
+          echo '[]' > all_latest_commits.json
+          
+          REPOS=$(jq -r '.name' repos.json)
+          for repo in $REPOS; do
+            echo "🔍 Checking latest commit for: $repo"
             
-            if [ -n "$sha" ] && [ "$sha" != "null" ]; then
-              msg=$(gh api repos/$repo/commits/$sha --jq '.commit.message | split("\n")[0]' 2>/dev/null || echo "")
-              if [ -n "$msg" ] && [ "$msg" != "null" ]; then
-                jq --arg repo "$repo" --arg sha "$sha" --arg date "$date" --arg msg "$msg" \
-                  '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' commits.json > tmp && mv tmp commits.json
-              fi
+            # Fetch the single most recent commit from this repo
+            COMMIT_DATA=$(gh api "repos/0xProgress/$repo/commits?per_page=1" 2>/dev/null || echo "[]")
+            
+            # Safely extract data if it's a valid array and not empty
+            VALID_COMMIT=$(echo "$COMMIT_DATA" | jq 'if type == "array" and length > 0 then .[0] else null end' 2>/dev/null || echo "null")
+            
+            if [ "$VALID_COMMIT" != "null" ] && [ -n "$VALID_COMMIT" ]; then
+              SHA=$(echo "$VALID_COMMIT" | jq -r '.sha')
+              DATE=$(echo "$VALID_COMMIT" | jq -r '.commit.committer.date')
+              MSG=$(echo "$VALID_COMMIT" | jq -r '.commit.message | split("\n")[0]')
+              
+              # Add to our global list
+              jq --arg repo "$repo" --arg sha "$SHA" --arg date "$DATE" --arg msg "$MSG" \
+                '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' all_latest_commits.json > tmp && mv tmp all_latest_commits.json
             fi
-          done < <(jq -c '.' events.json)
+          done
 
-          jq '.[:6]' commits.json > recent_commits.json
+          # Sort all collected commits by date (newest first) and take the top 6
+          jq 'sort_by(.date) | reverse | .[:6]' all_latest_commits.json > recent_commits.json
+          
+          echo "✅ Selected top 6 unique repository activities:"
+          jq -r '.[] | "- \(.repo): \(.message)"' recent_commits.json
 
       - name: Build final site-data.json
         run: |
@@ -93,14 +104,12 @@ jobs:
 
           jq '.projects |= map(. + {tech: (if .tech and (.tech | length) > 0 then .tech else [.language] | map(select(. != null and . != "null")) end)})' site-data.json > tmp && mv tmp site-data.json
 
-          # ✅ FIX 1: Use .updated_at (from API) instead of .updatedAt. Added try/catch to default to "Stable" if parsing fails.
           jq '.projects |= map(. + {status: (try (if (now - (.updated_at | fromdate)) < 2592000 then "Active" elif (now - (.updated_at | fromdate)) < 7776000 then "Maintenance" else "Stable" end) catch "Stable")})' site-data.json > tmp && mv tmp site-data.json
 
           jq '.projects |= map(select(.description != null and .description != "" and .description != ":root repo"))' site-data.json > tmp && mv tmp site-data.json
 
           jq '.projects |= map(. + {repoUrl: .html_url})' site-data.json > tmp && mv tmp site-data.json
 
-          # ✅ FIX 2: Wrapped date parsing in try/catch so malformed dates (or the string "null") won't crash the entire workflow.
           jq '.commits |= map({
             username: "0xProgress",
             repo: ((.repo | split("/")[1]) // "unknown"),
