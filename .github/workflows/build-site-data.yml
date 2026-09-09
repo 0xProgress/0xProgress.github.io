@@ -112,7 +112,7 @@ jobs:
 
           jq '.commits |= map({
             username: "0xProgress",
-            repo: ((.repo | split("/")[1]) // "unknown"),
+            repo: (.repo // "unknown"),
             message: (.message // "No message"),
             date: (try (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d")) catch "")
           })' site-data.json > tmp && mv tmp site-data.json
