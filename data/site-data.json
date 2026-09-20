@@ -1,61 +1,16 @@
 {
   "projects": [
     {
-      "description": "0xProgress.github.io",
-      "html_url": "https://github.com/0xProgress/0xProgress.github.io",
-      "language": "HTML",
-      "name": "0xProgress.github.io",
+      "description": ":root repo",
+      "html_url": "https://github.com/0xProgress/0xProgress",
+      "language": null,
+      "name": "0xProgress",
       "topics": [],
-      "updated_at": "2026-09-13T03:11:15Z",
-      "tech": [
-        "HTML"
-      ],
+      "updated_at": "2026-09-19T07:30:43Z",
+      "tech": [],
       "status": "Active",
-      "repoUrl": "https://github.com/0xProgress/0xProgress.github.io"
-    },
-    {
-      "description": "AI Medical Triage is a free and privacy-first medical triage assistant. Describe your symptoms in plain English, answer a few follow-up questions, and get an evidence-based assessment of possible conditions — complete with a downloadable report to share with your doctor. No ads, no accounts, no data stored. Built with love in the open",
-      "html_url": "https://github.com/0xProgress/AI-Medical-Triage",
-      "language": "TypeScript",
-      "name": "AI-Medical-Triage",
-      "topics": [],
-      "updated_at": "2026-06-27T15:03:29Z",
-      "tech": [
-        "CSS",
-        "HTML",
-        "TypeScript"
-      ],
-      "status": "Maintenance",
-      "repoUrl": "https://github.com/0xProgress/AI-Medical-Triage"
-    },
-    {
-      "description": "Compare .env files in one command. Zero config.",
-      "html_url": "https://github.com/0xProgress/envdiff",
-      "language": "Python",
-      "name": "envdiff",
-      "topics": [],
-      "updated_at": "2026-06-02T19:29:05Z",
-      "tech": [
-        "Makefile",
-        "Python"
-      ],
-      "status": "Stable",
-      "repoUrl": "https://github.com/0xProgress/envdiff"
-    },
-    {
-      "description": "Retry any command with exponential backoff",
-      "html_url": "https://github.com/0xProgress/retry",
-      "language": "Go",
-      "name": "retry",
-      "topics": [],
-      "updated_at": "2026-07-18T13:07:14Z",
-      "tech": [
-        "Go",
-        "Makefile",
-        "Shell"
-      ],
-      "status": "Maintenance",
-      "repoUrl": "https://github.com/0xProgress/retry"
+      "displayName": "0xProgress",
+      "repoUrl": "https://github.com/0xProgress/0xProgress"
     },
     {
       "description": "Block until a condition is true, or tell you exactly why it wasn't.",
@@ -78,6 +33,7 @@
         "Makefile"
       ],
       "status": "Active",
+      "displayName": "Waitfor",
       "repoUrl": "https://github.com/0xProgress/waitfor"
     },
     {
@@ -102,16 +58,58 @@
         "Makefile"
       ],
       "status": "Active",
+      "displayName": "Webhookd",
       "repoUrl": "https://github.com/0xProgress/webhookd"
+    },
+    {
+      "description": "Retry any command with exponential backoff",
+      "html_url": "https://github.com/0xProgress/retry",
+      "language": "Go",
+      "name": "retry",
+      "topics": [],
+      "updated_at": "2026-07-18T13:07:14Z",
+      "tech": [
+        "Go",
+        "Makefile",
+        "Shell"
+      ],
+      "status": "Maintenance",
+      "displayName": "Retry",
+      "repoUrl": "https://github.com/0xProgress/retry"
+    },
+    {
+      "description": "AI Medical Triage is a free and privacy-first medical triage assistant. Describe your symptoms in plain English, answer a few follow-up questions, and get an evidence-based assessment of possible conditions — complete with a downloadable report to share with your doctor. No ads, no accounts, no data stored. Built with love in the open",
+      "html_url": "https://github.com/0xProgress/AI-Medical-Triage",
+      "language": "TypeScript",
+      "name": "AI-Medical-Triage",
+      "topics": [],
+      "updated_at": "2026-06-27T15:03:29Z",
+      "tech": [
+        "CSS",
+        "HTML",
+        "TypeScript"
+      ],
+      "status": "Maintenance",
+      "displayName": "AI Medical Triage",
+      "repoUrl": "https://github.com/0xProgress/AI-Medical-Triage"
+    },
+    {
+      "description": "Compare .env files in one command. Zero config.",
+      "html_url": "https://github.com/0xProgress/envdiff",
+      "language": "Python",
+      "name": "envdiff",
+      "topics": [],
+      "updated_at": "2026-06-02T19:29:05Z",
+      "tech": [
+        "Makefile",
+        "Python"
+      ],
+      "status": "Stable",
+      "displayName": "Envdiff",
+      "repoUrl": "https://github.com/0xProgress/envdiff"
     }
   ],
   "commits": [
-    {
-      "username": "0xProgress",
-      "repo": "0xProgress",
-      "message": "📊 Update stats and commits [skip ci]",
-      "date": "Sep 19"
-    },
     {
       "username": "0xProgress",
       "repo": "waitfor",
@@ -126,12 +124,6 @@
     },
     {
       "username": "0xProgress",
-      "repo": "0xProgress.github.io",
-      "message": "Automatic update for site data [skip ci]",
-      "date": "Sep 13"
-    },
-    {
-      "username": "0xProgress",
       "repo": "retry",
       "message": "retry: initial release",
       "date": "Jul 16"
@@ -141,11 +133,17 @@
       "repo": "AI-Medical-Triage",
       "message": "fix: handle base64 PDF response and clean up unused frontend features",
       "date": "Jun 27"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "envdiff",
+      "message": "Update GitHub Actions workflow for tests",
+      "date": "Jun 02"
     }
   ],
-  "totalCommits": "143",
+  "totalCommits": 82,
+  "totalPRs": 14,
+  "totalIssues": 1,
   "currentFocus": "Golang",
-  "totalPRs": "14",
-  "totalIssues": "1",
-  "updatedAt": "2026-09-20T03:25:54Z"
+  "updatedAt": "2026-09-20T20:13:13Z"
 }
