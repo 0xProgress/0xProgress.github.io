@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
     <head>
+        <meta charset="UTF-8" />
+        <script>
+            document.documentElement.classList.replace("no-js", "js");
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <title>0xProgress_ — Builder | Go · Python · AI Tools</title>
-        <meta
-            name="google-site-verification"
-            content="tSAUKgxpbjFOzU6vpfwR4dz9L-vrWuUYG5yCWXIfnTM"
-        />
         <meta
             name="description"
             content="I build tools that work. Fast, reliable, low-resource software. Go, Python, AI-accelerated. 0xProgress_ — builder, automator, problem solver."
@@ -16,6 +18,10 @@
         />
         <meta name="author" content="0xProgress" />
         <meta name="robots" content="index, follow" />
+        <meta
+            name="google-site-verification"
+            content="tSAUKgxpbjFOzU6vpfwR4dz9L-vrWuUYG5yCWXIfnTM"
+        />
 
         <meta property="og:title" content="0xProgress_ — Builder" />
         <meta
@@ -23,21 +29,63 @@
             content="I build tools that work. Fast, reliable, low-resource software. Go, Python, AI-accelerated."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://0xprogress.github.io" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:url" content="https://0xprogress.github.io/" />
+        <meta
+            property="og:image"
+            content="https://0xprogress.github.io/favicon/og.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="0xProgress_ — Builder · Go · Python · AI Tools"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="0xProgress_ — Builder" />
         <meta
             name="twitter:description"
             content="I build tools that work. Fast, reliable, low-resource software. Go, Python, AI-accelerated."
         />
         <meta name="twitter:creator" content="@0xProgress_" />
-        <link rel="canonical" href="https://0xprogress.github.io" />
+        <meta
+            name="twitter:image"
+            content="https://0xprogress.github.io/favicon/og.png"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="0xProgress_ — Builder · Go · Python · AI Tools"
+        />
+
+        <link rel="canonical" href="https://0xprogress.github.io/" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"
+        />
+
+        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="favicon/favicon-96x96.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="favicon/site.webmanifest" />
+
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "Person",
                 "name": "0xProgress_",
-                "url": "https://0xprogress.github.io",
+                "url": "https://0xprogress.github.io/",
                 "sameAs": [
                     "https://x.com/0xProgress_",
                     "https://github.com/0xProgress",
@@ -54,26 +102,6 @@
                 ]
             }
         </script>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="favicon/favicon-96x96.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="favicon/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="favicon/site.webmanifest" />
-        <title>0xProgress_ — Builder</title>
-        <meta
-            name="description"
-            content="I build tools that work. Fast, reliable, low-resource. Go, Python, AI-accelerated. Shipping real software."
-        />
 
         <style>
             :root {
@@ -83,15 +111,9 @@
                 --red: #c41e1e;
                 --gray: #6b6b66;
                 --line: #d8d5cb;
-
                 --display: "Archivo Black", "Arial Black", sans-serif;
                 --mono: "JetBrains Mono", "Courier New", monospace;
                 --body: "Source Serif 4", Georgia, serif;
-            }
-
-            @font-face {
-                font-family: "Archivo Black";
-                src: local("Archivo Black");
             }
 
             * {
@@ -99,8 +121,11 @@
                 padding: 0;
                 box-sizing: border-box;
             }
-            html {
-                scroll-behavior: smooth;
+
+            @media (prefers-reduced-motion: no-preference) {
+                html {
+                    scroll-behavior: smooth;
+                }
             }
 
             body {
@@ -108,11 +133,13 @@
                 color: var(--ink);
                 font-family: var(--body);
                 overflow-x: hidden;
+            }
+            body.has-cursor {
                 cursor: none;
             }
 
             @media (max-width: 900px), (hover: none) {
-                body {
+                body.has-cursor {
                     cursor: auto;
                 }
                 #ink-cursor,
@@ -126,6 +153,23 @@
                 color: var(--paper);
             }
 
+            .skip-link {
+                position: absolute;
+                left: -9999px;
+                top: 0;
+                background: var(--ink);
+                color: var(--paper);
+                padding: 12px 20px;
+                z-index: 10000;
+                font-family: var(--mono);
+                font-size: 0.8rem;
+                text-decoration: none;
+            }
+            .skip-link:focus {
+                left: 12px;
+                top: 12px;
+            }
+
             #ink-cursor {
                 position: fixed;
                 width: 10px;
@@ -134,11 +178,12 @@
                 background: var(--ink);
                 pointer-events: none;
                 z-index: 9999;
-                transform: translate(-50%, -50%);
+                transform: translate3d(-50%, -50%, 0);
                 transition:
                     width 0.2s,
                     height 0.2s,
                     background 0.2s;
+                will-change: transform;
             }
             #ink-cursor.bleed {
                 background: var(--red);
@@ -154,13 +199,14 @@
                 border: 1.5px solid var(--ink);
                 pointer-events: none;
                 z-index: 9998;
-                transform: translate(-50%, -50%);
+                transform: translate3d(-50%, -50%, 0);
                 transition:
                     width 0.3s,
                     height 0.3s,
                     border-color 0.3s,
                     opacity 0.3s;
                 opacity: 0.35;
+                will-change: transform;
             }
             #ink-cursor-trail.bleed {
                 border-color: var(--red);
@@ -213,8 +259,13 @@
                 opacity: 0.8;
                 transition: opacity 0.2s;
             }
-            .nav-links a:hover {
+            .nav-links a:hover,
+            .nav-links a:focus-visible {
                 opacity: 1;
+            }
+            .nav-links a:focus-visible {
+                outline: 2px solid #fff;
+                outline-offset: 4px;
             }
 
             @media (max-width: 700px) {
@@ -260,10 +311,15 @@
                     background 0.2s;
                 background: var(--paper);
             }
-            .social-rail a:hover {
+            .social-rail a:hover,
+            .social-rail a:focus-visible {
                 color: var(--paper);
                 background: var(--red);
                 border-color: var(--red);
+            }
+            .social-rail a:focus-visible {
+                outline: 2px solid var(--ink);
+                outline-offset: -2px;
             }
             .social-rail a svg {
                 width: 22px;
@@ -271,7 +327,8 @@
                 fill: currentColor;
                 transition: fill 0.2s;
             }
-            .social-rail a:hover svg {
+            .social-rail a:hover svg,
+            .social-rail a:focus-visible svg {
                 fill: var(--paper);
             }
 
@@ -328,7 +385,7 @@
             }
             .hero-name {
                 font-family: var(--display);
-                font-size: clamp(3.2rem, 12vw, 9.5rem);
+                font-size: clamp(2.4rem, 12vw, 9.5rem);
                 line-height: 0.86;
                 letter-spacing: -0.01em;
                 text-transform: uppercase;
@@ -394,10 +451,15 @@
                     color 0.2s,
                     transform 0.2s;
             }
-            .btn:hover {
+            .btn:hover,
+            .btn:focus-visible {
                 background: var(--ink);
                 color: var(--paper);
                 transform: translate(-2px, -2px);
+            }
+            .btn:focus-visible {
+                outline: 2px solid var(--red);
+                outline-offset: 3px;
             }
             .btn svg {
                 width: 18px;
@@ -409,7 +471,8 @@
                 background: var(--ink);
                 color: var(--paper);
             }
-            .btn-solid:hover {
+            .btn-solid:hover,
+            .btn-solid:focus-visible {
                 background: var(--red);
                 border-color: var(--red);
                 color: #fff;
@@ -496,6 +559,13 @@
             .reveal.in {
                 opacity: 1;
                 transform: translateY(0);
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .reveal {
+                    opacity: 1;
+                    transform: none;
+                    transition: none;
+                }
             }
 
             #about .about-grid {
@@ -600,12 +670,6 @@
                 pointer-events: none;
                 cursor: not-allowed;
             }
-            .resume-card .stat-loading {
-                font-family: var(--mono);
-                font-size: 0.8rem;
-                color: var(--gray);
-                padding: 8px 0;
-            }
             @media (max-width: 700px) {
                 .resume-card .stat-number {
                     font-size: 1.2rem;
@@ -638,6 +702,12 @@
                     content: "";
                 }
             }
+            @media (prefers-reduced-motion: reduce) {
+                .dots-anim::after {
+                    animation: none;
+                    content: "";
+                }
+            }
 
             .carousel-container {
                 position: relative;
@@ -647,10 +717,49 @@
                 min-height: 320px;
             }
 
+            .carousel-controls {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                z-index: 11;
+                display: flex;
+                gap: 8px;
+            }
+            .carousel-toggle {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                border: 1.5px solid var(--ink);
+                background: var(--paper);
+                color: var(--ink);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: var(--mono);
+                font-size: 0.9rem;
+                line-height: 1;
+                transition:
+                    background 0.2s,
+                    color 0.2s;
+            }
+            .carousel-toggle:hover,
+            .carousel-toggle:focus-visible {
+                background: var(--ink);
+                color: var(--paper);
+            }
+            .carousel-toggle:focus-visible {
+                outline: 2px solid var(--red);
+                outline-offset: 2px;
+            }
+
             .carousel-track {
                 display: flex;
                 transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 will-change: transform;
+            }
+            .carousel-track.no-anim {
+                transition: none;
             }
 
             .carousel-slide {
@@ -661,7 +770,6 @@
                 justify-content: center;
                 min-height: 280px;
             }
-
             .carousel-slide .project-status {
                 font-family: var(--mono);
                 font-size: 0.62rem;
@@ -674,7 +782,6 @@
                 margin-bottom: 16px;
                 align-self: flex-start;
             }
-
             .carousel-slide h3 {
                 font-family: var(--display);
                 font-size: clamp(1.4rem, 3vw, 2rem);
@@ -682,7 +789,6 @@
                 letter-spacing: -0.01em;
                 margin-bottom: 12px;
             }
-
             .carousel-slide .project-description {
                 font-size: 0.95rem;
                 color: var(--gray);
@@ -690,14 +796,12 @@
                 max-width: 640px;
                 margin-bottom: 20px;
             }
-
             .carousel-slide .project-tech {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 6px;
                 margin-bottom: 20px;
             }
-
             .carousel-slide .project-tech span {
                 font-family: var(--mono);
                 font-size: 0.6rem;
@@ -707,7 +811,6 @@
                 border: 1px solid var(--line);
                 color: var(--gray);
             }
-
             .carousel-slide .project-link {
                 align-self: flex-start;
             }
@@ -725,7 +828,11 @@
                 color: var(--ink);
                 font-size: 1.4rem;
                 cursor: pointer;
-                transition: all 0.3s ease;
+                transition:
+                    background 0.3s,
+                    color 0.3s,
+                    opacity 0.3s,
+                    border-color 0.3s;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -734,21 +841,24 @@
                 opacity: 0;
                 pointer-events: none;
             }
-
-            .carousel-container:hover .carousel-btn {
+            .carousel-container:hover .carousel-btn,
+            .carousel-container:focus-within .carousel-btn,
+            .carousel-btn:focus-visible {
                 opacity: 1;
                 pointer-events: auto;
             }
-
-            .carousel-btn:hover {
+            .carousel-btn:hover,
+            .carousel-btn:focus-visible {
                 background: var(--ink);
                 color: var(--paper);
             }
-
+            .carousel-btn:focus-visible {
+                outline: 2px solid var(--red);
+                outline-offset: 3px;
+            }
             .carousel-prev {
                 left: 12px;
             }
-
             .carousel-next {
                 right: 12px;
             }
@@ -761,7 +871,6 @@
                 background: var(--paper);
                 transition: opacity 0.3s;
             }
-
             .carousel-dot {
                 width: 10px;
                 height: 10px;
@@ -773,12 +882,10 @@
                 padding: 0;
                 position: relative;
             }
-
             .carousel-dot.active {
                 background: var(--ink);
                 transform: scale(1.2);
             }
-
             .carousel-dot::after {
                 content: "";
                 position: absolute;
@@ -787,12 +894,15 @@
                 border: 1.5px solid transparent;
                 transition: all 0.4s ease;
             }
-
             .carousel-dot.active::after {
                 border-color: var(--red);
                 animation: dotPulse 1.5s ease-in-out infinite;
             }
-
+            @media (prefers-reduced-motion: reduce) {
+                .carousel-dot.active::after {
+                    animation: none;
+                }
+            }
             @keyframes dotPulse {
                 0%,
                 100% {
@@ -804,18 +914,21 @@
                     opacity: 1;
                 }
             }
-
-            .carousel-dot:hover {
+            .carousel-dot:hover,
+            .carousel-dot:focus-visible {
                 background: var(--red);
                 border-color: var(--red);
                 transform: scale(1.1);
+            }
+            .carousel-dot:focus-visible {
+                outline: 2px solid var(--ink);
+                outline-offset: 3px;
             }
 
             .carousel-slide.suggest-slide .project-status {
                 color: var(--gray);
                 border-color: var(--gray);
             }
-
             .carousel-slide.suggest-slide .suggest-icon {
                 display: flex;
                 gap: 12px;
@@ -889,6 +1002,30 @@
                 min-width: 60px;
                 flex-shrink: 0;
             }
+            @media (max-width: 700px) {
+                .feed-row {
+                    flex-wrap: wrap;
+                    gap: 4px 12px;
+                }
+                .feed-row .feed-user {
+                    min-width: 0;
+                }
+                .feed-row .feed-repo {
+                    min-width: 0;
+                    margin-left: auto;
+                }
+                .feed-row .feed-msg {
+                    flex: 1 0 100%;
+                    white-space: normal;
+                    min-width: 0;
+                    overflow: visible;
+                }
+                .feed-row .feed-time {
+                    min-width: 0;
+                    order: 3;
+                }
+            }
+
             .feed-empty {
                 font-family: var(--mono);
                 font-size: 0.82rem;
@@ -940,6 +1077,7 @@
         </style>
     </head>
     <body>
+        <a class="skip-link" href="#about">Skip to content</a>
         <div class="paper-grain"></div>
         <div id="ink-cursor"></div>
         <div id="ink-cursor-trail"></div>
@@ -961,14 +1099,14 @@
                 rel="noopener"
                 aria-label="X (Twitter)"
             >
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path
                         d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                     />
                 </svg>
             </a>
             <a href="mailto:progressuwhuseba@gmail.com" aria-label="Email">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path
                         d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
                     />
@@ -985,27 +1123,14 @@
             >
                 <svg
                     viewBox="0 -28.5 256 256"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                     preserveAspectRatio="xMidYMid"
-                    fill="#000000"
+                    fill="currentColor"
+                    aria-hidden="true"
                 >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                        id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <g>
-                            <path
-                                d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
-                                fill="#000000"
-                                fill-rule="nonzero"
-                            ></path>
-                        </g>
-                    </g>
+                    <path
+                        d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
+                        fill-rule="nonzero"
+                    />
                 </svg>
             </a>
         </div>
@@ -1026,226 +1151,297 @@
             <div class="seal">0x</div>
         </section>
 
-        <section id="about">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <span class="section-tag">01</span>
-                    <h2 class="section-title">About</h2>
-                </div>
-                <div class="about-grid">
-                    <div class="about-text reveal">
-                        <p>
-                            I build tools that work. Fast, reliable,
-                            low-resource — the kind of software you can actually
-                            depend on.
-                        </p>
-                        <p>
-                            I've been doing this since I was 14, learning by
-                            breaking and rebuilding systems. AI accelerated my
-                            learning, but I still write the code. I still
-                            understand what's happening under the hood.
-                        </p>
-                        <p>
-                            I don't have a niche. I solve problems I notice. If
-                            something's broken, hard to use, or missing good
-                            docs — I fix it. I automate everything I can, so I
-                            can ship more, faster.
-                        </p>
-                        <p>
-                            I've written Go, Python.. I've built CLIs, bots,
-                            medical triage tools, env diffing, retry logic,
-                            WhatsApp bridges. I've revived dead projects. I've
-                            shipped.
-                        </p>
-                        <p>
-                            Fun Part is → I'm not finished. I'm just getting
-                            started<span class="dots-anim"></span>
-                        </p>
+        <main id="main">
+            <section id="about">
+                <div class="wrap">
+                    <div class="section-head reveal">
+                        <span class="section-tag">01</span>
+                        <h2 class="section-title">About</h2>
                     </div>
-                    <div class="resume-card reveal">
-                        <h3>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
-                                />
-                            </svg>
-                            Activity Stats
-                        </h3>
-                        <div id="statsContent">
-                            <div class="stat-item">
-                                <span class="stat-number" id="commitCount"
-                                    >...</span
-                                >
-                                <span class="stat-label">
-                                    <svg viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm0-12a1 1 0 011 1v2a1 1 0 01-2 0V4a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zM4 11h2a1 1 0 010 2H4a1 1 0 010-2zm14 0h2a1 1 0 010 2h-2a1 1 0 010-2z"
-                                        />
-                                    </svg>
-                                    total commits
-                                </span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number" id="repoCount"
-                                    >...</span
-                                >
-                                <span class="stat-label">
-                                    <svg viewBox="0 0 24 24">
-                                        <path
-                                            d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm0 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
-                                        />
-                                    </svg>
-                                    projects shipped
-                                </span>
-                            </div>
-                            <div class="stat-item focus-item">
-                                <span class="stat-label">
-                                    <svg viewBox="0 0 24 24">
-                                        <path
-                                            d="M13 2L4 14h6l-2 8 9-12h-6l2-8z"
-                                        />
-                                    </svg>
-                                    Current Focus
-                                </span>
-                                <span
-                                    class="stat-number focus-tag"
-                                    id="currentFocus"
-                                    >Golang</span
-                                >
-                            </div>
+                    <div class="about-grid">
+                        <div class="about-text reveal">
+                            <p>
+                                I build tools that work. Fast, reliable,
+                                low-resource — the kind of software you can
+                                actually depend on.
+                            </p>
+                            <p>
+                                I've been doing this since I was 14, learning by
+                                breaking and rebuilding systems. AI accelerated
+                                my learning, but I still write the code. I still
+                                understand what's happening under the hood.
+                            </p>
+                            <p>
+                                I don't have a niche. I solve problems I notice.
+                                If something's broken, hard to use, or missing
+                                good docs — I fix it. I automate everything I
+                                can, so I can ship more, faster.
+                            </p>
+                            <p>
+                                I've written Go, Python. I've built CLIs, bots,
+                                medical triage tools, env diffing, retry logic,
+                                WhatsApp bridges. I've revived dead projects.
+                                I've shipped.
+                            </p>
+                            <p>
+                                Fun Part is → I'm not finished. I'm just getting
+                                started<span class="dots-anim"></span>
+                            </p>
                         </div>
-                        <a
-                            href="resume.docx"
-                            class="btn btn-solid"
-                            download
-                            id="resumeBtn"
-                        >
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"
-                                />
-                                <path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z" />
-                                <path d="M8 17h8v2H8z" />
-                            </svg>
-                            Download Résumé
-                        </a>
+                        <div class="resume-card reveal">
+                            <h3>
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
+                                    />
+                                </svg>
+                                Activity Stats
+                            </h3>
+                            <div id="statsContent">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="commitCount"
+                                        >…</span
+                                    >
+                                    <span class="stat-label">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm0-12a1 1 0 011 1v2a1 1 0 01-2 0V4a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zM4 11h2a1 1 0 010 2H4a1 1 0 010-2zm14 0h2a1 1 0 010 2h-2a1 1 0 010-2z"
+                                            />
+                                        </svg>
+                                        total commits
+                                    </span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="repoCount"
+                                        >…</span
+                                    >
+                                    <span class="stat-label">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm0 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
+                                            />
+                                        </svg>
+                                        projects shipped
+                                    </span>
+                                </div>
+                                <div class="stat-item focus-item">
+                                    <span class="stat-label">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M13 2L4 14h6l-2 8 9-12h-6l2-8z"
+                                            />
+                                        </svg>
+                                        Current Focus
+                                    </span>
+                                    <span
+                                        class="stat-number focus-tag"
+                                        id="currentFocus"
+                                        >Golang</span
+                                    >
+                                </div>
+                            </div>
+                            <a
+                                href="resume.docx"
+                                class="btn btn-solid"
+                                download
+                                id="resumeBtn"
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"
+                                    />
+                                    <path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z" />
+                                    <path d="M8 17h8v2H8z" />
+                                </svg>
+                                Download Résumé
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="projects">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <span class="section-tag">02</span>
-                    <h2 class="section-title">Work</h2>
-                </div>
+            <section id="projects">
+                <div class="wrap">
+                    <div class="section-head reveal">
+                        <span class="section-tag">02</span>
+                        <h2 class="section-title">Work</h2>
+                    </div>
 
-                <div class="carousel-container reveal">
-                    <div class="carousel-track" id="carouselTrack"></div>
-
-                    <button
-                        class="carousel-btn carousel-prev"
-                        id="carouselPrev"
-                        aria-label="Previous project"
+                    <div
+                        class="carousel-container reveal"
+                        id="carouselContainer"
                     >
-                        ‹
-                    </button>
-                    <button
-                        class="carousel-btn carousel-next"
-                        id="carouselNext"
-                        aria-label="Next project"
+                        <div class="carousel-controls">
+                            <button
+                                class="carousel-toggle"
+                                id="carouselToggle"
+                                aria-label="Pause carousel"
+                                aria-pressed="false"
+                            >
+                                ❚❚
+                            </button>
+                        </div>
+
+                        <div
+                            class="carousel-track"
+                            id="carouselTrack"
+                            aria-live="polite"
+                        ></div>
+
+                        <button
+                            class="carousel-btn carousel-prev"
+                            id="carouselPrev"
+                            aria-label="Previous project"
+                        >
+                            ‹
+                        </button>
+                        <button
+                            class="carousel-btn carousel-next"
+                            id="carouselNext"
+                            aria-label="Next project"
+                        >
+                            ›
+                        </button>
+
+                        <div
+                            class="carousel-dots"
+                            id="carouselDots"
+                            role="tablist"
+                            aria-label="Project slides"
+                        ></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="feed">
+                <div class="wrap">
+                    <div class="section-head reveal">
+                        <span class="section-tag">03</span>
+                        <h2 class="section-title">Latest activity</h2>
+                    </div>
+                    <div class="feed-list reveal" id="feedList">
+                        <noscript>
+                            <div class="feed-empty">
+                                Enable JavaScript to see recent activity, or
+                                visit
+                                <a href="https://github.com/0xProgress"
+                                    >github.com/0xProgress</a
+                                >.
+                            </div>
+                        </noscript>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="wrap">
+                    <div class="section-head reveal">
+                        <span class="section-tag">04</span>
+                        <h2 class="section-title">Contact</h2>
+                    </div>
+                    <p class="contact-line reveal">
+                        Got something worth <span class="x">building</span>?
+                        Reach out <br />
+                        → I read everything.
+                    </p>
+                    <a
+                        href="mailto:progressuwhuseba@gmail.com"
+                        class="btn btn-solid reveal"
                     >
-                        ›
-                    </button>
-
-                    <div class="carousel-dots" id="carouselDots"></div>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
+                            />
+                            <path
+                                d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
+                            />
+                        </svg>
+                        Say hello
+                    </a>
                 </div>
-            </div>
-        </section>
-
-        <section id="feed">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <span class="section-tag">03</span>
-                    <h2 class="section-title">Latest activity</h2>
-                </div>
-                <div class="feed-list reveal" id="feedList"></div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="wrap">
-                <div class="section-head reveal">
-                    <span class="section-tag">04</span>
-                    <h2 class="section-title">Contact</h2>
-                </div>
-                <p class="contact-line reveal">
-                    Got something worth <span class="x">building</span>? Reach
-                    out <br />
-                    → I read everything.
-                </p>
-                <a
-                    href="mailto:progressuwhuseba@gmail.com"
-                    class="btn btn-solid reveal"
-                >
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
-                        />
-                        <path
-                            d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
-                        />
-                    </svg>
-                    Say hello
-                </a>
-            </div>
-        </section>
+            </section>
+        </main>
 
         <footer>
-            <span>© 2026 0xProgress_</span>
+            <span>© <span id="footerYear">2026</span> 0xProgress_</span>
             <span>Built over boundaries</span>
         </footer>
 
         <script>
+            // Shared data fetch — one request, three consumers.
+            const siteDataPromise = fetch("data/site-data.json", {
+                cache: "no-cache",
+            }).then((r) => {
+                if (!r.ok) throw new Error("Failed to load data");
+                return r.json();
+            });
+
+            // --- Ink cursor -------------------------------------------------
             (function () {
                 const cur = document.getElementById("ink-cursor");
                 const trail = document.getElementById("ink-cursor-trail");
-                if (!cur || matchMedia("(hover:none)").matches) return;
+                if (!cur || !trail) return;
+                if (matchMedia("(hover: none)").matches) return;
+                if (matchMedia("(prefers-reduced-motion: reduce)").matches)
+                    return;
 
-                let mx = 0,
-                    my = 0,
-                    tx = 0,
-                    ty = 0;
-                window.addEventListener("mousemove", (e) => {
-                    mx = e.clientX;
-                    my = e.clientY;
-                    cur.style.left = mx + "px";
-                    cur.style.top = my + "px";
-                });
-                function loop() {
-                    tx += (mx - tx) * 0.15;
-                    ty += (my - ty) * 0.15;
-                    trail.style.left = tx + "px";
-                    trail.style.top = ty + "px";
-                    requestAnimationFrame(loop);
+                try {
+                    document.body.classList.add("has-cursor");
+
+                    let mx = 0,
+                        my = 0,
+                        tx = 0,
+                        ty = 0;
+                    window.addEventListener(
+                        "mousemove",
+                        (e) => {
+                            mx = e.clientX;
+                            my = e.clientY;
+                            cur.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+                        },
+                        { passive: true },
+                    );
+
+                    (function loop() {
+                        tx += (mx - tx) * 0.15;
+                        ty += (my - ty) * 0.15;
+                        trail.style.transform = `translate3d(${tx}px, ${ty}px, 0) translate(-50%, -50%)`;
+                        requestAnimationFrame(loop);
+                    })();
+
+                    document
+                        .querySelectorAll("a, button, .btn")
+                        .forEach((el) => {
+                            el.addEventListener("mouseenter", () => {
+                                cur.classList.add("bleed");
+                                trail.classList.add("bleed");
+                            });
+                            el.addEventListener("mouseleave", () => {
+                                cur.classList.remove("bleed");
+                                trail.classList.remove("bleed");
+                            });
+                        });
+                } catch (e) {
+                    document.body.classList.remove("has-cursor");
                 }
-                loop();
-
-                document.querySelectorAll("a, button, .btn").forEach((el) => {
-                    el.addEventListener("mouseenter", () => {
-                        cur.classList.add("bleed");
-                        trail.classList.add("bleed");
-                    });
-                    el.addEventListener("mouseleave", () => {
-                        cur.classList.remove("bleed");
-                        trail.classList.remove("bleed");
-                    });
-                });
             })();
 
+            // --- Reveal on scroll -------------------------------------------
             (function () {
                 const items = document.querySelectorAll(".reveal");
+                if (!("IntersectionObserver" in window)) {
+                    items.forEach((i) => i.classList.add("in"));
+                    return;
+                }
                 const io = new IntersectionObserver(
                     (entries) => {
                         entries.forEach((e) => {
@@ -1260,27 +1456,33 @@
                 items.forEach((i) => io.observe(i));
             })();
 
+            // --- Footer year ------------------------------------------------
+            (function () {
+                const el = document.getElementById("footerYear");
+                if (el) el.textContent = String(new Date().getFullYear());
+            })();
+
+            // --- Stats ------------------------------------------------------
             (function () {
                 const commitEl = document.getElementById("commitCount");
                 const repoEl = document.getElementById("repoCount");
                 const focusEl = document.getElementById("currentFocus");
 
-                fetch("data/site-data.json")
-                    .then((r) => {
-                        if (!r.ok) throw new Error("Failed to load data");
-                        return r.json();
-                    })
+                siteDataPromise
                     .then((data) => {
-                        const totalCommits = data.totalCommits || "—";
-                        commitEl.textContent = totalCommits.toLocaleString();
+                        const totalCommits = data.totalCommits;
+                        commitEl.textContent =
+                            totalCommits != null
+                                ? Number(totalCommits).toLocaleString()
+                                : "—";
 
-                        const repoCount = data.projects
+                        const repoCount = Array.isArray(data.projects)
                             ? data.projects.length
-                            : "—";
-                        repoEl.textContent = repoCount;
+                            : null;
+                        repoEl.textContent =
+                            repoCount != null ? String(repoCount) : "—";
 
-                        const focus = data.currentFocus || "Golang";
-                        focusEl.textContent = focus;
+                        focusEl.textContent = data.currentFocus ?? "Golang";
                     })
                     .catch((err) => {
                         console.warn("Stats error:", err);
@@ -1289,248 +1491,198 @@
                     });
             })();
 
+            // --- Résumé availability ----------------------------------------
             (function () {
                 const btn = document.getElementById("resumeBtn");
+                const unavailableHtml = `
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"/><path d="M8 17h8v2H8z"/></svg>
+                Résumé (coming soon)
+            `;
                 fetch("resume.docx", { method: "HEAD" })
                     .then((res) => {
                         if (!res.ok) {
                             btn.classList.add("disabled");
-                            btn.innerHTML = `
-                                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"/><path d="M8 17h8v2H8z"/></svg>
-                                Résumé (coming soon)
-                            `;
+                            btn.innerHTML = unavailableHtml;
                             btn.href = "#";
                         }
                     })
                     .catch(() => {
                         btn.classList.add("disabled");
-                        btn.innerHTML = `
-                            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"/><path d="M8 17h8v2H8z"/></svg>
-                            Résumé (coming soon)
-                        `;
+                        btn.innerHTML = unavailableHtml;
                         btn.href = "#";
                     });
             })();
 
+            // --- Carousel ---------------------------------------------------
             (function () {
                 const track = document.getElementById("carouselTrack");
                 const dotsContainer = document.getElementById("carouselDots");
                 const prevBtn = document.getElementById("carouselPrev");
                 const nextBtn = document.getElementById("carouselNext");
+                const toggleBtn = document.getElementById("carouselToggle");
+                const container = document.getElementById("carouselContainer");
 
                 let currentIndex = 0;
                 let slides = [];
                 let autoPlayInterval = null;
-                let loopCount = 0;
                 let isTransitioning = false;
+                let userPaused = false;
+                let reducedMotion = matchMedia(
+                    "(prefers-reduced-motion: reduce)",
+                ).matches;
 
-                fetch("data/site-data.json")
-                    .then((r) => {
-                        if (!r.ok) throw new Error("Failed to load data");
-                        return r.json();
-                    })
-                    .then((data) => {
-                        slides = data.projects || [];
-                        if (slides.length === 0) throw new Error("no projects");
+                const FALLBACK = [
+                    {
+                        name: "AI Medical Triage",
+                        description:
+                            "Privacy-first conversational health tool built on Qwen AI.",
+                        repoUrl:
+                            "https://github.com/0xProgress/AI-Medical-Triage",
+                        status: "In progress",
+                        tech: ["TypeScript", "React", "AI"],
+                    },
+                    {
+                        name: "retry",
+                        description:
+                            "Retry any command with exponential backoff. Zero config.",
+                        repoUrl: "https://github.com/0xProgress/retry",
+                        status: "Shipped",
+                        tech: ["Go"],
+                    },
+                ];
 
-                        slides.push({
-                            name: "Suggest a Project",
-                            description:
-                                "Have an idea? I'm always looking for the next thing to build. Share your concept and I might just ship it.",
-                            repoUrl:
-                                "https://github.com/0xProgress/0xProgress/issues/new",
-                            status: "Your Idea → My Code",
-                            tech: ["💡", "🚀", "✨"],
-                            isSuggest: true,
-                            suggestIcons: `
-                                <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 2.5 1.5 4.5 3 5.5v3a1 1 0 001 1h6a1 1 0 001-1v-3c1.5-1 3-3 3-5.5a7 7 0 00-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2L4 14h5l-1 8 9-10h-5l1-10z"/></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-4 4 2 6-6-4-6 4 2-6-4-4h6z"/></svg>
-                            `,
-                        });
-
-                        renderCarousel();
-                        startAutoPlay();
-                    })
-                    .catch((err) => {
-                        console.warn("Carousel error:", err);
-                        slides = [
-                            {
-                                name: "AI Medical Triage",
-                                description:
-                                    "Privacy-first conversational health tool built on Qwen AI.",
-                                repoUrl:
-                                    "https://github.com/0xProgress/AI-Medical-Triage",
-                                status: "In progress",
-                                tech: ["TypeScript", "React", "AI"],
-                            },
-                            {
-                                name: "retry",
-                                description:
-                                    "Retry any command with exponential backoff. Zero config.",
-                                repoUrl: "https://github.com/0xProgress/retry",
-                                status: "Shipped",
-                                tech: ["Go"],
-                            },
-                            {
-                                name: "Suggest a Project",
-                                description:
-                                    "Have an idea? I'm always looking for the next thing to build.",
-                                repoUrl:
-                                    "https://github.com/0xProgress/0xProgress/issues/new",
-                                status: "Your Idea → My Code",
-                                tech: ["💡", "🚀", "✨"],
-                                isSuggest: true,
-                                suggestIcons: `
-                                    <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 2.5 1.5 4.5 3 5.5v3a1 1 0 001 1h6a1 1 0 001-1v-3c1.5-1 3-3 3-5.5a7 7 0 00-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2L4 14h5l-1 8 9-10h-5l1-10z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-4 4 2 6-6-4-6 4 2-6-4-4h6z"/></svg>
-                                `,
-                            },
-                        ];
-                        renderCarousel();
-                        startAutoPlay();
-                    });
+                const SUGGEST_SLIDE = {
+                    name: "Suggest a Project",
+                    description:
+                        "Have an idea? I'm always looking for the next thing to build. Share your concept and I might just ship it.",
+                    repoUrl:
+                        "https://github.com/0xProgress/0xProgress/issues/new",
+                    status: "Your Idea → My Code",
+                    tech: ["💡", "🚀", "✨"],
+                    isSuggest: true,
+                    suggestIcons: `
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 2.5 1.5 4.5 3 5.5v3a1 1 0 001 1h6a1 1 0 001-1v-3c1.5-1 3-3 3-5.5a7 7 0 00-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L4 14h5l-1 8 9-10h-5l1-10z"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2 6h6l-4 4 2 6-6-4-6 4 2-6-4-4h6z"/></svg>
+                `,
+                };
 
                 function renderCarousel() {
                     track.innerHTML = slides
                         .map((project, index) => {
                             const isSuggest = project.isSuggest || false;
+                            const tech = Array.isArray(project.tech)
+                                ? project.tech
+                                : [];
+                            const name =
+                                project.displayName || project.name || "";
                             return `
-                            <div class="carousel-slide ${isSuggest ? "suggest-slide" : ""}" data-index="${index}">
-                                ${isSuggest ? `<div class="suggest-icon">${project.suggestIcons}</div>` : ""}
-                                <span class="project-status">${project.status}</span>
-                                <h3>${project.name}</h3>
-                                <p class="project-description">${project.description}</p>
-                                <div class="project-tech">
-                                    ${project.tech.map((t) => `<span>${t}</span>`).join("")}
-                                </div>
-                                <a href="${project.repoUrl}" target="_blank" rel="noopener" class="btn btn-solid project-link">
-                                    ${isSuggest ? "Suggest on GitHub" : "View on GitHub"}
-                                </a>
+                        <div class="carousel-slide ${isSuggest ? "suggest-slide" : ""}" data-index="${index}" role="tabpanel" aria-roledescription="slide" aria-label="${index + 1} of ${slides.length}">
+                            ${isSuggest ? `<div class="suggest-icon">${project.suggestIcons}</div>` : ""}
+                            <span class="project-status">${project.status ?? ""}</span>
+                            <h3>${name}</h3>
+                            <p class="project-description">${project.description ?? ""}</p>
+                            <div class="project-tech">
+                                ${tech.map((t) => `<span>${t}</span>`).join("")}
                             </div>
-                        `;
+                            <a href="${project.repoUrl}" target="_blank" rel="noopener" class="btn btn-solid project-link">
+                                ${isSuggest ? "Suggest on GitHub" : "View on GitHub"}
+                            </a>
+                        </div>
+                    `;
                         })
                         .join("");
 
                     dotsContainer.innerHTML = slides
                         .map(
                             (_, index) => `
-                        <button class="carousel-dot ${index === 0 ? "active" : ""}" data-index="${index}" aria-label="Go to slide ${index + 1}"></button>
-                    `,
+                    <button
+                        class="carousel-dot ${index === 0 ? "active" : ""}"
+                        data-index="${index}"
+                        role="tab"
+                        aria-label="Go to slide ${index + 1}"
+                        aria-selected="${index === 0}"
+                    ></button>
+                `,
                         )
                         .join("");
 
-                    document
+                    dotsContainer
                         .querySelectorAll(".carousel-dot")
                         .forEach((dot) => {
                             dot.addEventListener("click", () => {
-                                const index = parseInt(dot.dataset.index);
-                                goToSlide(index);
+                                goToSlide(parseInt(dot.dataset.index, 10));
                                 resetAutoPlay();
                             });
                         });
 
-                    goToSlide(0);
+                    updateCarousel(false);
                 }
 
-                function goToSlide(index) {
+                function goToSlide(index, animate = true) {
                     if (isTransitioning) return;
-
                     const totalSlides = slides.length;
+                    if (totalSlides === 0) return;
 
-                    if (index >= totalSlides) {
-                        loopCount++;
-                        if (loopCount >= 2) {
-                            currentIndex = totalSlides - 1;
-                            updateCarousel();
-                            showSuggestNotification();
-                            stopAutoPlay();
-                            return;
+                    let next = index;
+                    if (next >= totalSlides) {
+                        // Wrap backwards to first without animating across all slides
+                        if (animate) {
+                            track.classList.add("no-anim");
+                            next = 0;
+                            currentIndex = next;
+                            updateCarousel(false);
+                            void track.offsetWidth;
+                            track.classList.remove("no-anim");
+                        } else {
+                            next = 0;
+                            currentIndex = next;
+                            updateCarousel(false);
                         }
-                        if (currentIndex === totalSlides - 1) {
-                            currentIndex = 0;
-                            updateCarousel();
-                            return;
-                        }
-                        currentIndex = index;
-                        updateCarousel();
                         return;
                     }
-
-                    if (index < 0) {
-                        currentIndex = totalSlides - 1;
-                        updateCarousel();
-                        return;
+                    if (next < 0) {
+                        next = totalSlides - 1;
                     }
 
-                    currentIndex = index;
-                    updateCarousel();
+                    currentIndex = next;
+                    updateCarousel(animate);
                 }
 
-                function updateCarousel() {
-                    isTransitioning = true;
+                function updateCarousel(animate = true) {
+                    if (!animate) track.classList.add("no-anim");
                     track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    if (!animate) {
+                        void track.offsetWidth;
+                        track.classList.remove("no-anim");
+                        return;
+                    }
 
-                    document
+                    isTransitioning = true;
+                    dotsContainer
                         .querySelectorAll(".carousel-dot")
                         .forEach((dot, i) => {
-                            dot.classList.toggle("active", i === currentIndex);
+                            const active = i === currentIndex;
+                            dot.classList.toggle("active", active);
+                            dot.setAttribute(
+                                "aria-selected",
+                                active ? "true" : "false",
+                            );
                         });
-
-                    if (slides[currentIndex]?.isSuggest) {
-                    }
 
                     setTimeout(() => {
                         isTransitioning = false;
                     }, 700);
                 }
 
-                function showSuggestNotification() {
-                    const container = document.querySelector(
-                        ".carousel-container",
-                    );
-                    const note = document.createElement("div");
-                    note.style.cssText = `
-                        position: absolute;
-                        bottom: 70px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: var(--ink);
-                        color: var(--paper);
-                        padding: 8px 20px;
-                        font-family: var(--mono);
-                        font-size: 0.7rem;
-                        border-radius: 4px;
-                        opacity: 0;
-                        transition: opacity 0.5s ease;
-                        z-index: 20;
-                        white-space: nowrap;
-                        pointer-events: none;
-                    `;
-                    note.textContent =
-                        "✨ Got a project idea? Suggest one above!";
-                    container.appendChild(note);
-
-                    setTimeout(() => {
-                        note.style.opacity = "1";
-                    }, 100);
-                    setTimeout(() => {
-                        note.style.opacity = "0";
-                    }, 5000);
-                    setTimeout(() => {
-                        note.remove();
-                    }, 6000);
-                }
-
                 function startAutoPlay() {
-                    if (autoPlayInterval) clearInterval(autoPlayInterval);
+                    if (reducedMotion || userPaused) return;
+                    stopAutoPlay();
                     autoPlayInterval = setInterval(() => {
-                        if (slides[currentIndex]?.isSuggest) {
-                            return;
-                        }
+                        if (isTransitioning) return;
                         goToSlide(currentIndex + 1);
                     }, 4000);
+                    updateToggleUI(false);
                 }
 
                 function stopAutoPlay() {
@@ -1538,78 +1690,131 @@
                         clearInterval(autoPlayInterval);
                         autoPlayInterval = null;
                     }
+                    updateToggleUI(true);
                 }
 
                 function resetAutoPlay() {
-                    stopAutoPlay();
+                    if (reducedMotion || userPaused) return;
                     startAutoPlay();
                 }
 
-                if (prevBtn) {
+                function updateToggleUI(paused) {
+                    if (!toggleBtn) return;
+                    toggleBtn.textContent = paused ? "▶" : "❚❚";
+                    toggleBtn.setAttribute(
+                        "aria-label",
+                        paused ? "Play carousel" : "Pause carousel",
+                    );
+                    toggleBtn.setAttribute(
+                        "aria-pressed",
+                        paused ? "true" : "false",
+                    );
+                }
+
+                if (prevBtn)
                     prevBtn.addEventListener("click", () => {
                         goToSlide(currentIndex - 1);
                         resetAutoPlay();
                     });
-                }
-
-                if (nextBtn) {
+                if (nextBtn)
                     nextBtn.addEventListener("click", () => {
                         goToSlide(currentIndex + 1);
                         resetAutoPlay();
                     });
+
+                if (toggleBtn) {
+                    toggleBtn.addEventListener("click", () => {
+                        userPaused = !userPaused;
+                        if (userPaused) stopAutoPlay();
+                        else startAutoPlay();
+                    });
                 }
 
-                const container = document.querySelector(".carousel-container");
                 if (container) {
-                    container.addEventListener("mouseenter", () => {
-                        stopAutoPlay();
-                    });
+                    container.addEventListener("mouseenter", stopAutoPlay);
+                    container.addEventListener("focusin", stopAutoPlay);
                     container.addEventListener("mouseleave", () => {
-                        if (slides[currentIndex]?.isSuggest) {
-                            return;
-                        }
+                        if (!userPaused) startAutoPlay();
+                    });
+                    container.addEventListener("focusout", (e) => {
+                        if (!container.contains(e.relatedTarget) && !userPaused)
+                            startAutoPlay();
+                    });
+                }
+
+                siteDataPromise
+                    .then((data) => {
+                        slides = Array.isArray(data.projects)
+                            ? data.projects.slice()
+                            : [];
+                        if (slides.length === 0) throw new Error("no projects");
+                        slides.push(SUGGEST_SLIDE);
+                        renderCarousel();
+                        startAutoPlay();
+                    })
+                    .catch((err) => {
+                        console.warn("Carousel error:", err);
+                        slides = FALLBACK.concat([SUGGEST_SLIDE]);
+                        renderCarousel();
                         startAutoPlay();
                     });
-                }
             })();
 
+            // --- Feed -------------------------------------------------------
             (function () {
                 const feedEl = document.getElementById("feedList");
+                const SKIP_RE = /\[skip ci\]/i;
 
-                fetch("data/site-data.json")
-                    .then((r) => {
-                        if (!r.ok) throw new Error("Failed to load data");
-                        return r.json();
-                    })
+                siteDataPromise
                     .then((data) => {
-                        const commits = data.commits;
+                        const allCommits = Array.isArray(data.commits)
+                            ? data.commits
+                            : [];
+                        const commits = allCommits.filter(
+                            (c) =>
+                                !SKIP_RE.test(c.message || "") &&
+                                c.repo !== "0xProgress.github.io",
+                        );
 
-                        if (!commits || commits.length === 0) {
+                        if (commits.length === 0) {
                             feedEl.innerHTML = `<div class="feed-empty">No recent commits.</div>`;
                             return;
                         }
 
-                        let html = "";
+                        feedEl.innerHTML = "";
                         commits.forEach((item) => {
-                            html += `
-                                <div class="feed-row">
-                                    <span class="feed-user">${item.username}</span>
-                                    <span class="feed-repo">${item.repo}</span>
-                                    <span class="feed-msg">${item.message}</span>
-                                    <span class="feed-time">${item.date}</span>
-                                </div>
-                            `;
+                            const row = document.createElement("div");
+                            row.className = "feed-row";
+
+                            const user = document.createElement("span");
+                            user.className = "feed-user";
+                            user.textContent = item.username ?? "";
+
+                            const repo = document.createElement("span");
+                            repo.className = "feed-repo";
+                            repo.textContent = item.repo ?? "";
+
+                            const msg = document.createElement("span");
+                            msg.className = "feed-msg";
+                            msg.textContent = item.message ?? "";
+                            msg.title = item.message ?? "";
+
+                            const time = document.createElement("span");
+                            time.className = "feed-time";
+                            time.textContent = item.date ?? "";
+
+                            row.append(user, repo, msg, time);
+                            feedEl.appendChild(row);
                         });
-                        feedEl.innerHTML = html;
                     })
                     .catch((err) => {
                         console.warn("Feed error:", err);
                         feedEl.innerHTML = `
-                            <div class="feed-empty">
-                                ⚡ Feed unavailable.<br>
-                                <a href="https://github.com/0xProgress" target="_blank">github.com/0xProgress</a>
-                            </div>
-                        `;
+                        <div class="feed-empty">
+                            ⚡ Feed unavailable.<br>
+                            <a href="https://github.com/0xProgress" target="_blank" rel="noopener">github.com/0xProgress</a>
+                        </div>
+                    `;
                     });
             })();
         </script>

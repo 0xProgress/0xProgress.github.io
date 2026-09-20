@@ -10,6 +10,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: build-site-data
+  cancel-in-progress: true
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -21,121 +25,201 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Fetch repository list
+      - name: Fetch repository list (exclude self-repo, sort by recency)
         run: |
-          gh api users/0xProgress/repos --paginate --jq '.[] | select(.fork == false) | {name: .name, description: .description, html_url: .html_url, topics: .topics, language: .language, updated_at: .updated_at}' > repos.json
+          set -euo pipefail
+          gh api users/0xProgress/repos --paginate \
+            --jq '.[]
+                  | select(.fork == false)
+                  | select(.name != "0xProgress.github.io")
+                  | {
+                      name: .name,
+                      description: .description,
+                      html_url: .html_url,
+                      topics: .topics,
+                      language: .language,
+                      updated_at: .updated_at
+                    }' > repos.ndjson
+          jq -s 'sort_by(.updated_at) | reverse' repos.ndjson > repos.json
+          echo "Repos: $(jq 'length' repos.json)"
 
       - name: Compute total commits
         run: |
+          set -euo pipefail
           TOTAL=0
-          for repo in $(jq -r '.name' repos.json); do
-            echo "Counting commits for $repo..."
-            contrib=$(gh api repos/0xProgress/$repo/contributors --jq '.[] | select(.login=="0xProgress") | .contributions' 2>/dev/null || echo 0)
+          for repo in $(jq -r '.[].name' repos.json); do
+            contrib=$(gh api "repos/0xProgress/$repo/contributors" \
+              --jq '.[] | select(.login == "0xProgress") | .contributions' 2>/dev/null || true)
+            contrib=${contrib:-0}
             TOTAL=$((TOTAL + contrib))
-            echo "  Found $contrib commits"
           done
-          echo "TOTAL_COMMITS=$TOTAL" >> $GITHUB_ENV
-          echo "Total commits across all repos: $TOTAL"
+          echo "TOTAL_COMMITS=$TOTAL" >> "$GITHUB_ENV"
+          echo "Total commits: $TOTAL"
 
       - name: Fetch PR and issue counts
         run: |
+          set -euo pipefail
           PRS=$(gh api "search/issues?q=author:0xProgress+is:pr&per_page=1" --jq '.total_count' 2>/dev/null || echo 0)
           ISSUES=$(gh api "search/issues?q=author:0xProgress+is:issue&per_page=1" --jq '.total_count' 2>/dev/null || echo 0)
-          echo "PRS=$PRS" >> $GITHUB_ENV
-          echo "ISSUES=$ISSUES" >> $GITHUB_ENV
-          echo "PRs: $PRS, Issues: $ISSUES"
+          echo "PRS=$PRS" >> "$GITHUB_ENV"
+          echo "ISSUES=$ISSUES" >> "$GITHUB_ENV"
 
       - name: Fetch languages for each repo
         run: |
+          set -euo pipefail
           echo '{}' > languages.json
-          for repo in $(jq -r '.name' repos.json); do
-            echo "Fetching languages for $repo..."
-            langs=$(gh api repos/0xProgress/$repo/languages --jq 'keys' 2>/dev/null || echo '[]')
-            jq --arg repo "$repo" --argjson langs "$langs" '. + {($repo): $langs}' languages.json > tmp && mv tmp languages.json
+          for repo in $(jq -r '.[].name' repos.json); do
+            langs=$(gh api "repos/0xProgress/$repo/languages" --jq 'keys' 2>/dev/null || echo '[]')
+            jq --arg repo "$repo" --argjson langs "$langs" \
+              '. + {($repo): $langs}' languages.json > tmp && mv tmp languages.json
           done
 
-      # ✅ NEW STEP: Get ONE latest commit per repo, then sort globally
       - name: Fetch latest commit per repository
         run: |
+          set -euo pipefail
           echo '[]' > all_latest_commits.json
-          
-          REPOS=$(jq -r '.name' repos.json)
-          for repo in $REPOS; do
-            echo "🔍 Checking latest commit for: $repo"
-            
-            # Fetch the single most recent commit from this repo
-            COMMIT_DATA=$(gh api "repos/0xProgress/$repo/commits?per_page=1" 2>/dev/null || echo "[]")
-            
-            # Safely extract data if it's a valid array and not empty
-            VALID_COMMIT=$(echo "$COMMIT_DATA" | jq 'if type == "array" and length > 0 then .[0] else null end' 2>/dev/null || echo "null")
-            
-            if [ "$VALID_COMMIT" != "null" ] && [ -n "$VALID_COMMIT" ]; then
-              SHA=$(echo "$VALID_COMMIT" | jq -r '.sha')
-              DATE=$(echo "$VALID_COMMIT" | jq -r '.commit.committer.date')
-              MSG=$(echo "$VALID_COMMIT" | jq -r '.commit.message | split("\n")[0]')
-              
-              # Add to our global list
-              jq --arg repo "$repo" --arg sha "$SHA" --arg date "$DATE" --arg msg "$MSG" \
-                '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' all_latest_commits.json > tmp && mv tmp all_latest_commits.json
+          for repo in $(jq -r '.[].name' repos.json); do
+            data=$(gh api "repos/0xProgress/$repo/commits?per_page=1" 2>/dev/null || echo "[]")
+            valid=$(echo "$data" | jq 'if type == "array" and length > 0 then .[0] else null end' 2>/dev/null || echo null)
+            if [ "$valid" != "null" ] && [ -n "$valid" ]; then
+              sha=$(echo "$valid" | jq -r '.sha')
+              date=$(echo "$valid" | jq -r '.commit.committer.date')
+              msg=$(echo "$valid" | jq -r '.commit.message | split("\n")[0]')
+              jq --arg repo "$repo" --arg sha "$sha" --arg date "$date" --arg msg "$msg" \
+                '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' \
+                all_latest_commits.json > tmp && mv tmp all_latest_commits.json
             fi
           done
+          # Sort newest first, filter bot/CI noise, keep top 8
+          jq '[ .[]
+                | select(.message | test("\\[skip ci\\]"; "i") | not)
+              ]
+              | sort_by(.date) | reverse | .[:8]' \
+            all_latest_commits.json > recent_commits.json
 
-          # Sort all collected commits by date (newest first) and take the top 6
-          jq 'sort_by(.date) | reverse | .[:6]' all_latest_commits.json > recent_commits.json
-          
-          echo "✅ Selected top 6 unique repository activities:"
-          jq -r '.[] | "- \(.repo): \(.message)"' recent_commits.json
-
-      - name: Build final site-data.json
+      - name: Build data/site-data.json
         run: |
-          jq -s '{projects: ., commits: [], totalCommits: $ENV.TOTAL_COMMITS, currentFocus: "Golang"}' repos.json > site-data.json
+          set -euo pipefail
+          mkdir -p data
 
-          jq --arg prs "$PRS" --arg issues "$ISSUES" '.totalPRs = $prs | .totalIssues = $issues' site-data.json > tmp && mv tmp site-data.json
+          jq -n \
+            --slurpfile projects repos.json \
+            --slurpfile commits recent_commits.json \
+            --arg total "$TOTAL_COMMITS" \
+            --arg prs "$PRS" \
+            --arg issues "$ISSUES" \
+            --arg now "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
+            '{
+              projects: $projects[0],
+              commits: $commits[0],
+              totalCommits: ($total | tonumber? // 0),
+              totalPRs:     ($prs   | tonumber? // 0),
+              totalIssues:  ($issues| tonumber? // 0),
+              currentFocus: "Golang",
+              updatedAt:    $now
+            }' > data/site-data.json
 
-          jq --slurpfile commits recent_commits.json '.commits = $commits[0]' site-data.json > tmp && mv tmp site-data.json
-
-          jq --arg date "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" '.updatedAt = $date' site-data.json > tmp && mv tmp site-data.json
-
-          for repo in $(jq -r '.projects[].name' site-data.json); do
+          # Attach tech + status + repoUrl + displayName per repo
+          for repo in $(jq -r '.projects[].name' data/site-data.json); do
             langs=$(jq --arg repo "$repo" '.[$repo] // []' languages.json)
             jq --arg repo "$repo" --argjson langs "$langs" \
-              '.projects |= map(if .name == $repo then . + {tech: $langs} else . end)' site-data.json > tmp && mv tmp site-data.json
+              '.projects |= map(
+                if .name == $repo then . + {tech: $langs} else . end
+              )' data/site-data.json > tmp && mv tmp data/site-data.json
           done
 
-          jq '.projects |= map(. + {tech: (if .tech and (.tech | length) > 0 then .tech else [.language] | map(select(. != null and . != "null")) end)})' site-data.json > tmp && mv tmp site-data.json
+          # Fallback tech, status by age, display name, repoUrl
+          jq '
+            .projects |= map(
+              . + {
+                tech: (if (.tech // []) | length > 0
+                       then .tech
+                       else ([.language] | map(select(. != null and . != "null")))
+                       end)
+              }
+              | . + {
+                status: (
+                  try (
+                    if (now - (.updated_at | fromdate)) < 2592000 then "Active"
+                    elif (now - (.updated_at | fromdate)) < 7776000 then "Maintenance"
+                    else "Stable"
+                    end
+                  ) catch "Stable"
+                )
+              }
+              | . + {
+                displayName: (
+                  .name
+                  | gsub("-"; " ")
+                  | split(" ")
+                  | map(if length > 0 then (.[0:1] | ascii_upcase) + .[1:] else . end)
+                  | join(" ")
+                )
+              }
+              | . + { repoUrl: .html_url }
+            )
+            | .projects |= map(select(.description != null and .description != ""))
+          ' data/site-data.json > tmp && mv tmp data/site-data.json
 
-          jq '.projects |= map(. + {status: (try (if (now - (.updated_at | fromdate)) < 2592000 then "Active" elif (now - (.updated_at | fromdate)) < 7776000 then "Maintenance" else "Stable" end) catch "Stable")})' site-data.json > tmp && mv tmp site-data.json
+          # Reformat commit dates for display
+          jq '
+            .commits |= map({
+              username: "0xProgress",
+              repo: (.repo // "unknown"),
+              message: (.message // "No message"),
+              date: (try (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d")) catch "")
+            })
+          ' data/site-data.json > tmp && mv tmp data/site-data.json
 
-          jq '.projects |= map(select(.description != null and .description != "" and .description != ":root repo"))' site-data.json > tmp && mv tmp site-data.json
-
-          jq '.projects |= map(. + {repoUrl: .html_url})' site-data.json > tmp && mv tmp site-data.json
-
-          jq '.commits |= map({
-            username: "0xProgress",
-            repo: (.repo // "unknown"),
-            message: (.message // "No message"),
-            date: (try (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d")) catch "")
-          })' site-data.json > tmp && mv tmp site-data.json
-
-          if [ "$(jq '.commits | length' site-data.json)" -eq 0 ]; then
+          if [ "$(jq '.commits | length' data/site-data.json)" -eq 0 ]; then
             jq '.commits = [{
               username: "0xProgress",
               repo: "0xProgress",
-              message: "No recent commits — building something soon.",
+              message: "Building something soon.",
               date: ""
-            }]' site-data.json > tmp && mv tmp site-data.json
+            }]' data/site-data.json > tmp && mv tmp data/site-data.json
           fi
 
-      - name: Create data directory
-        run: mkdir -p data
+      - name: Regenerate sitemap.xml
+        run: |
+          set -euo pipefail
+          TODAY=$(date -u +'%Y-%m-%d')
+          cat > sitemap.xml <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url>
+              <loc>https://0xprogress.github.io/</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>weekly</changefreq>
+              <priority>1.0</priority>
+            </url>
+          </urlset>
+          EOF
+          # jq -e verifies it's well-formed XML before we commit
+          xmllint --noout sitemap.xml 2>/dev/null || python3 -c "import xml.dom.minidom,sys; xml.dom.minidom.parse('sitemap.xml')"
 
-      - name: Move site-data.json to data
-        run: mv site-data.json data/site-data.json
+      - name: Ensure .nojekyll and robots.txt
+        run: |
+          set -euo pipefail
+          touch .nojekyll
+          if [ ! -f robots.txt ]; then
+            cat > robots.txt <<'EOF'
+          User-agent: *
+          Allow: /
+
+          Sitemap: https://0xprogress.github.io/sitemap.xml
+          EOF
+          fi
 
       - name: Commit and push
         run: |
+          set -euo pipefail
           git config user.name "0xProgress"
           git config user.email "progressuwhuseba@gmail.com"
-          git add data/site-data.json
-          git diff --staged --quiet || git commit -m "Automatic update for site data [skip ci]"
-          git push
+          git add data/site-data.json sitemap.xml .nojekyll robots.txt
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: auto-update site data + sitemap [skip ci]"
+            git push
+          fi
