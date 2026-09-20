@@ -1,25 +1,12 @@
 {
   "projects": [
     {
-      "description": "Self-hosted Android ↔ Linux desktop bridge. No cloud. No accounts.",
-      "html_url": "https://github.com/0xProgress/0xmobilehub",
-      "language": "Go",
-      "name": "0xmobilehub",
-      "topics": [],
-      "updated_at": "2026-08-22T17:13:22Z",
-      "tech": [
-        "Go"
-      ],
-      "status": "Active",
-      "repoUrl": "https://github.com/0xProgress/0xmobilehub"
-    },
-    {
       "description": "0xProgress.github.io",
       "html_url": "https://github.com/0xProgress/0xProgress.github.io",
       "language": "HTML",
       "name": "0xProgress.github.io",
       "topics": [],
-      "updated_at": "2026-09-09T19:58:08Z",
+      "updated_at": "2026-09-13T03:11:15Z",
       "tech": [
         "HTML"
       ],
@@ -42,17 +29,6 @@
       "repoUrl": "https://github.com/0xProgress/AI-Medical-Triage"
     },
     {
-      "description": "Self-hosted WhatsApp bot framework. Plugins, dashboard, multi-session.",
-      "html_url": "https://github.com/0xProgress/Avlast-MD",
-      "language": null,
-      "name": "Avlast-MD",
-      "topics": [],
-      "updated_at": "2026-06-10T13:12:26Z",
-      "tech": [],
-      "status": "Stable",
-      "repoUrl": "https://github.com/0xProgress/Avlast-MD"
-    },
-    {
       "description": "Compare .env files in one command. Zero config.",
       "html_url": "https://github.com/0xProgress/envdiff",
       "language": "Python",
@@ -65,46 +41,6 @@
       ],
       "status": "Stable",
       "repoUrl": "https://github.com/0xProgress/envdiff"
-    },
-    {
-      "description": "Boot.Dev AI Agent task.. Might iterate later on",
-      "html_url": "https://github.com/0xProgress/glowing-fiesta",
-      "language": "Python",
-      "name": "glowing-fiesta",
-      "topics": [],
-      "updated_at": "2026-08-17T15:11:51Z",
-      "tech": [
-        "Python"
-      ],
-      "status": "Active",
-      "repoUrl": "https://github.com/0xProgress/glowing-fiesta"
-    },
-    {
-      "description": "Official Repo of Roommate Discord Bot",
-      "html_url": "https://github.com/0xProgress/ideal-potato",
-      "language": "Python",
-      "name": "ideal-potato",
-      "topics": [],
-      "updated_at": "2026-08-28T13:12:24Z",
-      "tech": [
-        "Python"
-      ],
-      "status": "Active",
-      "repoUrl": "https://github.com/0xProgress/ideal-potato"
-    },
-    {
-      "description": "Compare exam halls, times, and batches with any classmate, directly from the school docket",
-      "html_url": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator",
-      "language": "HTML",
-      "name": "LASUED-Exam-Schedule-Comparator",
-      "topics": [],
-      "updated_at": "2026-06-16T18:17:41Z",
-      "tech": [
-        "HTML",
-        "Python"
-      ],
-      "status": "Maintenance",
-      "repoUrl": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator"
     },
     {
       "description": "Retry any command with exponential backoff",
@@ -122,60 +58,94 @@
       "repoUrl": "https://github.com/0xProgress/retry"
     },
     {
-      "description": "Asteroids game task from boot.dev",
-      "html_url": "https://github.com/0xProgress/verbose-lamp",
-      "language": "Python",
-      "name": "verbose-lamp",
-      "topics": [],
-      "updated_at": "2026-07-28T21:46:50Z",
-      "tech": [
-        "Python"
+      "description": "Block until a condition is true, or tell you exactly why it wasn't.",
+      "html_url": "https://github.com/0xProgress/waitfor",
+      "language": "Go",
+      "name": "waitfor",
+      "topics": [
+        "ci-cd",
+        "cli",
+        "devops",
+        "devtools",
+        "golang",
+        "healthcheck",
+        "self-hosted",
+        "testing"
       ],
-      "status": "Maintenance",
-      "repoUrl": "https://github.com/0xProgress/verbose-lamp"
+      "updated_at": "2026-09-18T20:39:24Z",
+      "tech": [
+        "Go",
+        "Makefile"
+      ],
+      "status": "Active",
+      "repoUrl": "https://github.com/0xProgress/waitfor"
+    },
+    {
+      "description": "The Unix pipe for webhooks. Receive, verify, and stream webhook events to stdout.",
+      "html_url": "https://github.com/0xProgress/webhookd",
+      "language": "Go",
+      "name": "webhookd",
+      "topics": [
+        "cli",
+        "devtools",
+        "golang",
+        "jsonl",
+        "self-hosted",
+        "stdout",
+        "unix-pipe",
+        "webhooks"
+      ],
+      "updated_at": "2026-09-17T17:08:51Z",
+      "tech": [
+        "Dockerfile",
+        "Go",
+        "Makefile"
+      ],
+      "status": "Active",
+      "repoUrl": "https://github.com/0xProgress/webhookd"
     }
   ],
   "commits": [
     {
       "username": "0xProgress",
       "repo": "0xProgress",
-      "message": "Delete 2026 goals from README",
-      "date": "Sep 12"
+      "message": "📊 Update stats and commits [skip ci]",
+      "date": "Sep 19"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "waitfor",
+      "message": "ci: pin actions to commit SHAs",
+      "date": "Sep 18"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "webhookd",
+      "message": "test: close HTTP response bodies in server tests to satisfy lint (#8)",
+      "date": "Sep 17"
     },
     {
       "username": "0xProgress",
       "repo": "0xProgress.github.io",
       "message": "Automatic update for site data [skip ci]",
-      "date": "Sep 09"
+      "date": "Sep 13"
     },
     {
       "username": "0xProgress",
-      "repo": "simlife",
-      "message": "450+ errors, I'll ix them all",
-      "date": "Sep 04"
+      "repo": "retry",
+      "message": "retry: initial release",
+      "date": "Jul 16"
     },
     {
       "username": "0xProgress",
-      "repo": "ideal-potato",
-      "message": "Update CNAME",
-      "date": "Aug 28"
-    },
-    {
-      "username": "0xProgress",
-      "repo": "didactic-bassoon",
-      "message": "Add files via upload",
-      "date": "Aug 27"
-    },
-    {
-      "username": "0xProgress",
-      "repo": "0xmobilehub",
-      "message": "fix - attempt 1 to wire implementation for complete feature set with real-time device sync, notifications, clipboard, SMS, calls, file transfer, and settings UI",
-      "date": "Aug 22"
+      "repo": "AI-Medical-Triage",
+      "message": "fix: handle base64 PDF response and clean up unused frontend features",
+      "date": "Jun 27"
     }
   ],
-  "totalCommits": "163",
+  "totalCommits": "143",
   "currentFocus": "Golang",
-  "totalPRs": "10",
+  "totalPRs": "14",
   "totalIssues": "1",
-  "updatedAt": "2026-09-13T03:11:10Z"
+  "updatedAt": "2026-09-20T03:25:54Z"
 }
