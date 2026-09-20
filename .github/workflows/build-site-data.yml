@@ -18,43 +18,68 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.PAT_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Fetch repository list (exclude self-repo, sort by recency)
+      - name: Verify token sees private repos
         run: |
           set -euo pipefail
-          gh api users/0xProgress/repos --paginate \
+          echo "Authenticated as: $(gh api user --jq '.login')"
+          n=$(gh api "user/repos?visibility=private&affiliation=owner" --jq 'length')
+          echo "Private repos visible: $n"
+          if [ "$n" -eq 0 ]; then
+            echo "::error::PAT_TOKEN cannot see private repos. Check its Repository access is 'All repositories'."
+            exit 1
+          fi
+
+      - name: Fetch repository list
+        run: |
+          set -euo pipefail
+          gh api "user/repos?visibility=all&affiliation=owner&per_page=100" --paginate \
             --jq '.[]
                   | select(.fork == false)
+                  | select(.archived == false)
                   | select(.name != "0xProgress.github.io")
+                  | select(.name != "0xProgress")
+                  | select(.description != ":root repo")
                   | {
                       name: .name,
                       description: .description,
                       html_url: .html_url,
                       topics: .topics,
                       language: .language,
+                      private: .private,
                       updated_at: .updated_at
                     }' > repos.ndjson
+
           jq -s 'sort_by(.updated_at) | reverse' repos.ndjson > repos.json
-          echo "Repos: $(jq 'length' repos.json)"
+
+          total=$(jq 'length' repos.json)
+          priv=$(jq '[.[] | select(.private)] | length' repos.json)
+          echo "Repos: $total (private: $priv, public: $((total - priv)))"
+
+          if [ "$total" -eq 0 ]; then
+            echo "::error::No repos returned."
+            exit 1
+          fi
 
       - name: Compute total commits
         run: |
           set -euo pipefail
           TOTAL=0
           for repo in $(jq -r '.[].name' repos.json); do
-            contrib=$(gh api "repos/0xProgress/$repo/contributors" \
+            contrib=$(gh api "repos/0xProgress/$repo/contributors?per_page=100&anon=false" \
               --jq '.[] | select(.login == "0xProgress") | .contributions' 2>/dev/null || true)
             contrib=${contrib:-0}
             TOTAL=$((TOTAL + contrib))
+            printf '  %-30s %s\n' "$repo" "$contrib"
           done
           echo "TOTAL_COMMITS=$TOTAL" >> "$GITHUB_ENV"
-          echo "Total commits: $TOTAL"
+          echo "Total: $TOTAL"
 
       - name: Fetch PR and issue counts
         run: |
@@ -63,8 +88,9 @@ jobs:
           ISSUES=$(gh api "search/issues?q=author:0xProgress+is:issue&per_page=1" --jq '.total_count' 2>/dev/null || echo 0)
           echo "PRS=$PRS" >> "$GITHUB_ENV"
           echo "ISSUES=$ISSUES" >> "$GITHUB_ENV"
+          echo "PRs: $PRS  Issues: $ISSUES"
 
-      - name: Fetch languages for each repo
+      - name: Fetch languages per repo
         run: |
           set -euo pipefail
           echo '{}' > languages.json
@@ -74,7 +100,7 @@ jobs:
               '. + {($repo): $langs}' languages.json > tmp && mv tmp languages.json
           done
 
-      - name: Fetch latest commit per repository
+      - name: Fetch latest commit per repo
         run: |
           set -euo pipefail
           echo '[]' > all_latest_commits.json
@@ -90,9 +116,9 @@ jobs:
                 all_latest_commits.json > tmp && mv tmp all_latest_commits.json
             fi
           done
-          # Sort newest first, filter bot/CI noise, keep top 8
+
           jq '[ .[]
-                | select(.message | test("\\[skip ci\\]"; "i") | not)
+                | select(.message | test("\\[skip ci\\]|Automatic update|^chore: auto-update"; "i") | not)
               ]
               | sort_by(.date) | reverse | .[:8]' \
             all_latest_commits.json > recent_commits.json
@@ -119,16 +145,13 @@ jobs:
               updatedAt:    $now
             }' > data/site-data.json
 
-          # Attach tech + status + repoUrl + displayName per repo
           for repo in $(jq -r '.projects[].name' data/site-data.json); do
             langs=$(jq --arg repo "$repo" '.[$repo] // []' languages.json)
             jq --arg repo "$repo" --argjson langs "$langs" \
-              '.projects |= map(
-                if .name == $repo then . + {tech: $langs} else . end
-              )' data/site-data.json > tmp && mv tmp data/site-data.json
+              '.projects |= map(if .name == $repo then . + {tech: $langs} else . end)' \
+              data/site-data.json > tmp && mv tmp data/site-data.json
           done
 
-          # Fallback tech, status by age, display name, repoUrl
           jq '
             .projects |= map(
               . + {
@@ -150,7 +173,7 @@ jobs:
               | . + {
                 displayName: (
                   .name
-                  | gsub("-"; " ")
+                  | gsub("-"; " ") | gsub("_"; " ")
                   | split(" ")
                   | map(if length > 0 then (.[0:1] | ascii_upcase) + .[1:] else . end)
                   | join(" ")
@@ -161,11 +184,11 @@ jobs:
             | .projects |= map(select(.description != null and .description != ""))
           ' data/site-data.json > tmp && mv tmp data/site-data.json
 
-          # Reformat commit dates for display
           jq '
             .commits |= map({
               username: "0xProgress",
               repo: (.repo // "unknown"),
+              sha: (.sha // ""),
               message: (.message // "No message"),
               date: (try (.date | split("T")[0] | strptime("%Y-%m-%d") | strftime("%b %d")) catch "")
             })
@@ -175,6 +198,7 @@ jobs:
             jq '.commits = [{
               username: "0xProgress",
               repo: "0xProgress",
+              sha: "",
               message: "Building something soon.",
               date: ""
             }]' data/site-data.json > tmp && mv tmp data/site-data.json
@@ -195,8 +219,7 @@ jobs:
             </url>
           </urlset>
           EOF
-          # jq -e verifies it's well-formed XML before we commit
-          xmllint --noout sitemap.xml 2>/dev/null || python3 -c "import xml.dom.minidom,sys; xml.dom.minidom.parse('sitemap.xml')"
+          xmllint --noout sitemap.xml 2>/dev/null || python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('sitemap.xml')"
 
       - name: Ensure .nojekyll and robots.txt
         run: |
@@ -218,7 +241,7 @@ jobs:
           git config user.email "progressuwhuseba@gmail.com"
           git add data/site-data.json sitemap.xml .nojekyll robots.txt
           if git diff --staged --quiet; then
-            echo "No changes to commit."
+            echo "No changes."
           else
             git commit -m "chore: auto-update site data + sitemap [skip ci]"
             git push
