@@ -703,6 +703,182 @@
                 color: var(--text);
             }
 
+            /* =====================================================================
+               MOBILE — one section per screen
+               Everything below only applies at ≤767px. Desktop is untouched.
+               ===================================================================== */
+            @media (max-width: 767px) {
+                /* The page becomes a snap scroller, so a section locks to the
+                   top of the screen instead of bleeding into the next one. */
+                html {
+                    scroll-snap-type: y proximity;
+                    /* Want a harder, one-slide-at-a-time feel? Swap
+                       `proximity` for `mandatory`. It can feel sticky on
+                       sections taller than the screen, so proximity is safer. */
+                }
+
+                body {
+                    -webkit-tap-highlight-color: transparent;
+                }
+
+                .container {
+                    padding-left: max(20px, env(safe-area-inset-left));
+                    padding-right: max(20px, env(safe-area-inset-right));
+                }
+
+                /* ---------- 1 screen = 1 section ---------- */
+                main > section,
+                main > .hero {
+                    min-height: 100vh; /* fallback for old browsers */
+                    min-height: 100svh; /* fits even with the mobile URL bar */
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    justify-content: safe center; /* never clip tall content */
+                    scroll-snap-align: start;
+                    scroll-snap-stop: always;
+                    padding: 76px 0 48px;
+                }
+
+                /* ---------- header ---------- */
+                .header-inner {
+                    height: 56px;
+                }
+                .brand {
+                    font-size: 14px;
+                }
+                .nav {
+                    gap: 0;
+                }
+                .nav a {
+                    font-size: 11.5px;
+                    padding: 10px 7px;
+                    white-space: nowrap;
+                }
+
+                /* ---------- hero ---------- */
+                .hero-eyebrow {
+                    font-size: 11px;
+                    padding: 5px 10px;
+                    margin-bottom: 20px;
+                }
+                .hero h1 {
+                    font-size: clamp(38px, 13vw, 56px);
+                    margin-bottom: 18px;
+                }
+                .hero-sub {
+                    font-size: 16px;
+                    line-height: 1.55;
+                    margin-bottom: 28px;
+                }
+
+                /* ---------- shared: full-width, thumb-friendly buttons ---------- */
+                .hero-actions,
+                .contact-actions {
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 10px;
+                }
+                .btn {
+                    width: 100%;
+                    justify-content: center;
+                    min-height: 48px;
+                    padding: 13px 16px;
+                    font-size: 12.5px;
+                }
+
+                /* ---------- section headings ---------- */
+                .section-head {
+                    gap: 10px;
+                    margin-bottom: 20px;
+                }
+                .section-tag {
+                    font-size: 11px;
+                }
+                .section-title {
+                    font-size: 20px;
+                }
+
+                /* ---------- about ---------- */
+                .about-grid {
+                    gap: 22px;
+                }
+                .about-text {
+                    font-size: 15px;
+                    line-height: 1.65;
+                }
+                .about-text p + p {
+                    margin-top: 0.9em;
+                }
+                .about-meta {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 14px 12px;
+                    padding: 16px;
+                }
+                .meta-label {
+                    font-size: 10px;
+                }
+                .meta-value {
+                    font-size: 13px;
+                }
+
+                /* ---------- work ---------- */
+                .work-grid {
+                    gap: 10px;
+                }
+                .project {
+                    gap: 8px;
+                    padding: 16px;
+                }
+                .project h3 {
+                    font-size: 14px;
+                }
+                .project-desc {
+                    font-size: 13px;
+                    -webkit-line-clamp: 2;
+                }
+                .project-tech span {
+                    font-size: 10px;
+                    padding: 2px 6px;
+                }
+
+                /* ---------- feed ---------- */
+                .feed-row {
+                    padding: 12px 14px;
+                    font-size: 12px;
+                }
+                .feed-repo {
+                    font-size: 12.5px;
+                }
+                .feed-empty {
+                    padding: 24px 16px;
+                    font-size: 12px;
+                }
+
+                /* ---------- contact ---------- */
+                .contact-inner {
+                    gap: 22px;
+                    width: 100%;
+                }
+                .contact-line {
+                    font-size: clamp(22px, 7vw, 30px);
+                    max-width: none;
+                }
+
+                /* ---------- footer ---------- */
+                footer {
+                    padding: 24px 0;
+                    margin-top: 0;
+                }
+                .footer-inner {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                    font-size: 11px;
+                }
+            }
+
             @media (prefers-reduced-motion: reduce) {
                 *,
                 *::before,
