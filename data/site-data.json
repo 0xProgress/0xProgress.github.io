@@ -1,22 +1,26 @@
 {
   "projects": [
     {
-      "description": ":root repo",
-      "html_url": "https://github.com/0xProgress/0xProgress",
-      "language": null,
-      "name": "0xProgress",
+      "description": "0xProgress.github.io",
+      "html_url": "https://github.com/0xProgress/0xProgress.github.io",
+      "language": "HTML",
+      "name": "0xProgress.github.io",
+      "private": false,
       "topics": [],
-      "updated_at": "2026-09-19T07:30:43Z",
-      "tech": [],
+      "updated_at": "2026-09-22T13:06:33Z",
+      "tech": [
+        "HTML"
+      ],
       "status": "Active",
-      "displayName": "0xProgress",
-      "repoUrl": "https://github.com/0xProgress/0xProgress"
+      "displayName": "0xProgress.github.io",
+      "repoUrl": "https://github.com/0xProgress/0xProgress.github.io"
     },
     {
       "description": "Block until a condition is true, or tell you exactly why it wasn't.",
       "html_url": "https://github.com/0xProgress/waitfor",
       "language": "Go",
       "name": "waitfor",
+      "private": false,
       "topics": [
         "ci-cd",
         "cli",
@@ -41,6 +45,7 @@
       "html_url": "https://github.com/0xProgress/webhookd",
       "language": "Go",
       "name": "webhookd",
+      "private": false,
       "topics": [
         "cli",
         "devtools",
@@ -62,10 +67,147 @@
       "repoUrl": "https://github.com/0xProgress/webhookd"
     },
     {
+      "description": "Design your discord sever easily(with core preset)",
+      "html_url": "https://github.com/0xProgress/redesigned-spork",
+      "language": "TypeScript",
+      "name": "redesigned-spork",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-09-16T13:01:44Z",
+      "tech": [
+        "CSS",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "status": "Active",
+      "displayName": "Redesigned Spork",
+      "repoUrl": "https://github.com/0xProgress/redesigned-spork"
+    },
+    {
+      "description": "Self-hosted WhatsApp bot framework. Plugins, dashboard, multi-session.",
+      "html_url": "https://github.com/0xProgress/Avlast-MD",
+      "language": null,
+      "name": "Avlast-MD",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-09-16T12:52:25Z",
+      "tech": [],
+      "status": "Active",
+      "displayName": "Avlast MD",
+      "repoUrl": "https://github.com/0xProgress/Avlast-MD"
+    },
+    {
+      "description": "Compare exam halls, times, and batches with any classmate, directly from the school docket",
+      "html_url": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator",
+      "language": "HTML",
+      "name": "LASUED-Exam-Schedule-Comparator",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-09-16T12:52:24Z",
+      "tech": [
+        "HTML",
+        "Python"
+      ],
+      "status": "Active",
+      "displayName": "LASUED Exam Schedule Comparator",
+      "repoUrl": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator"
+    },
+    {
+      "description": "Asteroids game task from boot.dev",
+      "html_url": "https://github.com/0xProgress/verbose-lamp",
+      "language": "Python",
+      "name": "verbose-lamp",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-09-16T12:52:20Z",
+      "tech": [
+        "Python"
+      ],
+      "status": "Active",
+      "displayName": "Verbose Lamp",
+      "repoUrl": "https://github.com/0xProgress/verbose-lamp"
+    },
+    {
+      "description": "Boot.Dev AI Agent task.. Might iterate later on",
+      "html_url": "https://github.com/0xProgress/glowing-fiesta",
+      "language": "Python",
+      "name": "glowing-fiesta",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-09-16T12:52:18Z",
+      "tech": [
+        "Python"
+      ],
+      "status": "Active",
+      "displayName": "Glowing Fiesta",
+      "repoUrl": "https://github.com/0xProgress/glowing-fiesta"
+    },
+    {
+      "description": "Self-hosted Android ↔ Linux desktop bridge. No cloud. No accounts.",
+      "html_url": "https://github.com/0xProgress/0xmobilehub",
+      "language": "Go",
+      "name": "0xmobilehub",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-09-16T12:52:17Z",
+      "tech": [
+        "Go"
+      ],
+      "status": "Active",
+      "displayName": "0xmobilehub",
+      "repoUrl": "https://github.com/0xProgress/0xmobilehub"
+    },
+    {
+      "description": "Official Repo of Roommate Discord Bot",
+      "html_url": "https://github.com/0xProgress/ideal-potato",
+      "language": "Python",
+      "name": "ideal-potato",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-09-16T12:52:13Z",
+      "tech": [
+        "Python"
+      ],
+      "status": "Active",
+      "displayName": "Ideal Potato",
+      "repoUrl": "https://github.com/0xProgress/ideal-potato"
+    },
+    {
+      "description": "The android plugin for desktop connection - V2",
+      "html_url": "https://github.com/0xProgress/0xmobile-v2-android",
+      "language": "Kotlin",
+      "name": "0xmobile-v2-android",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-08-22T21:34:31Z",
+      "tech": [
+        "Kotlin"
+      ],
+      "status": "Maintenance",
+      "displayName": "0xmobile V2 Android",
+      "repoUrl": "https://github.com/0xProgress/0xmobile-v2-android"
+    },
+    {
+      "description": "The android plugin for desktop connection",
+      "html_url": "https://github.com/0xProgress/0xmobile-android",
+      "language": "Kotlin",
+      "name": "0xmobile-android",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-08-22T11:58:01Z",
+      "tech": [
+        "Kotlin"
+      ],
+      "status": "Maintenance",
+      "displayName": "0xmobile Android",
+      "repoUrl": "https://github.com/0xProgress/0xmobile-android"
+    },
+    {
       "description": "Retry any command with exponential backoff",
       "html_url": "https://github.com/0xProgress/retry",
       "language": "Go",
       "name": "retry",
+      "private": false,
       "topics": [],
       "updated_at": "2026-07-18T13:07:14Z",
       "tech": [
@@ -82,6 +224,7 @@
       "html_url": "https://github.com/0xProgress/AI-Medical-Triage",
       "language": "TypeScript",
       "name": "AI-Medical-Triage",
+      "private": false,
       "topics": [],
       "updated_at": "2026-06-27T15:03:29Z",
       "tech": [
@@ -98,6 +241,7 @@
       "html_url": "https://github.com/0xProgress/envdiff",
       "language": "Python",
       "name": "envdiff",
+      "private": false,
       "topics": [],
       "updated_at": "2026-06-02T19:29:05Z",
       "tech": [
@@ -112,38 +256,64 @@
   "commits": [
     {
       "username": "0xProgress",
+      "repo": "0xProgress.github.io",
+      "sha": "16f83e343ff0303d5dbe75620c3bc4e600577f96",
+      "message": "refactor: Change overall UI of the web",
+      "date": "Sep 22"
+    },
+    {
+      "username": "0xProgress",
       "repo": "waitfor",
+      "sha": "6572a11b19da67965c4615b63bd351a04ad11be1",
       "message": "ci: pin actions to commit SHAs",
       "date": "Sep 18"
     },
     {
       "username": "0xProgress",
+      "repo": "verbose-octo-fortnight",
+      "sha": "84db723f0e2bf457047b10161ee21b15c2d0f975",
+      "message": "Refactor CI workflow with separate jobs",
+      "date": "Sep 18"
+    },
+    {
+      "username": "0xProgress",
       "repo": "webhookd",
+      "sha": "755638be1d4bfbbf9f5bd4d14f8eff68e805b8f3",
       "message": "test: close HTTP response bodies in server tests to satisfy lint (#8)",
       "date": "Sep 17"
     },
     {
       "username": "0xProgress",
-      "repo": "retry",
-      "message": "retry: initial release",
-      "date": "Jul 16"
+      "repo": "redesigned-spork",
+      "sha": "402b04cc56d1446a1a882caa6df18b3d984cf7fb",
+      "message": "- Refactor code structure for improved readability and maintainability",
+      "date": "Sep 06"
     },
     {
       "username": "0xProgress",
-      "repo": "AI-Medical-Triage",
-      "message": "fix: handle base64 PDF response and clean up unused frontend features",
-      "date": "Jun 27"
+      "repo": "simlife",
+      "sha": "245b7cce6e21e02c6e2972117cfa800d88a5c677",
+      "message": "450+ errors, I'll ix them all",
+      "date": "Sep 04"
     },
     {
       "username": "0xProgress",
-      "repo": "envdiff",
-      "message": "Update GitHub Actions workflow for tests",
-      "date": "Jun 02"
+      "repo": "ideal-potato",
+      "sha": "82a3ee00a34e8a7645296c969531de3067bd6b7c",
+      "message": "Update CNAME",
+      "date": "Aug 28"
+    },
+    {
+      "username": "0xProgress",
+      "repo": "0xmobile-v2-android",
+      "sha": "fc6522be28cadaad7698dd61edf626b264f63602",
+      "message": "build: initialize project structure and base configuration",
+      "date": "Aug 22"
     }
   ],
-  "totalCommits": 82,
-  "totalPRs": 14,
-  "totalIssues": 1,
+  "totalCommits": 165,
+  "totalPRs": 16,
+  "totalIssues": 2,
   "currentFocus": "Golang",
-  "updatedAt": "2026-09-20T20:13:13Z"
+  "updatedAt": "2026-09-22T13:07:05Z"
 }
