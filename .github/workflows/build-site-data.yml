@@ -43,7 +43,7 @@ jobs:
             --jq '.[]
                   | select(.fork == false)
                   | select(.archived == false)
-                  | select(.name != "0xProgress.github.io")
+                  | select(.name != "0xprogress.pages.dev")
                   | select(.name != "0xProgress")
                   | select(.description != ":root repo")
                   | {
@@ -212,7 +212,7 @@ jobs:
           <?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <url>
-              <loc>https://0xprogress.github.io/</loc>
+              <loc>https://0xprogress.pages.dev</loc>
               <lastmod>${TODAY}</lastmod>
               <changefreq>weekly</changefreq>
               <priority>1.0</priority>
@@ -230,7 +230,7 @@ jobs:
           User-agent: *
           Allow: /
 
-          Sitemap: https://0xprogress.github.io/sitemap.xml
+          Sitemap: https://0xprogress.pages.dev/sitemap.xml
           EOF
           fi
 

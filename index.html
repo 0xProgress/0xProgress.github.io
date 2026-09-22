@@ -1,16 +1,13 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <script>
-            document.documentElement.classList.replace("no-js", "js");
-        </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>0xProgress_ — Builder | Go · Python · AI Tools</title>
+        <title>0xProgress_ | Go · Python · AI Tools</title>
         <meta
             name="description"
-            content="I build tools that work. Fast, reliable, low-resource software. Go, Python, AI-accelerated. 0xProgress_ — builder, automator, problem solver."
+            content="I build tools that work. Fast, reliable, low-resource software in Go and Python."
         />
         <meta
             name="keywords"
@@ -18,108 +15,115 @@
         />
         <meta name="author" content="0xProgress" />
         <meta name="robots" content="index, follow" />
-        <meta
-            name="google-site-verification"
-            content="tSAUKgxpbjFOzU6vpfwR4dz9L-vrWuUYG5yCWXIfnTM"
-        />
 
-        <meta property="og:title" content="0xProgress_ — Builder" />
+        <meta property="og:title" content="0xProgress_" />
         <meta
             property="og:description"
-            content="I build tools that work. Fast, reliable, low-resource software. Go, Python, AI-accelerated."
+            content="I build tools that work. Fast, reliable, low-resource software."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://0xprogress.github.io/" />
+        <meta property="og:url" content="https://0xprogress.pages.dev" />
         <meta
             property="og:image"
-            content="https://0xprogress.github.io/favicon/og.png"
+            content="https://0xprogress.pages.dev/favicon/og.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
             property="og:image:alt"
-            content="0xProgress_ — Builder · Go · Python · AI Tools"
+            content="0xProgress_ | Go · Python · AI Tools"
         />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="0xProgress_ — Builder" />
+        <meta name="twitter:title" content="0xProgress_" />
         <meta
             name="twitter:description"
-            content="I build tools that work. Fast, reliable, low-resource software. Go, Python, AI-accelerated."
+            content="I build tools that work. Fast, reliable, low-resource software."
         />
         <meta name="twitter:creator" content="@0xProgress_" />
         <meta
             name="twitter:image"
-            content="https://0xprogress.github.io/favicon/og.png"
+            content="https://0xprogress.pages.dev/favicon/og.png"
         />
         <meta
             name="twitter:image:alt"
-            content="0xProgress_ — Builder · Go · Python · AI Tools"
+            content="0xProgress_ | Go · Python · AI Tools"
         />
 
-        <link rel="canonical" href="https://0xprogress.github.io/" />
+        <link rel="canonical" href="https://0xprogress.pages.dev" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"
         />
 
         <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="favicon/favicon-96x96.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="favicon/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="favicon/site.webmanifest" />
 
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "Person",
                 "name": "0xProgress_",
-                "url": "https://0xprogress.github.io/",
+                "url": "https://0xprogress.pages.dev",
                 "sameAs": [
                     "https://x.com/0xProgress_",
                     "https://github.com/0xProgress",
                     "https://github.com/BobbyX208"
                 ],
-                "description": "I build tools that work. Fast, reliable, low-resource software. Go, Python, AI-accelerated.",
-                "jobTitle": "Builder · Automator",
-                "knowsAbout": [
-                    "Golang",
-                    "Python",
-                    "CLI Tools",
-                    "Automation",
-                    "Open Source"
-                ]
+                "jobTitle": "Builder",
+                "knowsAbout": ["Golang", "Python", "CLI Tools", "Automation"]
             }
         </script>
 
         <style>
             :root {
-                --ink: #0a0a0a;
-                --paper: #f7f5ef;
-                --paper-dim: #efece3;
-                --red: #c41e1e;
-                --gray: #6b6b66;
-                --line: #d8d5cb;
-                --display: "Archivo Black", "Arial Black", sans-serif;
-                --mono: "JetBrains Mono", "Courier New", monospace;
-                --body: "Source Serif 4", Georgia, serif;
+                --bg: #ffffff;
+                --bg-subtle: #fafafa;
+                --bg-code: #f5f5f5;
+
+                --border: #eaeaea;
+                --border-strong: #d4d4d4;
+
+                --text: #0a0a0a;
+                --text-muted: #666666;
+                --text-subtle: #999999;
+
+                --accent: #e5484d;
+
+                --font:
+                    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    system-ui, sans-serif;
+                --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+                --radius: 6px;
+                --max: 1080px;
             }
 
-            * {
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #0a0a0a;
+                    --bg-subtle: #111111;
+                    --bg-code: #171717;
+                    --border: #1f1f1f;
+                    --border-strong: #2a2a2a;
+                    --text: #ededed;
+                    --text-muted: #888888;
+                    --text-subtle: #5c5c5c;
+                }
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
                 margin: 0;
                 padding: 0;
-                box-sizing: border-box;
+            }
+
+            html {
+                -webkit-text-size-adjust: 100%;
             }
 
             @media (prefers-reduced-motion: no-preference) {
@@ -129,1206 +133,716 @@
             }
 
             body {
-                background: var(--paper);
-                color: var(--ink);
-                font-family: var(--body);
+                font-family: var(--font);
+                font-size: 16px;
+                line-height: 1.6;
+                color: var(--text);
+                background: var(--bg);
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
                 overflow-x: hidden;
             }
-            body.has-cursor {
-                cursor: none;
+
+            a {
+                color: inherit;
+                text-decoration: none;
             }
 
-            @media (max-width: 900px), (hover: none) {
-                body.has-cursor {
-                    cursor: auto;
-                }
-                #ink-cursor,
-                #ink-cursor-trail {
-                    display: none;
-                }
+            button {
+                font: inherit;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: inherit;
             }
 
             ::selection {
-                background: var(--red);
-                color: var(--paper);
+                background: var(--text);
+                color: var(--bg);
+            }
+
+            :focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 3px;
+                border-radius: 2px;
+            }
+
+            .mono {
+                font-family: var(--mono);
+            }
+
+            .container {
+                max-width: var(--max);
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+
+            @media (min-width: 768px) {
+                .container {
+                    padding: 0 40px;
+                }
             }
 
             .skip-link {
                 position: absolute;
-                left: -9999px;
-                top: 0;
-                background: var(--ink);
-                color: var(--paper);
-                padding: 12px 20px;
-                z-index: 10000;
-                font-family: var(--mono);
-                font-size: 0.8rem;
-                text-decoration: none;
+                top: -100px;
+                left: 16px;
+                padding: 8px 14px;
+                background: var(--text);
+                color: var(--bg);
+                border-radius: var(--radius);
+                font-size: 13px;
+                z-index: 200;
+                transition: top 0.15s;
             }
             .skip-link:focus {
-                left: 12px;
-                top: 12px;
+                top: 16px;
             }
 
-            #ink-cursor {
-                position: fixed;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: var(--ink);
-                pointer-events: none;
-                z-index: 9999;
-                transform: translate3d(-50%, -50%, 0);
-                transition:
-                    width 0.2s,
-                    height 0.2s,
-                    background 0.2s;
-                will-change: transform;
-            }
-            #ink-cursor.bleed {
-                background: var(--red);
-                width: 34px;
-                height: 34px;
-                filter: blur(1px);
-            }
-            #ink-cursor-trail {
-                position: fixed;
-                width: 26px;
-                height: 26px;
-                border-radius: 50%;
-                border: 1.5px solid var(--ink);
-                pointer-events: none;
-                z-index: 9998;
-                transform: translate3d(-50%, -50%, 0);
-                transition:
-                    width 0.3s,
-                    height 0.3s,
-                    border-color 0.3s,
-                    opacity 0.3s;
-                opacity: 0.35;
-                will-change: transform;
-            }
-            #ink-cursor-trail.bleed {
-                border-color: var(--red);
-                width: 54px;
-                height: 54px;
-                opacity: 0.5;
-            }
-
-            .paper-grain {
-                position: fixed;
-                inset: 0;
-                pointer-events: none;
-                z-index: 1;
-                opacity: 0.5;
-                mix-blend-mode: multiply;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            }
-
-            nav {
-                position: fixed;
+            .site-header {
+                position: sticky;
                 top: 0;
-                left: 0;
-                right: 0;
-                z-index: 100;
+                z-index: 50;
+                background: color-mix(in srgb, var(--bg) 80%, transparent);
+                backdrop-filter: saturate(1.8) blur(12px);
+                -webkit-backdrop-filter: saturate(1.8) blur(12px);
+                border-bottom: 1px solid transparent;
+                transition: border-color 0.2s;
+            }
+            .site-header.scrolled {
+                border-bottom-color: var(--border);
+            }
+
+            .header-inner {
                 display: flex;
+                align-items: center;
                 justify-content: space-between;
-                align-items: center;
-                padding: 24px 40px;
-                mix-blend-mode: difference;
-                color: #fff;
+                height: 60px;
             }
-            .logo-mark {
+
+            .brand {
                 font-family: var(--mono);
-                font-size: 0.85rem;
+                font-size: 15px;
                 font-weight: 700;
-                letter-spacing: 0.05em;
+                letter-spacing: -0.01em;
             }
-            .nav-links {
-                display: flex;
-                gap: 28px;
-                list-style: none;
-            }
-            .nav-links a {
-                font-family: var(--mono);
-                font-size: 0.72rem;
-                color: #fff;
-                text-decoration: none;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                opacity: 0.8;
-                transition: opacity 0.2s;
-            }
-            .nav-links a:hover,
-            .nav-links a:focus-visible {
-                opacity: 1;
-            }
-            .nav-links a:focus-visible {
-                outline: 2px solid #fff;
-                outline-offset: 4px;
+            .brand .dot {
+                color: var(--accent);
             }
 
-            @media (max-width: 700px) {
-                .nav-links {
-                    gap: 14px;
-                }
-                .nav-links a {
-                    font-size: 0.6rem;
-                }
-                nav {
-                    padding: 18px 20px;
-                }
+            .nav {
+                display: flex;
+                align-items: center;
+                gap: 4px;
             }
 
-            .social-rail {
-                position: fixed;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 90;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0;
-            }
-            .social-rail a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 44px;
-                height: 44px;
+            .nav a {
                 font-family: var(--mono);
-                font-size: 0.68rem;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                color: var(--ink);
-                text-decoration: none;
-                padding: 10px;
-                border-left: 1px solid var(--line);
+                font-size: 13px;
+                color: var(--text-muted);
+                padding: 6px 10px;
+                border-radius: var(--radius);
                 transition:
-                    color 0.2s,
-                    border-color 0.2s,
-                    background 0.2s;
-                background: var(--paper);
+                    color 0.15s,
+                    background 0.15s;
             }
-            .social-rail a:hover,
-            .social-rail a:focus-visible {
-                color: var(--paper);
-                background: var(--red);
-                border-color: var(--red);
-            }
-            .social-rail a:focus-visible {
-                outline: 2px solid var(--ink);
-                outline-offset: -2px;
-            }
-            .social-rail a svg {
-                width: 22px;
-                height: 22px;
-                fill: currentColor;
-                transition: fill 0.2s;
-            }
-            .social-rail a:hover svg,
-            .social-rail a:focus-visible svg {
-                fill: var(--paper);
+            .nav a:hover {
+                color: var(--text);
+                background: var(--bg-subtle);
             }
 
-            @media (max-width: 700px) {
-                .social-rail {
-                    position: static;
-                    transform: none;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    margin-top: 40px;
-                }
-                .social-rail a {
-                    width: 44px;
-                    height: 44px;
-                    border-left: none;
-                    border: 1px solid var(--line);
-                    padding: 8px;
+            @media (max-width: 640px) {
+                .nav a {
+                    padding: 6px 8px;
+                    font-size: 12px;
                 }
             }
 
             section {
-                position: relative;
-                z-index: 2;
-                padding: 140px 60px;
+                padding: 96px 0;
             }
-            @media (max-width: 700px) {
+            @media (min-width: 768px) {
                 section {
-                    padding: 100px 24px;
-                }
-            }
-            .wrap {
-                max-width: 1100px;
-                margin: 0 auto;
-            }
-
-            #hero {
-                min-height: 100svh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding-top: 0;
-                padding-bottom: 0;
-            }
-            .hero-eyebrow {
-                font-family: var(--mono);
-                font-size: 0.78rem;
-                letter-spacing: 0.15em;
-                text-transform: uppercase;
-                color: var(--red);
-                margin-bottom: 18px;
-                opacity: 0;
-                animation: rise 0.8s 0.1s forwards;
-            }
-            .hero-name {
-                font-family: var(--display);
-                font-size: clamp(2.4rem, 12vw, 9.5rem);
-                line-height: 0.86;
-                letter-spacing: -0.01em;
-                text-transform: uppercase;
-                opacity: 0;
-                animation: rise 0.9s 0.25s forwards;
-            }
-            .hero-name .x {
-                color: var(--red);
-            }
-            .hero-sub {
-                font-family: var(--mono);
-                font-size: clamp(0.85rem, 2vw, 1.05rem);
-                color: var(--gray);
-                margin-top: 26px;
-                max-width: 540px;
-                line-height: 1.7;
-                opacity: 0;
-                animation: rise 0.9s 0.4s forwards;
-            }
-            .hero-actions {
-                margin-top: 44px;
-                display: flex;
-                gap: 16px;
-                flex-wrap: wrap;
-                opacity: 0;
-                animation: rise 0.9s 0.55s forwards;
-            }
-            @keyframes rise {
-                from {
-                    opacity: 0;
-                    transform: translateY(18px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            @media (prefers-reduced-motion: reduce) {
-                .hero-eyebrow,
-                .hero-name,
-                .hero-sub,
-                .hero-actions {
-                    animation: none;
-                    opacity: 1;
-                }
-            }
-
-            .btn {
-                font-family: var(--mono);
-                font-size: 0.72rem;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                padding: 15px 28px;
-                border: 1.5px solid var(--ink);
-                background: transparent;
-                color: var(--ink);
-                text-decoration: none;
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                transition:
-                    background 0.2s,
-                    color 0.2s,
-                    transform 0.2s;
-            }
-            .btn:hover,
-            .btn:focus-visible {
-                background: var(--ink);
-                color: var(--paper);
-                transform: translate(-2px, -2px);
-            }
-            .btn:focus-visible {
-                outline: 2px solid var(--red);
-                outline-offset: 3px;
-            }
-            .btn svg {
-                width: 18px;
-                height: 18px;
-                fill: currentColor;
-                flex-shrink: 0;
-            }
-            .btn-solid {
-                background: var(--ink);
-                color: var(--paper);
-            }
-            .btn-solid:hover,
-            .btn-solid:focus-visible {
-                background: var(--red);
-                border-color: var(--red);
-                color: #fff;
-            }
-
-            .seal {
-                position: absolute;
-                width: 84px;
-                height: 84px;
-                border: 2px solid var(--red);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: var(--display);
-                font-size: 1.1rem;
-                color: var(--red);
-                transform: rotate(-8deg) scale(0);
-                right: 60px;
-                bottom: 60px;
-                opacity: 0.85;
-                animation: stamp 0.5s 0.9s cubic-bezier(0.2, 1.4, 0.4, 1)
-                    forwards;
-            }
-            @keyframes stamp {
-                0% {
-                    transform: rotate(-8deg) scale(2.4);
-                    opacity: 0;
-                }
-                60% {
-                    transform: rotate(-8deg) scale(0.9);
-                    opacity: 0.9;
-                }
-                100% {
-                    transform: rotate(-8deg) scale(1);
-                    opacity: 0.85;
-                }
-            }
-            @media (max-width: 700px) {
-                .seal {
-                    width: 60px;
-                    height: 60px;
-                    font-size: 0.8rem;
-                    right: 24px;
-                    bottom: 24px;
-                }
-            }
-            @media (prefers-reduced-motion: reduce) {
-                .seal {
-                    animation: none;
-                    transform: rotate(-8deg) scale(1);
-                    opacity: 0.85;
+                    padding: 128px 0;
                 }
             }
 
             .section-head {
                 display: flex;
                 align-items: baseline;
-                gap: 18px;
-                margin-bottom: 50px;
-                border-bottom: 1.5px solid var(--ink);
-                padding-bottom: 18px;
+                gap: 16px;
+                margin-bottom: 40px;
             }
+
             .section-tag {
                 font-family: var(--mono);
-                font-size: 0.7rem;
-                color: var(--red);
-                letter-spacing: 0.1em;
+                font-size: 12px;
+                color: var(--text-subtle);
+                letter-spacing: 0.04em;
             }
+
             .section-title {
-                font-family: var(--display);
-                font-size: clamp(1.6rem, 4vw, 2.4rem);
-                text-transform: uppercase;
-                letter-spacing: -0.01em;
-            }
-
-            .reveal {
-                opacity: 0;
-                transform: translateY(28px);
-                transition:
-                    opacity 0.7s ease,
-                    transform 0.7s ease;
-            }
-            .reveal.in {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            @media (prefers-reduced-motion: reduce) {
-                .reveal {
-                    opacity: 1;
-                    transform: none;
-                    transition: none;
-                }
-            }
-
-            #about .about-grid {
-                display: grid;
-                grid-template-columns: 1.3fr 1fr;
-                gap: 60px;
-            }
-            @media (max-width: 800px) {
-                #about .about-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-            .about-text {
-                font-size: 1.05rem;
-                line-height: 1.85;
-                color: #2a2a26;
-            }
-            .about-text p {
-                margin-bottom: 1.4em;
-            }
-            .about-text strong {
-                color: var(--ink);
-                font-weight: 700;
-            }
-            .about-text .accent {
-                color: var(--red);
+                font-size: 24px;
                 font-weight: 600;
-            }
-
-            .resume-card {
-                border: 1.5px solid var(--ink);
-                padding: 32px;
-                background: var(--paper-dim);
-            }
-            .resume-card h3 {
-                font-family: var(--mono);
-                font-size: 0.78rem;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                margin-bottom: 16px;
-                color: var(--gray);
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-            .resume-card h3 svg {
-                width: 20px;
-                height: 20px;
-                fill: var(--gray);
-            }
-            .resume-card .stat-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                padding: 8px 0;
-                border-bottom: 1px solid var(--line);
-                font-family: var(--mono);
-            }
-            .resume-card .stat-item:last-of-type {
-                border-bottom: none;
-            }
-            .resume-card .stat-number {
-                font-size: 1.4rem;
-                font-weight: 700;
-                color: var(--ink);
-                font-family: var(--display);
                 letter-spacing: -0.02em;
+                line-height: 1.2;
             }
-            .resume-card .stat-label {
-                font-size: 0.7rem;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                color: var(--gray);
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-            .resume-card .stat-label svg {
-                width: 16px;
-                height: 16px;
-                fill: var(--gray);
-            }
-            .resume-card .focus-item {
-                margin-top: 12px;
-                padding-top: 12px;
-                border-top: 1.5px solid var(--ink);
-                border-bottom: none;
-            }
-            .resume-card .focus-tag {
-                color: var(--red);
-                font-size: 1.1rem;
-            }
-            .resume-card .btn {
-                margin-top: 18px;
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-                box-sizing: border-box;
-            }
-            .resume-card .btn.disabled {
-                opacity: 0.4;
-                pointer-events: none;
-                cursor: not-allowed;
-            }
-            @media (max-width: 700px) {
-                .resume-card .stat-number {
-                    font-size: 1.2rem;
+            @media (min-width: 768px) {
+                .section-title {
+                    font-size: 28px;
                 }
             }
 
-            .dots-anim {
-                display: inline-block;
-                width: 1.2em;
-                text-align: left;
+            .hero {
+                padding-top: 96px;
+                padding-bottom: 96px;
             }
-            .dots-anim::after {
-                content: "";
-                animation: dots 1.8s steps(4, end) infinite;
-            }
-            @keyframes dots {
-                0% {
-                    content: "";
+            @media (min-width: 768px) {
+                .hero {
+                    padding-top: 160px;
+                    padding-bottom: 140px;
                 }
-                25% {
-                    content: ".";
+            }
+
+            .hero-eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-family: var(--mono);
+                font-size: 12px;
+                color: var(--text-muted);
+                padding: 4px 10px;
+                border: 1px solid var(--border);
+                border-radius: 999px;
+                margin-bottom: 28px;
+            }
+            .hero-eyebrow .pulse {
+                width: 6px;
+                height: 6px;
+                background: var(--accent);
+                border-radius: 50%;
+            }
+            @media (prefers-reduced-motion: no-preference) {
+                .hero-eyebrow .pulse {
+                    animation: pulse 2s ease-in-out infinite;
+                }
+            }
+            @keyframes pulse {
+                0%,
+                100% {
+                    opacity: 1;
                 }
                 50% {
-                    content: "..";
-                }
-                75% {
-                    content: "...";
-                }
-                100% {
-                    content: "";
-                }
-            }
-            @media (prefers-reduced-motion: reduce) {
-                .dots-anim::after {
-                    animation: none;
-                    content: "";
+                    opacity: 0.35;
                 }
             }
 
-            .carousel-container {
-                position: relative;
-                overflow: hidden;
-                border: 1.5px solid var(--ink);
-                background: var(--paper);
-                min-height: 320px;
-            }
-
-            .carousel-controls {
-                position: absolute;
-                top: 12px;
-                right: 12px;
-                z-index: 11;
-                display: flex;
-                gap: 8px;
-            }
-            .carousel-toggle {
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                border: 1.5px solid var(--ink);
-                background: var(--paper);
-                color: var(--ink);
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .hero h1 {
                 font-family: var(--mono);
-                font-size: 0.9rem;
+                font-weight: 700;
+                font-size: clamp(40px, 8vw, 72px);
                 line-height: 1;
-                transition:
-                    background 0.2s,
-                    color 0.2s;
+                letter-spacing: -0.03em;
+                margin-bottom: 24px;
             }
-            .carousel-toggle:hover,
-            .carousel-toggle:focus-visible {
-                background: var(--ink);
-                color: var(--paper);
-            }
-            .carousel-toggle:focus-visible {
-                outline: 2px solid var(--red);
-                outline-offset: 2px;
+            .hero h1 .x {
+                color: var(--accent);
             }
 
-            .carousel-track {
+            .hero-sub {
+                font-size: clamp(17px, 2vw, 20px);
+                line-height: 1.55;
+                color: var(--text-muted);
+                max-width: 560px;
+                margin-bottom: 36px;
+            }
+
+            .hero-actions {
                 display: flex;
-                transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                will-change: transform;
-            }
-            .carousel-track.no-anim {
-                transition: none;
+                gap: 12px;
+                flex-wrap: wrap;
             }
 
-            .carousel-slide {
-                flex: 0 0 100%;
-                padding: 48px 56px;
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-family: var(--mono);
+                font-size: 13px;
+                font-weight: 500;
+                padding: 10px 16px;
+                border: 1px solid var(--border-strong);
+                border-radius: var(--radius);
+                background: var(--bg);
+                color: var(--text);
+                transition:
+                    background 0.15s,
+                    color 0.15s,
+                    border-color 0.15s;
+            }
+            .btn:hover {
+                background: var(--text);
+                color: var(--bg);
+                border-color: var(--text);
+            }
+            .btn svg {
+                width: 15px;
+                height: 15px;
+                flex-shrink: 0;
+            }
+
+            .btn-primary {
+                background: var(--text);
+                color: var(--bg);
+                border-color: var(--text);
+            }
+            .btn-primary:hover {
+                background: var(--accent);
+                border-color: var(--accent);
+                color: #fff;
+            }
+
+            .btn[aria-disabled="true"] {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            @media (min-width: 900px) {
+                .about-grid {
+                    grid-template-columns: 1.6fr 1fr;
+                    gap: 64px;
+                }
+            }
+
+            .about-text {
+                font-size: 17px;
+                line-height: 1.75;
+                color: var(--text-muted);
+                max-width: 62ch;
+            }
+            .about-text p + p {
+                margin-top: 1.1em;
+            }
+            .about-text strong {
+                color: var(--text);
+                font-weight: 600;
+            }
+            .about-text .accent {
+                color: var(--accent);
+            }
+
+            .about-meta {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                min-height: 280px;
+                gap: 20px;
+                padding: 24px;
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                background: var(--bg-subtle);
+                align-self: start;
             }
-            .carousel-slide .project-status {
+
+            .meta-item {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .meta-label {
                 font-family: var(--mono);
-                font-size: 0.62rem;
-                letter-spacing: 0.1em;
+                font-size: 11px;
+                color: var(--text-subtle);
                 text-transform: uppercase;
-                color: var(--red);
-                display: inline-block;
-                border: 1px solid var(--red);
-                padding: 3px 9px;
-                margin-bottom: 16px;
-                align-self: flex-start;
+                letter-spacing: 0.08em;
             }
-            .carousel-slide h3 {
-                font-family: var(--display);
-                font-size: clamp(1.4rem, 3vw, 2rem);
-                text-transform: uppercase;
+            .meta-value {
+                font-family: var(--mono);
+                font-size: 15px;
+                font-weight: 500;
+                color: var(--text);
+            }
+
+            .work-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            @media (min-width: 640px) {
+                .work-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            .project {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 24px;
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                background: var(--bg);
+                transition:
+                    border-color 0.15s,
+                    background 0.15s;
+            }
+            .project:hover {
+                border-color: var(--border-strong);
+                background: var(--bg-subtle);
+            }
+            .project:hover .project-arrow {
+                transform: translate(2px, -2px);
+            }
+
+            .project-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .project h3 {
+                font-family: var(--mono);
+                font-size: 16px;
+                font-weight: 700;
                 letter-spacing: -0.01em;
-                margin-bottom: 12px;
+                color: var(--text);
             }
-            .carousel-slide .project-description {
-                font-size: 0.95rem;
-                color: var(--gray);
-                line-height: 1.7;
-                max-width: 640px;
-                margin-bottom: 20px;
+
+            .project-arrow {
+                font-family: var(--mono);
+                font-size: 14px;
+                color: var(--text-subtle);
+                transition: transform 0.15s;
+                flex-shrink: 0;
             }
-            .carousel-slide .project-tech {
+            .project:hover .project-arrow {
+                color: var(--accent);
+            }
+
+            .project-status {
+                font-family: var(--mono);
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-subtle);
+            }
+
+            .project-desc {
+                font-size: 14px;
+                line-height: 1.6;
+                color: var(--text-muted);
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .project-tech {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 6px;
-                margin-bottom: 20px;
+                margin-top: auto;
+                padding-top: 4px;
             }
-            .carousel-slide .project-tech span {
+            .project-tech span {
                 font-family: var(--mono);
-                font-size: 0.6rem;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                padding: 3px 10px;
-                border: 1px solid var(--line);
-                color: var(--gray);
-            }
-            .carousel-slide .project-link {
-                align-self: flex-start;
+                font-size: 11px;
+                color: var(--text-muted);
+                padding: 3px 8px;
+                border: 1px solid var(--border);
+                border-radius: 4px;
             }
 
-            .carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 10;
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
-                border: 1.5px solid var(--ink);
-                background: var(--paper);
-                color: var(--ink);
-                font-size: 1.4rem;
-                cursor: pointer;
-                transition:
-                    background 0.3s,
-                    color 0.3s,
-                    opacity 0.3s,
-                    border-color 0.3s;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .work-empty {
+                padding: 32px;
+                border: 1px dashed var(--border);
+                border-radius: var(--radius);
+                color: var(--text-subtle);
                 font-family: var(--mono);
-                line-height: 1;
-                opacity: 0;
-                pointer-events: none;
-            }
-            .carousel-container:hover .carousel-btn,
-            .carousel-container:focus-within .carousel-btn,
-            .carousel-btn:focus-visible {
-                opacity: 1;
-                pointer-events: auto;
-            }
-            .carousel-btn:hover,
-            .carousel-btn:focus-visible {
-                background: var(--ink);
-                color: var(--paper);
-            }
-            .carousel-btn:focus-visible {
-                outline: 2px solid var(--red);
-                outline-offset: 3px;
-            }
-            .carousel-prev {
-                left: 12px;
-            }
-            .carousel-next {
-                right: 12px;
+                font-size: 13px;
+                text-align: center;
             }
 
-            .carousel-dots {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-                padding: 16px 0 20px 0;
-                background: var(--paper);
-                transition: opacity 0.3s;
-            }
-            .carousel-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                border: 1.5px solid var(--ink);
-                background: transparent;
-                cursor: pointer;
-                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                padding: 0;
-                position: relative;
-            }
-            .carousel-dot.active {
-                background: var(--ink);
-                transform: scale(1.2);
-            }
-            .carousel-dot::after {
-                content: "";
-                position: absolute;
-                inset: -4px;
-                border-radius: 50%;
-                border: 1.5px solid transparent;
-                transition: all 0.4s ease;
-            }
-            .carousel-dot.active::after {
-                border-color: var(--red);
-                animation: dotPulse 1.5s ease-in-out infinite;
-            }
-            @media (prefers-reduced-motion: reduce) {
-                .carousel-dot.active::after {
-                    animation: none;
-                }
-            }
-            @keyframes dotPulse {
-                0%,
-                100% {
-                    transform: scale(1);
-                    opacity: 0.6;
-                }
-                50% {
-                    transform: scale(1.3);
-                    opacity: 1;
-                }
-            }
-            .carousel-dot:hover,
-            .carousel-dot:focus-visible {
-                background: var(--red);
-                border-color: var(--red);
-                transform: scale(1.1);
-            }
-            .carousel-dot:focus-visible {
-                outline: 2px solid var(--ink);
-                outline-offset: 3px;
+            .feed {
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                overflow: hidden;
+                background: var(--bg);
             }
 
-            .carousel-slide.suggest-slide .project-status {
-                color: var(--gray);
-                border-color: var(--gray);
-            }
-            .carousel-slide.suggest-slide .suggest-icon {
-                display: flex;
-                gap: 12px;
-                margin-bottom: 16px;
-            }
-            .carousel-slide.suggest-slide .suggest-icon svg {
-                width: 32px;
-                height: 32px;
-                fill: var(--gray);
-            }
-
-            @media (max-width: 700px) {
-                .carousel-slide {
-                    padding: 32px 28px;
-                    min-height: 240px;
-                }
-                .carousel-btn {
-                    width: 36px;
-                    height: 36px;
-                    font-size: 1.2rem;
-                    opacity: 1;
-                    pointer-events: auto;
-                }
-                .carousel-prev {
-                    left: 6px;
-                }
-                .carousel-next {
-                    right: 6px;
-                }
-            }
-
-            .feed-list {
-                border-top: 1.5px solid var(--ink);
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-            }
             .feed-row {
-                display: flex;
-                gap: 20px;
+                display: grid;
+                grid-template-columns: 140px 1fr 90px;
+                gap: 16px;
                 align-items: baseline;
-                padding: 14px 0;
-                border-bottom: 1px solid var(--line);
+                padding: 14px 20px;
+                border-bottom: 1px solid var(--border);
                 font-family: var(--mono);
-                font-size: 0.78rem;
+                font-size: 13px;
             }
-            .feed-row .feed-user {
-                color: var(--ink);
+            .feed-row:last-child {
+                border-bottom: none;
+            }
+            .feed-row:hover {
+                background: var(--bg-subtle);
+            }
+
+            .feed-repo {
+                color: var(--text);
                 font-weight: 600;
-                min-width: 90px;
-                flex-shrink: 0;
-            }
-            .feed-row .feed-repo {
-                color: var(--red);
-                min-width: 150px;
-                flex-shrink: 0;
-                font-weight: 500;
-            }
-            .feed-row .feed-msg {
-                flex: 1;
-                color: var(--ink);
-                white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                min-width: 100px;
-            }
-            .feed-row .feed-time {
-                color: var(--gray);
-                font-size: 0.68rem;
                 white-space: nowrap;
-                min-width: 60px;
-                flex-shrink: 0;
             }
-            @media (max-width: 700px) {
+
+            .feed-msg {
+                color: var(--text-muted);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                min-width: 0;
+            }
+
+            .feed-time {
+                color: var(--text-subtle);
+                font-size: 11px;
+                text-align: right;
+                white-space: nowrap;
+            }
+
+            @media (max-width: 640px) {
                 .feed-row {
-                    flex-wrap: wrap;
-                    gap: 4px 12px;
+                    grid-template-columns: 1fr auto;
+                    gap: 6px;
+                    padding: 14px 16px;
                 }
-                .feed-row .feed-user {
-                    min-width: 0;
+                .feed-repo {
+                    grid-column: 1;
+                    grid-row: 1;
                 }
-                .feed-row .feed-repo {
-                    min-width: 0;
-                    margin-left: auto;
+                .feed-time {
+                    grid-column: 2;
+                    grid-row: 1;
                 }
-                .feed-row .feed-msg {
-                    flex: 1 0 100%;
+                .feed-msg {
+                    grid-column: 1 / -1;
+                    grid-row: 2;
                     white-space: normal;
-                    min-width: 0;
                     overflow: visible;
-                }
-                .feed-row .feed-time {
-                    min-width: 0;
-                    order: 3;
+                    line-height: 1.5;
                 }
             }
 
             .feed-empty {
+                padding: 32px 20px;
+                text-align: center;
                 font-family: var(--mono);
-                font-size: 0.82rem;
-                color: var(--gray);
-                padding: 24px 0;
+                font-size: 13px;
+                color: var(--text-subtle);
             }
             .feed-empty a {
-                color: var(--red);
+                color: var(--accent);
+                border-bottom: 1px solid currentColor;
             }
 
-            #contact {
-                text-align: center;
-                padding-bottom: 180px;
+            .contact-inner {
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+                align-items: flex-start;
             }
-            #contact .section-head {
-                justify-content: center;
-            }
+
             .contact-line {
-                font-family: var(--display);
-                font-size: clamp(1.8rem, 5vw, 3.2rem);
-                text-transform: uppercase;
-                line-height: 1.15;
-                max-width: 780px;
-                margin: 0 auto 36px;
+                font-size: clamp(24px, 4vw, 40px);
+                font-weight: 600;
+                letter-spacing: -0.025em;
+                line-height: 1.2;
+                max-width: 22ch;
             }
-            .contact-line .x {
-                color: var(--red);
+            .contact-line .accent {
+                color: var(--accent);
+            }
+
+            .contact-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
             }
 
             footer {
-                border-top: 1.5px solid var(--ink);
-                padding: 30px 60px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-family: var(--mono);
-                font-size: 0.68rem;
-                color: var(--gray);
-                letter-spacing: 0.05em;
+                border-top: 1px solid var(--border);
+                padding: 32px 0;
+                margin-top: 32px;
             }
-            @media (max-width: 700px) {
-                footer {
-                    flex-direction: column;
-                    gap: 10px;
-                    padding: 24px 24px;
-                    text-align: center;
+
+            .footer-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                font-family: var(--mono);
+                font-size: 12px;
+                color: var(--text-subtle);
+                flex-wrap: wrap;
+            }
+
+            .footer-links {
+                display: flex;
+                gap: 16px;
+            }
+            .footer-links a {
+                color: var(--text-subtle);
+                transition: color 0.15s;
+            }
+            .footer-links a:hover {
+                color: var(--text);
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
                 }
             }
         </style>
     </head>
     <body>
-        <a class="skip-link" href="#about">Skip to content</a>
-        <div class="paper-grain"></div>
-        <div id="ink-cursor"></div>
-        <div id="ink-cursor-trail"></div>
+        <a class="skip-link" href="#main">Skip to content</a>
 
-        <nav>
-            <div class="logo-mark">0x_</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Work</a></li>
-                <li><a href="#feed">Feed</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="social-rail">
-            <a
-                href="https://x.com/0xProgress_"
-                target="_blank"
-                rel="noopener"
-                aria-label="X (Twitter)"
-            >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-                    />
-                </svg>
-            </a>
-            <a href="mailto:progressuwhuseba@gmail.com" aria-label="Email">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                        d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
-                    />
-                    <path
-                        d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
-                    />
-                </svg>
-            </a>
-            <a
-                href="https://discord.com/users/1214231706698252320"
-                target="_blank"
-                rel="noopener"
-                aria-label="Discord"
-            >
-                <svg
-                    viewBox="0 -28.5 256 256"
-                    preserveAspectRatio="xMidYMid"
-                    fill="currentColor"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
-                        fill-rule="nonzero"
-                    />
-                </svg>
-            </a>
-        </div>
-
-        <section id="hero">
-            <div class="wrap">
-                <div class="hero-eyebrow">⌁ Builder · Automator</div>
-                <h1 class="hero-name">0<span class="x">x</span>Progress_</h1>
-                <p class="hero-sub">
-                    I build tools that work. Fast, reliable, low-resource — the
-                    kind of software you can actually depend on.
-                </p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-solid">See the work</a>
-                    <a href="#contact" class="btn">Get in touch</a>
-                </div>
+        <header class="site-header" id="siteHeader">
+            <div class="container header-inner">
+                <a href="#" class="brand" aria-label="Home">
+                    0xProgress<span class="dot">_</span>
+                </a>
+                <nav class="nav" aria-label="Primary">
+                    <a href="#about">About</a>
+                    <a href="#work">Work</a>
+                    <a href="#feed">Feed</a>
+                    <a href="#contact">Contact</a>
+                </nav>
             </div>
-            <div class="seal">0x</div>
-        </section>
+        </header>
 
         <main id="main">
-            <section id="about">
-                <div class="wrap">
-                    <div class="section-head reveal">
-                        <span class="section-tag">01</span>
-                        <h2 class="section-title">About</h2>
-                    </div>
-                    <div class="about-grid">
-                        <div class="about-text reveal">
-                            <p>
-                                I build tools that work. Fast, reliable,
-                                low-resource — the kind of software you can
-                                actually depend on.
-                            </p>
-                            <p>
-                                I've been doing this since I was 14, learning by
-                                breaking and rebuilding systems. AI accelerated
-                                my learning, but I still write the code. I still
-                                understand what's happening under the hood.
-                            </p>
-                            <p>
-                                I don't have a niche. I solve problems I notice.
-                                If something's broken, hard to use, or missing
-                                good docs — I fix it. I automate everything I
-                                can, so I can ship more, faster.
-                            </p>
-                            <p>
-                                I've written Go, Python. I've built CLIs, bots,
-                                medical triage tools, env diffing, retry logic,
-                                WhatsApp bridges. I've revived dead projects.
-                                I've shipped.
-                            </p>
-                            <p>
-                                Fun Part is → I'm not finished. I'm just getting
-                                started<span class="dots-anim"></span>
-                            </p>
-                        </div>
-                        <div class="resume-card reveal">
-                            <h3>
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path
-                                        d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
-                                    />
-                                </svg>
-                                Activity Stats
-                            </h3>
-                            <div id="statsContent">
-                                <div class="stat-item">
-                                    <span class="stat-number" id="commitCount"
-                                        >…</span
-                                    >
-                                    <span class="stat-label">
-                                        <svg
-                                            viewBox="0 0 24 24"
-                                            aria-hidden="true"
-                                        >
-                                            <path
-                                                d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm0-12a1 1 0 011 1v2a1 1 0 01-2 0V4a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zM4 11h2a1 1 0 010 2H4a1 1 0 010-2zm14 0h2a1 1 0 010 2h-2a1 1 0 010-2z"
-                                            />
-                                        </svg>
-                                        total commits
-                                    </span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number" id="repoCount"
-                                        >…</span
-                                    >
-                                    <span class="stat-label">
-                                        <svg
-                                            viewBox="0 0 24 24"
-                                            aria-hidden="true"
-                                        >
-                                            <path
-                                                d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm0 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
-                                            />
-                                        </svg>
-                                        projects shipped
-                                    </span>
-                                </div>
-                                <div class="stat-item focus-item">
-                                    <span class="stat-label">
-                                        <svg
-                                            viewBox="0 0 24 24"
-                                            aria-hidden="true"
-                                        >
-                                            <path
-                                                d="M13 2L4 14h6l-2 8 9-12h-6l2-8z"
-                                            />
-                                        </svg>
-                                        Current Focus
-                                    </span>
-                                    <span
-                                        class="stat-number focus-tag"
-                                        id="currentFocus"
-                                        >Golang</span
-                                    >
-                                </div>
-                            </div>
-                            <a
-                                href="resume.docx"
-                                class="btn btn-solid"
-                                download
-                                id="resumeBtn"
+            <section class="hero">
+                <div class="container">
+                    <span class="hero-eyebrow">
+                        <span class="pulse" aria-hidden="true"></span>
+                        Building · Open to work
+                    </span>
+
+                    <h1>0<span class="x">x</span>Progress_</h1>
+
+                    <p class="hero-sub">
+                        I build tools that work. Fast, reliable, low-resource
+                        software in Go and Python, the kind you can actually
+                        depend on.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#work" class="btn btn-primary">
+                            See the work
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
                             >
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path
-                                        d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"
-                                    />
-                                    <path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z" />
-                                    <path d="M8 17h8v2H8z" />
-                                </svg>
-                                Download Résumé
-                            </a>
-                        </div>
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn">Get in touch</a>
                     </div>
                 </div>
             </section>
 
-            <section id="projects">
-                <div class="wrap">
-                    <div class="section-head reveal">
+            <section id="about">
+                <div class="container">
+                    <div class="section-head">
+                        <span class="section-tag">01</span>
+                        <h2 class="section-title">About</h2>
+                    </div>
+
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p>
+                                I've been writing code since I was 14, learning
+                                by breaking and rebuilding systems. AI
+                                accelerated my learning, but I still write the
+                                code and still understand what's underneath it.
+                            </p>
+                            <p>
+                                I don't have a niche. I solve problems I notice.
+                                If something is broken, hard to use, or missing
+                                good docs, I fix it. I automate everything I can
+                                so I can ship more, faster.
+                            </p>
+                            <p>
+                                <span class="accent">I'm not finished.</span>
+                                I'm just getting started.
+                            </p>
+                        </div>
+
+                        <aside class="about-meta" aria-label="Quick facts">
+                            <div class="meta-item">
+                                <span class="meta-label">Focus</span>
+                                <span class="meta-value">Go · Python · AI</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Shipped</span>
+                                <span class="meta-value" id="repoCount">—</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Currently on</span>
+                                <span class="meta-value" id="currentFocus"
+                                    >Golang</span
+                                >
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Commits</span>
+                                <span class="meta-value" id="commitCount"
+                                    >—</span
+                                >
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <section id="work">
+                <div class="container">
+                    <div class="section-head">
                         <span class="section-tag">02</span>
                         <h2 class="section-title">Work</h2>
                     </div>
 
                     <div
-                        class="carousel-container reveal"
-                        id="carouselContainer"
-                    >
-                        <div class="carousel-controls">
-                            <button
-                                class="carousel-toggle"
-                                id="carouselToggle"
-                                aria-label="Pause carousel"
-                                aria-pressed="false"
-                            >
-                                ❚❚
-                            </button>
-                        </div>
-
-                        <div
-                            class="carousel-track"
-                            id="carouselTrack"
-                            aria-live="polite"
-                        ></div>
-
-                        <button
-                            class="carousel-btn carousel-prev"
-                            id="carouselPrev"
-                            aria-label="Previous project"
-                        >
-                            ‹
-                        </button>
-                        <button
-                            class="carousel-btn carousel-next"
-                            id="carouselNext"
-                            aria-label="Next project"
-                        >
-                            ›
-                        </button>
-
-                        <div
-                            class="carousel-dots"
-                            id="carouselDots"
-                            role="tablist"
-                            aria-label="Project slides"
-                        ></div>
-                    </div>
+                        class="work-grid"
+                        id="workGrid"
+                        aria-live="polite"
+                    ></div>
                 </div>
             </section>
 
             <section id="feed">
-                <div class="wrap">
-                    <div class="section-head reveal">
+                <div class="container">
+                    <div class="section-head">
                         <span class="section-tag">03</span>
                         <h2 class="section-title">Latest activity</h2>
                     </div>
-                    <div class="feed-list reveal" id="feedList">
+
+                    <div class="feed" id="feedList" aria-live="polite">
                         <noscript>
                             <div class="feed-empty">
                                 Enable JavaScript to see recent activity, or
@@ -1343,479 +857,329 @@
             </section>
 
             <section id="contact">
-                <div class="wrap">
-                    <div class="section-head reveal">
+                <div class="container">
+                    <div class="section-head">
                         <span class="section-tag">04</span>
                         <h2 class="section-title">Contact</h2>
                     </div>
-                    <p class="contact-line reveal">
-                        Got something worth <span class="x">building</span>?
-                        Reach out <br />
-                        → I read everything.
-                    </p>
-                    <a
-                        href="mailto:progressuwhuseba@gmail.com"
-                        class="btn btn-solid reveal"
-                    >
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
-                            />
-                            <path
-                                d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
-                            />
-                        </svg>
-                        Say hello
-                    </a>
+
+                    <div class="contact-inner">
+                        <p class="contact-line">
+                            Got something worth
+                            <span class="accent">building</span>? Reach out. I
+                            read everything.
+                        </p>
+
+                        <div class="contact-actions">
+                            <a
+                                href="mailto:progressuwhuseba@gmail.com"
+                                class="btn btn-primary"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <rect
+                                        x="3"
+                                        y="5"
+                                        width="18"
+                                        height="14"
+                                        rx="2"
+                                    />
+                                    <path d="m3 7 9 6 9-6" />
+                                </svg>
+                                progressuwhuseba@gmail.com
+                            </a>
+                            <a
+                                href="https://github.com/0xProgress"
+                                target="_blank"
+                                rel="noopener"
+                                class="btn"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.42.36.78 1.06.78 2.14v3.18c0 .31.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+                                    />
+                                </svg>
+                                GitHub
+                            </a>
+                            <a
+                                href="https://x.com/0xProgress_"
+                                target="_blank"
+                                rel="noopener"
+                                class="btn"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644Z"
+                                    />
+                                </svg>
+                                @0xProgress_
+                            </a>
+                            <a
+                                href="resume.pdf"
+                                download
+                                class="btn"
+                                id="resumeBtn"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"
+                                    />
+                                </svg>
+                                Résumé
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <span>© <span id="footerYear">2026</span> 0xProgress_</span>
-            <span>Built over boundaries</span>
+            <div class="container footer-inner">
+                <span>© <span id="footerYear">2026</span> 0xProgress_</span>
+                <div class="footer-links">
+                    <a
+                        href="https://github.com/0xProgress"
+                        target="_blank"
+                        rel="noopener"
+                        >GitHub</a
+                    >
+                    <a
+                        href="https://x.com/0xProgress_"
+                        target="_blank"
+                        rel="noopener"
+                        >X</a
+                    >
+                    <a href="mailto:progressuwhuseba@gmail.com">Email</a>
+                </div>
+            </div>
         </footer>
 
         <script>
-            // Shared data fetch — one request, three consumers.
-            const siteDataPromise = fetch("data/site-data.json", {
-                cache: "no-cache",
-            }).then((r) => {
-                if (!r.ok) throw new Error("Failed to load data");
-                return r.json();
-            });
-
-            // --- Ink cursor -------------------------------------------------
             (function () {
-                const cur = document.getElementById("ink-cursor");
-                const trail = document.getElementById("ink-cursor-trail");
-                if (!cur || !trail) return;
-                if (matchMedia("(hover: none)").matches) return;
-                if (matchMedia("(prefers-reduced-motion: reduce)").matches)
-                    return;
+                "use strict";
 
-                try {
-                    document.body.classList.add("has-cursor");
+                var yearEl = document.getElementById("footerYear");
+                if (yearEl)
+                    yearEl.textContent = String(new Date().getFullYear());
 
-                    let mx = 0,
-                        my = 0,
-                        tx = 0,
-                        ty = 0;
-                    window.addEventListener(
-                        "mousemove",
-                        (e) => {
-                            mx = e.clientX;
-                            my = e.clientY;
-                            cur.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
-                        },
-                        { passive: true },
-                    );
-
-                    (function loop() {
-                        tx += (mx - tx) * 0.15;
-                        ty += (my - ty) * 0.15;
-                        trail.style.transform = `translate3d(${tx}px, ${ty}px, 0) translate(-50%, -50%)`;
-                        requestAnimationFrame(loop);
-                    })();
-
-                    document
-                        .querySelectorAll("a, button, .btn")
-                        .forEach((el) => {
-                            el.addEventListener("mouseenter", () => {
-                                cur.classList.add("bleed");
-                                trail.classList.add("bleed");
-                            });
-                            el.addEventListener("mouseleave", () => {
-                                cur.classList.remove("bleed");
-                                trail.classList.remove("bleed");
-                            });
-                        });
-                } catch (e) {
-                    document.body.classList.remove("has-cursor");
-                }
-            })();
-
-            // --- Reveal on scroll -------------------------------------------
-            (function () {
-                const items = document.querySelectorAll(".reveal");
-                if (!("IntersectionObserver" in window)) {
-                    items.forEach((i) => i.classList.add("in"));
-                    return;
-                }
-                const io = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((e) => {
-                            if (e.isIntersecting) {
-                                e.target.classList.add("in");
-                                io.unobserve(e.target);
-                            }
-                        });
-                    },
-                    { threshold: 0.15 },
-                );
-                items.forEach((i) => io.observe(i));
-            })();
-
-            // --- Footer year ------------------------------------------------
-            (function () {
-                const el = document.getElementById("footerYear");
-                if (el) el.textContent = String(new Date().getFullYear());
-            })();
-
-            // --- Stats ------------------------------------------------------
-            (function () {
-                const commitEl = document.getElementById("commitCount");
-                const repoEl = document.getElementById("repoCount");
-                const focusEl = document.getElementById("currentFocus");
-
-                siteDataPromise
-                    .then((data) => {
-                        const totalCommits = data.totalCommits;
-                        commitEl.textContent =
-                            totalCommits != null
-                                ? Number(totalCommits).toLocaleString()
-                                : "—";
-
-                        const repoCount = Array.isArray(data.projects)
-                            ? data.projects.length
-                            : null;
-                        repoEl.textContent =
-                            repoCount != null ? String(repoCount) : "—";
-
-                        focusEl.textContent = data.currentFocus ?? "Golang";
-                    })
-                    .catch((err) => {
-                        console.warn("Stats error:", err);
-                        commitEl.textContent = "—";
-                        repoEl.textContent = "—";
+                var header = document.getElementById("siteHeader");
+                if (header) {
+                    var onScroll = function () {
+                        header.classList.toggle("scrolled", window.scrollY > 4);
+                    };
+                    onScroll();
+                    window.addEventListener("scroll", onScroll, {
+                        passive: true,
                     });
-            })();
+                }
 
-            // --- Résumé availability ----------------------------------------
-            (function () {
-                const btn = document.getElementById("resumeBtn");
-                const unavailableHtml = `
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"/><path d="M8 17h8v2H8z"/></svg>
-                Résumé (coming soon)
-            `;
-                fetch("resume.docx", { method: "HEAD" })
-                    .then((res) => {
-                        if (!res.ok) {
-                            btn.classList.add("disabled");
-                            btn.innerHTML = unavailableHtml;
-                            btn.href = "#";
-                        }
-                    })
-                    .catch(() => {
-                        btn.classList.add("disabled");
-                        btn.innerHTML = unavailableHtml;
-                        btn.href = "#";
-                    });
-            })();
+                var dataPromise = fetch("data/site-data.json", {
+                    cache: "no-cache",
+                }).then(function (r) {
+                    if (!r.ok) throw new Error("Failed to load data");
+                    return r.json();
+                });
 
-            // --- Carousel ---------------------------------------------------
-            (function () {
-                const track = document.getElementById("carouselTrack");
-                const dotsContainer = document.getElementById("carouselDots");
-                const prevBtn = document.getElementById("carouselPrev");
-                const nextBtn = document.getElementById("carouselNext");
-                const toggleBtn = document.getElementById("carouselToggle");
-                const container = document.getElementById("carouselContainer");
+                (function () {
+                    var grid = document.getElementById("workGrid");
+                    if (!grid) return;
 
-                let currentIndex = 0;
-                let slides = [];
-                let autoPlayInterval = null;
-                let isTransitioning = false;
-                let userPaused = false;
-                let reducedMotion = matchMedia(
-                    "(prefers-reduced-motion: reduce)",
-                ).matches;
-
-                const FALLBACK = [
-                    {
-                        name: "AI Medical Triage",
-                        description:
-                            "Privacy-first conversational health tool built on Qwen AI.",
-                        repoUrl:
-                            "https://github.com/0xProgress/AI-Medical-Triage",
-                        status: "In progress",
-                        tech: ["TypeScript", "React", "AI"],
-                    },
-                    {
-                        name: "retry",
-                        description:
-                            "Retry any command with exponential backoff. Zero config.",
-                        repoUrl: "https://github.com/0xProgress/retry",
-                        status: "Shipped",
-                        tech: ["Go"],
-                    },
-                ];
-
-                const SUGGEST_SLIDE = {
-                    name: "Suggest a Project",
-                    description:
-                        "Have an idea? I'm always looking for the next thing to build. Share your concept and I might just ship it.",
-                    repoUrl:
-                        "https://github.com/0xProgress/0xProgress/issues/new",
-                    status: "Your Idea → My Code",
-                    tech: ["💡", "🚀", "✨"],
-                    isSuggest: true,
-                    suggestIcons: `
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 2.5 1.5 4.5 3 5.5v3a1 1 0 001 1h6a1 1 0 001-1v-3c1.5-1 3-3 3-5.5a7 7 0 00-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L4 14h5l-1 8 9-10h-5l1-10z"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2 6h6l-4 4 2 6-6-4-6 4 2-6-4-4h6z"/></svg>
-                `,
-                };
-
-                function renderCarousel() {
-                    track.innerHTML = slides
-                        .map((project, index) => {
-                            const isSuggest = project.isSuggest || false;
-                            const tech = Array.isArray(project.tech)
-                                ? project.tech
+                    dataPromise
+                        .then(function (data) {
+                            var projects = Array.isArray(data.projects)
+                                ? data.projects.slice()
                                 : [];
-                            const name =
-                                project.displayName || project.name || "";
-                            return `
-                        <div class="carousel-slide ${isSuggest ? "suggest-slide" : ""}" data-index="${index}" role="tabpanel" aria-roledescription="slide" aria-label="${index + 1} of ${slides.length}">
-                            ${isSuggest ? `<div class="suggest-icon">${project.suggestIcons}</div>` : ""}
-                            <span class="project-status">${project.status ?? ""}</span>
-                            <h3>${name}</h3>
-                            <p class="project-description">${project.description ?? ""}</p>
-                            <div class="project-tech">
-                                ${tech.map((t) => `<span>${t}</span>`).join("")}
-                            </div>
-                            <a href="${project.repoUrl}" target="_blank" rel="noopener" class="btn btn-solid project-link">
-                                ${isSuggest ? "Suggest on GitHub" : "View on GitHub"}
-                            </a>
-                        </div>
-                    `;
-                        })
-                        .join("");
 
-                    dotsContainer.innerHTML = slides
-                        .map(
-                            (_, index) => `
-                    <button
-                        class="carousel-dot ${index === 0 ? "active" : ""}"
-                        data-index="${index}"
-                        role="tab"
-                        aria-label="Go to slide ${index + 1}"
-                        aria-selected="${index === 0}"
-                    ></button>
-                `,
-                        )
-                        .join("");
-
-                    dotsContainer
-                        .querySelectorAll(".carousel-dot")
-                        .forEach((dot) => {
-                            dot.addEventListener("click", () => {
-                                goToSlide(parseInt(dot.dataset.index, 10));
-                                resetAutoPlay();
+                            projects = projects.filter(function (p) {
+                                return (
+                                    p.name !== "0xprogress.pages.dev" &&
+                                    p.repoUrl !==
+                                        "https://github.com/0xProgress/0xprogress.pages.dev"
+                                );
                             });
+
+                            if (projects.length === 0) {
+                                grid.innerHTML =
+                                    '<div class="work-empty">No projects yet.</div>';
+                                return;
+                            }
+
+                            grid.innerHTML = projects
+                                .map(function (p) {
+                                    var name = p.name || p.displayName || "";
+                                    var desc = p.description || "";
+                                    var url = p.repoUrl || p.html_url || "#";
+                                    var status = p.status || "";
+                                    var tech = Array.isArray(p.tech)
+                                        ? p.tech
+                                        : [];
+
+                                    return (
+                                        '<a class="project" href="' +
+                                        url +
+                                        '" target="_blank" rel="noopener">' +
+                                        '<div class="project-head">' +
+                                        "<h3>" +
+                                        name +
+                                        "</h3>" +
+                                        '<span class="project-arrow" aria-hidden="true">↗</span>' +
+                                        "</div>" +
+                                        (status
+                                            ? '<span class="project-status">' +
+                                              status +
+                                              "</span>"
+                                            : "") +
+                                        '<p class="project-desc">' +
+                                        desc +
+                                        "</p>" +
+                                        (tech.length
+                                            ? '<div class="project-tech">' +
+                                              tech
+                                                  .map(function (t) {
+                                                      return (
+                                                          "<span>" +
+                                                          t +
+                                                          "</span>"
+                                                      );
+                                                  })
+                                                  .join("") +
+                                              "</div>"
+                                            : "") +
+                                        "</a>"
+                                    );
+                                })
+                                .join("");
+                        })
+                        .catch(function (err) {
+                            console.warn("Work grid error:", err);
+                            grid.innerHTML =
+                                '<div class="work-empty">Could not load projects. <a href="https://github.com/0xProgress" target="_blank" rel="noopener" style="color:var(--accent)">View on GitHub</a></div>';
                         });
+                })();
 
-                    updateCarousel(false);
-                }
+                (function () {
+                    var repoEl = document.getElementById("repoCount");
+                    var focusEl = document.getElementById("currentFocus");
+                    var commitEl = document.getElementById("commitCount");
 
-                function goToSlide(index, animate = true) {
-                    if (isTransitioning) return;
-                    const totalSlides = slides.length;
-                    if (totalSlides === 0) return;
+                    dataPromise
+                        .then(function (data) {
+                            var repoCount = Array.isArray(data.projects)
+                                ? data.projects.filter(function (p) {
+                                      return p.name !== "0xprogress.pages.dev";
+                                  }).length
+                                : null;
+                            if (repoEl && repoCount != null) {
+                                repoEl.textContent = repoCount + " projects";
+                            }
 
-                    let next = index;
-                    if (next >= totalSlides) {
-                        // Wrap backwards to first without animating across all slides
-                        if (animate) {
-                            track.classList.add("no-anim");
-                            next = 0;
-                            currentIndex = next;
-                            updateCarousel(false);
-                            void track.offsetWidth;
-                            track.classList.remove("no-anim");
-                        } else {
-                            next = 0;
-                            currentIndex = next;
-                            updateCarousel(false);
-                        }
-                        return;
-                    }
-                    if (next < 0) {
-                        next = totalSlides - 1;
-                    }
+                            if (focusEl && data.currentFocus) {
+                                focusEl.textContent = data.currentFocus;
+                            }
 
-                    currentIndex = next;
-                    updateCarousel(animate);
-                }
-
-                function updateCarousel(animate = true) {
-                    if (!animate) track.classList.add("no-anim");
-                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    if (!animate) {
-                        void track.offsetWidth;
-                        track.classList.remove("no-anim");
-                        return;
-                    }
-
-                    isTransitioning = true;
-                    dotsContainer
-                        .querySelectorAll(".carousel-dot")
-                        .forEach((dot, i) => {
-                            const active = i === currentIndex;
-                            dot.classList.toggle("active", active);
-                            dot.setAttribute(
-                                "aria-selected",
-                                active ? "true" : "false",
-                            );
+                            if (commitEl && data.totalCommits != null) {
+                                commitEl.textContent = Number(
+                                    data.totalCommits,
+                                ).toLocaleString();
+                            }
+                        })
+                        .catch(function () {
+                            if (repoEl) repoEl.textContent = "—";
+                            if (commitEl) commitEl.textContent = "—";
                         });
+                })();
 
-                    setTimeout(() => {
-                        isTransitioning = false;
-                    }, 700);
-                }
+                (function () {
+                    var feedEl = document.getElementById("feedList");
+                    if (!feedEl) return;
+                    var SKIP_RE = /\[skip ci\]/i;
 
-                function startAutoPlay() {
-                    if (reducedMotion || userPaused) return;
-                    stopAutoPlay();
-                    autoPlayInterval = setInterval(() => {
-                        if (isTransitioning) return;
-                        goToSlide(currentIndex + 1);
-                    }, 4000);
-                    updateToggleUI(false);
-                }
+                    dataPromise
+                        .then(function (data) {
+                            var all = Array.isArray(data.commits)
+                                ? data.commits
+                                : [];
+                            var commits = all.filter(function (c) {
+                                return (
+                                    !SKIP_RE.test(c.message || "") &&
+                                    c.repo !== "0xprogress.pages.dev"
+                                );
+                            });
 
-                function stopAutoPlay() {
-                    if (autoPlayInterval) {
-                        clearInterval(autoPlayInterval);
-                        autoPlayInterval = null;
-                    }
-                    updateToggleUI(true);
-                }
+                            if (commits.length === 0) {
+                                feedEl.innerHTML =
+                                    '<div class="feed-empty">No recent commits.</div>';
+                                return;
+                            }
 
-                function resetAutoPlay() {
-                    if (reducedMotion || userPaused) return;
-                    startAutoPlay();
-                }
-
-                function updateToggleUI(paused) {
-                    if (!toggleBtn) return;
-                    toggleBtn.textContent = paused ? "▶" : "❚❚";
-                    toggleBtn.setAttribute(
-                        "aria-label",
-                        paused ? "Play carousel" : "Pause carousel",
-                    );
-                    toggleBtn.setAttribute(
-                        "aria-pressed",
-                        paused ? "true" : "false",
-                    );
-                }
-
-                if (prevBtn)
-                    prevBtn.addEventListener("click", () => {
-                        goToSlide(currentIndex - 1);
-                        resetAutoPlay();
-                    });
-                if (nextBtn)
-                    nextBtn.addEventListener("click", () => {
-                        goToSlide(currentIndex + 1);
-                        resetAutoPlay();
-                    });
-
-                if (toggleBtn) {
-                    toggleBtn.addEventListener("click", () => {
-                        userPaused = !userPaused;
-                        if (userPaused) stopAutoPlay();
-                        else startAutoPlay();
-                    });
-                }
-
-                if (container) {
-                    container.addEventListener("mouseenter", stopAutoPlay);
-                    container.addEventListener("focusin", stopAutoPlay);
-                    container.addEventListener("mouseleave", () => {
-                        if (!userPaused) startAutoPlay();
-                    });
-                    container.addEventListener("focusout", (e) => {
-                        if (!container.contains(e.relatedTarget) && !userPaused)
-                            startAutoPlay();
-                    });
-                }
-
-                siteDataPromise
-                    .then((data) => {
-                        slides = Array.isArray(data.projects)
-                            ? data.projects.slice()
-                            : [];
-                        if (slides.length === 0) throw new Error("no projects");
-                        slides.push(SUGGEST_SLIDE);
-                        renderCarousel();
-                        startAutoPlay();
-                    })
-                    .catch((err) => {
-                        console.warn("Carousel error:", err);
-                        slides = FALLBACK.concat([SUGGEST_SLIDE]);
-                        renderCarousel();
-                        startAutoPlay();
-                    });
-            })();
-
-            // --- Feed -------------------------------------------------------
-            (function () {
-                const feedEl = document.getElementById("feedList");
-                const SKIP_RE = /\[skip ci\]/i;
-
-                siteDataPromise
-                    .then((data) => {
-                        const allCommits = Array.isArray(data.commits)
-                            ? data.commits
-                            : [];
-                        const commits = allCommits.filter(
-                            (c) =>
-                                !SKIP_RE.test(c.message || "") &&
-                                c.repo !== "0xProgress.github.io",
-                        );
-
-                        if (commits.length === 0) {
-                            feedEl.innerHTML = `<div class="feed-empty">No recent commits.</div>`;
-                            return;
-                        }
-
-                        feedEl.innerHTML = "";
-                        commits.forEach((item) => {
-                            const row = document.createElement("div");
-                            row.className = "feed-row";
-
-                            const user = document.createElement("span");
-                            user.className = "feed-user";
-                            user.textContent = item.username ?? "";
-
-                            const repo = document.createElement("span");
-                            repo.className = "feed-repo";
-                            repo.textContent = item.repo ?? "";
-
-                            const msg = document.createElement("span");
-                            msg.className = "feed-msg";
-                            msg.textContent = item.message ?? "";
-                            msg.title = item.message ?? "";
-
-                            const time = document.createElement("span");
-                            time.className = "feed-time";
-                            time.textContent = item.date ?? "";
-
-                            row.append(user, repo, msg, time);
-                            feedEl.appendChild(row);
+                            feedEl.innerHTML = commits
+                                .map(function (c) {
+                                    return (
+                                        '<div class="feed-row">' +
+                                        '<span class="feed-repo">' +
+                                        (c.repo || "") +
+                                        "</span>" +
+                                        '<span class="feed-msg" title="' +
+                                        (c.message || "").replace(
+                                            /"/g,
+                                            "&quot;",
+                                        ) +
+                                        '">' +
+                                        (c.message || "") +
+                                        "</span>" +
+                                        '<span class="feed-time">' +
+                                        (c.date || "") +
+                                        "</span>" +
+                                        "</div>"
+                                    );
+                                })
+                                .join("");
+                        })
+                        .catch(function (err) {
+                            console.warn("Feed error:", err);
+                            feedEl.innerHTML =
+                                '<div class="feed-empty">Feed unavailable. <a href="https://github.com/0xProgress" target="_blank" rel="noopener">View on GitHub</a></div>';
                         });
-                    })
-                    .catch((err) => {
-                        console.warn("Feed error:", err);
-                        feedEl.innerHTML = `
-                        <div class="feed-empty">
-                            ⚡ Feed unavailable.<br>
-                            <a href="https://github.com/0xProgress" target="_blank" rel="noopener">github.com/0xProgress</a>
-                        </div>
-                    `;
-                    });
+                })();
+
+                (function () {
+                    var btn = document.getElementById("resumeBtn");
+                    if (!btn) return;
+
+                    fetch("resume.pdf", { method: "HEAD" })
+                        .then(function (res) {
+                            if (!res.ok) throw new Error("not found");
+                        })
+                        .catch(function () {
+                            btn.setAttribute("aria-disabled", "true");
+                            btn.setAttribute("href", "#");
+                            btn.innerHTML =
+                                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Résumé (soon)';
+                        });
+                })();
             })();
         </script>
     </body>
