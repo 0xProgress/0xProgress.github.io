@@ -95,7 +95,10 @@ jobs:
           set -euo pipefail
           echo '{}' > languages.json
           for repo in $(jq -r '.[].name' repos.json); do
-            langs=$(gh api "repos/0xProgress/$repo/languages" --jq 'keys' 2>/dev/null || echo '[]')
+            if ! langs=$(gh api "repos/0xProgress/$repo/languages" --jq 'keys' 2>/dev/null); then
+              langs='[]'
+            fi
+            langs=$(printf '%s' "$langs" | jq -c 'if type == "array" then . else [] end' 2>/dev/null || echo '[]')
             jq --arg repo "$repo" --argjson langs "$langs" \
               '. + {($repo): $langs}' languages.json > tmp && mv tmp languages.json
           done
@@ -105,16 +108,21 @@ jobs:
           set -euo pipefail
           echo '[]' > all_latest_commits.json
           for repo in $(jq -r '.[].name' repos.json); do
-            data=$(gh api "repos/0xProgress/$repo/commits?per_page=1" 2>/dev/null || echo "[]")
-            valid=$(echo "$data" | jq 'if type == "array" and length > 0 then .[0] else null end' 2>/dev/null || echo null)
-            if [ "$valid" != "null" ] && [ -n "$valid" ]; then
-              sha=$(echo "$valid" | jq -r '.sha')
-              date=$(echo "$valid" | jq -r '.commit.committer.date')
-              msg=$(echo "$valid" | jq -r '.commit.message | split("\n")[0]')
-              jq --arg repo "$repo" --arg sha "$sha" --arg date "$date" --arg msg "$msg" \
-                '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' \
-                all_latest_commits.json > tmp && mv tmp all_latest_commits.json
+            if ! data=$(gh api "repos/0xProgress/$repo/commits?per_page=1" 2>/dev/null); then
+              echo "Skipping $repo: no commits or API error"
+              continue
             fi
+
+            valid=$(printf '%s' "$data" | jq -c 'if type == "array" and length > 0 then .[0] else empty end')
+            [ -n "$valid" ] || continue
+
+            sha=$(printf '%s' "$valid" | jq -r '.sha // ""')
+            date=$(printf '%s' "$valid" | jq -r '.commit.committer.date // ""')
+            msg=$(printf '%s' "$valid" | jq -r '(.commit.message // "") | tostring | split("\n")[0]')
+
+            jq --arg repo "$repo" --arg sha "$sha" --arg date "$date" --arg msg "$msg" \
+              '. + [{repo: $repo, sha: $sha, date: $date, message: $msg}]' \
+              all_latest_commits.json > tmp && mv tmp all_latest_commits.json
           done
 
           jq '[ .[]
