@@ -1,26 +1,26 @@
 {
   "projects": [
     {
-      "description": "0xProgress.github.io",
-      "html_url": "https://github.com/0xProgress/0xProgress.github.io",
-      "language": "HTML",
-      "name": "0xProgress.github.io",
+      "description": "Project template with standardized docs, GitHub workflows, and automated setup/prep scripts to maintain consistency",
+      "html_url": "https://github.com/0xProgress/repo-starter",
+      "language": "Shell",
+      "name": "repo-starter",
       "private": false,
       "topics": [],
-      "updated_at": "2026-10-12T11:36:02Z",
+      "updated_at": "2026-10-15T13:47:07Z",
       "tech": [
-        "HTML"
+        "Shell"
       ],
       "status": "Active",
-      "displayName": "0xProgress.github.io",
-      "repoUrl": "https://github.com/0xProgress/0xProgress.github.io"
+      "displayName": "Repo Starter",
+      "repoUrl": "https://github.com/0xProgress/repo-starter"
     },
     {
       "description": "The Unix pipe for webhooks. Receive, verify, and stream webhook events to stdout.",
       "html_url": "https://github.com/0xProgress/webhookd",
       "language": "Go",
       "name": "webhookd",
-      "private": false,
+      "private": true,
       "topics": [
         "cli",
         "devtools",
@@ -31,7 +31,7 @@
         "unix-pipe",
         "webhooks"
       ],
-      "updated_at": "2026-10-02T13:06:45Z",
+      "updated_at": "2026-10-14T20:35:24Z",
       "tech": [
         "Dockerfile",
         "Go",
@@ -40,6 +40,52 @@
       "status": "Active",
       "displayName": "Webhookd",
       "repoUrl": "https://github.com/0xProgress/webhookd"
+    },
+    {
+      "description": "Website generator. Inspired by boot.dev course - static site generator",
+      "html_url": "https://github.com/0xProgress/legendary-octo-happiness",
+      "language": "Python",
+      "name": "legendary-octo-happiness",
+      "private": false,
+      "topics": [],
+      "updated_at": "2026-10-14T20:32:50Z",
+      "tech": [
+        "CSS",
+        "HTML",
+        "Python",
+        "Shell"
+      ],
+      "status": "Active",
+      "displayName": "Legendary Octo Happiness",
+      "repoUrl": "https://github.com/0xProgress/legendary-octo-happiness"
+    },
+    {
+      "description": "Made this to ease/speed up a particular workflow ",
+      "html_url": "https://github.com/0xProgress/fast-asf-boy",
+      "language": null,
+      "name": "fast-asf-boy",
+      "private": true,
+      "topics": [],
+      "updated_at": "2026-10-14T13:59:33Z",
+      "tech": [],
+      "status": "Active",
+      "displayName": "Fast Asf Boy",
+      "repoUrl": "https://github.com/0xProgress/fast-asf-boy"
+    },
+    {
+      "description": "0xProgress.github.io",
+      "html_url": "https://github.com/0xProgress/0xProgress.github.io",
+      "language": "HTML",
+      "name": "0xProgress.github.io",
+      "private": false,
+      "topics": [],
+      "updated_at": "2026-10-12T11:36:48Z",
+      "tech": [
+        "HTML"
+      ],
+      "status": "Active",
+      "displayName": "0xProgress.github.io",
+      "repoUrl": "https://github.com/0xProgress/0xProgress.github.io"
     },
     {
       "description": "Block until a condition is true, or tell you exactly why it wasn't.",
@@ -79,7 +125,7 @@
         "JavaScript",
         "TypeScript"
       ],
-      "status": "Active",
+      "status": "Maintenance",
       "displayName": "Redesigned Spork",
       "repoUrl": "https://github.com/0xProgress/redesigned-spork"
     },
@@ -92,7 +138,7 @@
       "topics": [],
       "updated_at": "2026-09-16T12:52:25Z",
       "tech": [],
-      "status": "Active",
+      "status": "Maintenance",
       "displayName": "Avlast MD",
       "repoUrl": "https://github.com/0xProgress/Avlast-MD"
     },
@@ -108,7 +154,7 @@
         "HTML",
         "Python"
       ],
-      "status": "Active",
+      "status": "Maintenance",
       "displayName": "LASUED Exam Schedule Comparator",
       "repoUrl": "https://github.com/0xProgress/LASUED-Exam-Schedule-Comparator"
     },
@@ -123,7 +169,7 @@
       "tech": [
         "Python"
       ],
-      "status": "Active",
+      "status": "Maintenance",
       "displayName": "Verbose Lamp",
       "repoUrl": "https://github.com/0xProgress/verbose-lamp"
     },
@@ -138,7 +184,7 @@
       "tech": [
         "Python"
       ],
-      "status": "Active",
+      "status": "Maintenance",
       "displayName": "Glowing Fiesta",
       "repoUrl": "https://github.com/0xProgress/glowing-fiesta"
     },
@@ -153,7 +199,7 @@
       "tech": [
         "Go"
       ],
-      "status": "Active",
+      "status": "Maintenance",
       "displayName": "0xmobilehub",
       "repoUrl": "https://github.com/0xProgress/0xmobilehub"
     },
@@ -168,7 +214,7 @@
       "tech": [
         "Python"
       ],
-      "status": "Active",
+      "status": "Maintenance",
       "displayName": "Ideal Potato",
       "repoUrl": "https://github.com/0xProgress/ideal-potato"
     },
@@ -215,7 +261,7 @@
         "Makefile",
         "Shell"
       ],
-      "status": "Maintenance",
+      "status": "Stable",
       "displayName": "Retry",
       "repoUrl": "https://github.com/0xProgress/retry"
     },
@@ -256,10 +302,10 @@
   "commits": [
     {
       "username": "0xProgress",
-      "repo": "0xProgress.github.io",
-      "sha": "c805ff0619075c1223f70f3a42144c3555df4bef",
-      "message": "Update Discord DH value in .well-known/discord",
-      "date": "Oct 12"
+      "repo": "repo-starter",
+      "sha": "cbeacb9d43da0ab4cc19d8adc259b788442846f5",
+      "message": "feat: Attempt to maintain consistent clarity",
+      "date": "Oct 15"
     },
     {
       "username": "0xProgress",
@@ -311,9 +357,9 @@
       "date": "Aug 28"
     }
   ],
-  "totalCommits": 176,
-  "totalPRs": 16,
+  "totalCommits": 183,
+  "totalPRs": 18,
   "totalIssues": 2,
   "currentFocus": "Golang",
-  "updatedAt": "2026-10-12T11:36:42Z"
+  "updatedAt": "2026-10-20T15:14:16Z"
 }
