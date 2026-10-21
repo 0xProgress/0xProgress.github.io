@@ -4,10 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>0xProgress_ | Go · Python · AI Tools</title>
+        <title>0xProgress | Go · Python · Builder</title>
+
+        <!-- SEO Meta Tags -->
         <meta
             name="description"
-            content="I build tools that work. Fast, reliable, low-resource software in Go and Python."
+            content="Building fast, reliable, low-resource tools in Go and Python."
         />
         <meta
             name="keywords"
@@ -16,173 +18,117 @@
         <meta name="author" content="0xProgress" />
         <meta name="robots" content="index, follow" />
 
-        <meta property="og:title" content="0xProgress_" />
+        <!-- Open Graph / Facebook -->
+        <meta
+            property="og:title"
+            content="0xProgress | Go · Python · Builder"
+        />
         <meta
             property="og:description"
-            content="I build tools that work. Fast, reliable, low-resource software."
+            content="Building fast, reliable, low-resource tools."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://0xprogress.pages.dev" />
+        <meta property="og:url" content="https://0xprogress.is-a.dev" />
         <meta
             property="og:image"
-            content="https://0xprogress.pages.dev/favicon/og.png"
+            content="https://0xprogress.is-a.dev/favicon/og.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta
-            property="og:image:alt"
-            content="0xProgress_ | Go · Python · AI Tools"
-        />
+        <meta property="og:image:alt" content="0xProgress Portfolio" />
 
+        <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="0xProgress_" />
+        <meta
+            name="twitter:title"
+            content="0xProgress | Go · Python · Builder"
+        />
         <meta
             name="twitter:description"
-            content="I build tools that work. Fast, reliable, low-resource software."
+            content="Building fast, reliable, low-resource tools."
         />
         <meta name="twitter:creator" content="@0xProgress_" />
         <meta
             name="twitter:image"
-            content="https://0xprogress.pages.dev/favicon/og.png"
+            content="https://0xprogress.is-a.dev/favicon/og.png"
         />
-        <meta
-            name="twitter:image:alt"
-            content="0xProgress_ | Go · Python · AI Tools"
-        />
+        <meta name="twitter:image:alt" content="0xProgress Portfolio" />
 
-        <link rel="canonical" href="https://0xprogress.pages.dev" />
+        <link rel="canonical" href="https://0xprogress.is-a.dev" />
+        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
 
+        <!-- Performance & Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
             rel="stylesheet"
         />
 
-        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-
+        <!-- Schema.org JSON-LD -->
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "Person",
-                "name": "0xProgress_",
-                "url": "https://0xprogress.pages.dev",
+                "name": "0xProgress",
+                "url": "https://0xprogress.is-a.dev",
                 "sameAs": [
                     "https://x.com/0xProgress_",
                     "https://github.com/0xProgress",
                     "https://github.com/BobbyX208"
                 ],
-                "jobTitle": "Builder",
-                "knowsAbout": ["Golang", "Python", "CLI Tools", "Automation"]
+                "jobTitle": "Software Developer",
+                "knowsAbout": [
+                    "Golang",
+                    "Python",
+                    "CLI Tools",
+                    "Automation",
+                    "System Design"
+                ]
             }
         </script>
 
         <style>
             :root {
-                --bg: #ffffff;
-                --bg-subtle: #fafafa;
-                --bg-code: #f5f5f5;
-
-                --border: #eaeaea;
-                --border-strong: #d4d4d4;
-
-                --text: #0a0a0a;
-                --text-muted: #666666;
-                --text-subtle: #999999;
-
-                --accent: #e5484d;
-
-                --font:
-                    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-                    system-ui, sans-serif;
-                --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
-
-                --radius: 6px;
-                --max: 1080px;
+                --bg: #fafafa;
+                --text: #18181b;
+                --accent: #c41e1e;
+                --muted: #71717a;
+                --border: #e4e4e7;
             }
-
             @media (prefers-color-scheme: dark) {
                 :root {
-                    --bg: #0a0a0a;
-                    --bg-subtle: #111111;
-                    --bg-code: #171717;
-                    --border: #1f1f1f;
-                    --border-strong: #2a2a2a;
-                    --text: #ededed;
-                    --text-muted: #888888;
-                    --text-subtle: #5c5c5c;
+                    --bg: #09090b;
+                    --text: #fafafa;
+                    --accent: #e5484d;
+                    --muted: #a1a1aa;
+                    --border: #27272a;
                 }
             }
-
-            *,
-            *::before,
-            *::after {
+            * {
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
             }
-
-            html {
-                -webkit-text-size-adjust: 100%;
-            }
-
-            @media (prefers-reduced-motion: no-preference) {
-                html {
-                    scroll-behavior: smooth;
-                }
-            }
-
             body {
-                font-family: var(--font);
-                font-size: 16px;
-                line-height: 1.6;
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+                background-color: var(--bg);
                 color: var(--text);
-                background: var(--bg);
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                overflow-x: hidden;
+                line-height: 1.6;
+                padding: 4rem 1.5rem;
+                display: flex;
+                justify-content: center;
             }
-
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
-
-            button {
-                font: inherit;
-                background: none;
-                border: none;
-                cursor: pointer;
-                color: inherit;
-            }
-
-            ::selection {
-                background: var(--text);
-                color: var(--bg);
-            }
-
-            :focus-visible {
-                outline: 2px solid var(--accent);
-                outline-offset: 3px;
-                border-radius: 2px;
-            }
-
-            .mono {
-                font-family: var(--mono);
-            }
-
             .container {
-                max-width: var(--max);
-                margin: 0 auto;
-                padding: 0 24px;
+                max-width: 640px;
+                width: 100%;
             }
 
-            @media (min-width: 768px) {
-                .container {
-                    padding: 0 40px;
-                }
-            }
-
+            /* Accessibility Skip Link */
             .skip-link {
                 position: absolute;
                 top: -100px;
@@ -190,702 +136,120 @@
                 padding: 8px 14px;
                 background: var(--text);
                 color: var(--bg);
-                border-radius: var(--radius);
+                border-radius: 6px;
                 font-size: 13px;
                 z-index: 200;
                 transition: top 0.15s;
+                text-decoration: none;
             }
             .skip-link:focus {
                 top: 16px;
             }
 
-            .site-header {
-                position: sticky;
-                top: 0;
-                z-index: 50;
-                background: color-mix(in srgb, var(--bg) 80%, transparent);
-                backdrop-filter: saturate(1.8) blur(12px);
-                -webkit-backdrop-filter: saturate(1.8) blur(12px);
-                border-bottom: 1px solid transparent;
-                transition: border-color 0.2s;
+            header {
+                margin-bottom: 3rem;
             }
-            .site-header.scrolled {
-                border-bottom-color: var(--border);
+            header h1 {
+                font-size: 2rem;
+                font-weight: 800;
+                letter-spacing: -0.05em;
+                margin-bottom: 0.5rem;
             }
-
-            .header-inner {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                height: 60px;
+            header p {
+                color: var(--muted);
+                font-size: 1.05rem;
             }
 
-            .brand {
-                font-family: var(--mono);
-                font-size: 15px;
-                font-weight: 700;
-                letter-spacing: -0.01em;
+            .stat-card {
+                padding: 3rem 2rem;
+                border-radius: 16px;
+                border: 1px solid var(--border);
+                text-align: center;
+                margin-bottom: 3rem;
             }
-            .brand .dot {
+            .number {
+                font-size: 4rem;
+                font-weight: 800;
                 color: var(--accent);
+                font-variant-numeric: tabular-nums;
+                line-height: 1;
+                margin-bottom: 0.5rem;
+            }
+            .number.loading {
+                font-size: 2rem;
+                color: var(--muted);
+                animation: pulse 1.5s infinite;
+            }
+            .label {
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: var(--muted);
+                font-weight: 600;
             }
 
-            .nav {
+            .bio-container {
+                border: 1px solid var(--accent);
+                padding: 2rem;
+                margin-bottom: 3rem;
+            }
+            .bio-container p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+                margin-bottom: 1rem;
+            }
+            .bio-container p:last-child {
+                margin-bottom: 0;
+            }
+            .bio-container a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 600;
+            }
+            .bio-container a:hover {
+                text-decoration: underline;
+            }
+
+            footer {
+                padding-top: 2rem;
+                border-top: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.8rem;
+                color: var(--muted);
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            .links {
                 display: flex;
                 align-items: center;
-                gap: 4px;
+                gap: 1.25rem;
             }
-
-            .nav a {
-                font-family: var(--mono);
-                font-size: 13px;
-                color: var(--text-muted);
-                padding: 6px 10px;
-                border-radius: var(--radius);
-                transition:
-                    color 0.15s,
-                    background 0.15s;
-            }
-            .nav a:hover {
-                color: var(--text);
-                background: var(--bg-subtle);
-            }
-
-            @media (max-width: 640px) {
-                .nav a {
-                    padding: 6px 8px;
-                    font-size: 12px;
-                }
-            }
-
-            section {
-                padding: 96px 0;
-            }
-            @media (min-width: 768px) {
-                section {
-                    padding: 128px 0;
-                }
-            }
-
-            .section-head {
-                display: flex;
-                align-items: baseline;
-                gap: 16px;
-                margin-bottom: 40px;
-            }
-
-            .section-tag {
-                font-family: var(--mono);
-                font-size: 12px;
-                color: var(--text-subtle);
-                letter-spacing: 0.04em;
-            }
-
-            .section-title {
-                font-size: 24px;
+            .links a {
+                color: var(--muted);
+                text-decoration: none;
                 font-weight: 600;
-                letter-spacing: -0.02em;
-                line-height: 1.2;
-            }
-            @media (min-width: 768px) {
-                .section-title {
-                    font-size: 28px;
-                }
-            }
-
-            .hero {
-                padding-top: 96px;
-                padding-bottom: 96px;
-            }
-            @media (min-width: 768px) {
-                .hero {
-                    padding-top: 160px;
-                    padding-bottom: 140px;
-                }
-            }
-
-            .hero-eyebrow {
+                transition: color 0.2s;
                 display: inline-flex;
                 align-items: center;
-                gap: 8px;
-                font-family: var(--mono);
-                font-size: 12px;
-                color: var(--text-muted);
-                padding: 4px 10px;
-                border: 1px solid var(--border);
-                border-radius: 999px;
-                margin-bottom: 28px;
+                gap: 0.4rem;
             }
-            .hero-eyebrow .pulse {
-                width: 6px;
-                height: 6px;
-                background: var(--accent);
-                border-radius: 50%;
+            .links a:hover {
+                color: var(--accent);
             }
-            @media (prefers-reduced-motion: no-preference) {
-                .hero-eyebrow .pulse {
-                    animation: pulse 2s ease-in-out infinite;
-                }
+            .links svg {
+                width: 14px;
+                height: 14px;
             }
+
             @keyframes pulse {
                 0%,
                 100% {
                     opacity: 1;
                 }
                 50% {
-                    opacity: 0.35;
-                }
-            }
-
-            .hero h1 {
-                font-family: var(--mono);
-                font-weight: 700;
-                font-size: clamp(40px, 8vw, 72px);
-                line-height: 1;
-                letter-spacing: -0.03em;
-                margin-bottom: 24px;
-            }
-            .hero h1 .x {
-                color: var(--accent);
-            }
-
-            .hero-sub {
-                font-size: clamp(17px, 2vw, 20px);
-                line-height: 1.55;
-                color: var(--text-muted);
-                max-width: 560px;
-                margin-bottom: 36px;
-            }
-
-            .hero-actions {
-                display: flex;
-                gap: 12px;
-                flex-wrap: wrap;
-            }
-
-            .btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                font-family: var(--mono);
-                font-size: 13px;
-                font-weight: 500;
-                padding: 10px 16px;
-                border: 1px solid var(--border-strong);
-                border-radius: var(--radius);
-                background: var(--bg);
-                color: var(--text);
-                transition:
-                    background 0.15s,
-                    color 0.15s,
-                    border-color 0.15s;
-            }
-            .btn:hover {
-                background: var(--text);
-                color: var(--bg);
-                border-color: var(--text);
-            }
-            .btn svg {
-                width: 15px;
-                height: 15px;
-                flex-shrink: 0;
-            }
-
-            .btn-primary {
-                background: var(--text);
-                color: var(--bg);
-                border-color: var(--text);
-            }
-            .btn-primary:hover {
-                background: var(--accent);
-                border-color: var(--accent);
-                color: #fff;
-            }
-
-            .btn[aria-disabled="true"] {
-                opacity: 0.5;
-                pointer-events: none;
-            }
-
-            .about-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-            @media (min-width: 900px) {
-                .about-grid {
-                    grid-template-columns: 1.6fr 1fr;
-                    gap: 64px;
-                }
-            }
-
-            .about-text {
-                font-size: 17px;
-                line-height: 1.75;
-                color: var(--text-muted);
-                max-width: 62ch;
-            }
-            .about-text p + p {
-                margin-top: 1.1em;
-            }
-            .about-text strong {
-                color: var(--text);
-                font-weight: 600;
-            }
-            .about-text .accent {
-                color: var(--accent);
-            }
-
-            .about-meta {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                padding: 24px;
-                border: 1px solid var(--border);
-                border-radius: var(--radius);
-                background: var(--bg-subtle);
-                align-self: start;
-            }
-
-            .meta-item {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-            }
-            .meta-label {
-                font-family: var(--mono);
-                font-size: 11px;
-                color: var(--text-subtle);
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-            }
-            .meta-value {
-                font-family: var(--mono);
-                font-size: 15px;
-                font-weight: 500;
-                color: var(--text);
-            }
-
-            .work-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            @media (min-width: 640px) {
-                .work-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            .project {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                padding: 24px;
-                border: 1px solid var(--border);
-                border-radius: var(--radius);
-                background: var(--bg);
-                transition:
-                    border-color 0.15s,
-                    background 0.15s;
-            }
-            .project:hover {
-                border-color: var(--border-strong);
-                background: var(--bg-subtle);
-            }
-            .project:hover .project-arrow {
-                transform: translate(2px, -2px);
-            }
-
-            .project-head {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 12px;
-            }
-
-            .project h3 {
-                font-family: var(--mono);
-                font-size: 16px;
-                font-weight: 700;
-                letter-spacing: -0.01em;
-                color: var(--text);
-            }
-
-            .project-arrow {
-                font-family: var(--mono);
-                font-size: 14px;
-                color: var(--text-subtle);
-                transition: transform 0.15s;
-                flex-shrink: 0;
-            }
-            .project:hover .project-arrow {
-                color: var(--accent);
-            }
-
-            .project-status {
-                font-family: var(--mono);
-                font-size: 10px;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--text-subtle);
-            }
-
-            .project-desc {
-                font-size: 14px;
-                line-height: 1.6;
-                color: var(--text-muted);
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-
-            .project-tech {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 6px;
-                margin-top: auto;
-                padding-top: 4px;
-            }
-            .project-tech span {
-                font-family: var(--mono);
-                font-size: 11px;
-                color: var(--text-muted);
-                padding: 3px 8px;
-                border: 1px solid var(--border);
-                border-radius: 4px;
-            }
-
-            .work-empty {
-                padding: 32px;
-                border: 1px dashed var(--border);
-                border-radius: var(--radius);
-                color: var(--text-subtle);
-                font-family: var(--mono);
-                font-size: 13px;
-                text-align: center;
-            }
-
-            .feed {
-                border: 1px solid var(--border);
-                border-radius: var(--radius);
-                overflow: hidden;
-                background: var(--bg);
-            }
-
-            .feed-row {
-                display: grid;
-                grid-template-columns: 140px 1fr 90px;
-                gap: 16px;
-                align-items: baseline;
-                padding: 14px 20px;
-                border-bottom: 1px solid var(--border);
-                font-family: var(--mono);
-                font-size: 13px;
-            }
-            .feed-row:last-child {
-                border-bottom: none;
-            }
-            .feed-row:hover {
-                background: var(--bg-subtle);
-            }
-
-            .feed-repo {
-                color: var(--text);
-                font-weight: 600;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-
-            .feed-msg {
-                color: var(--text-muted);
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                min-width: 0;
-            }
-
-            .feed-time {
-                color: var(--text-subtle);
-                font-size: 11px;
-                text-align: right;
-                white-space: nowrap;
-            }
-
-            @media (max-width: 640px) {
-                .feed-row {
-                    grid-template-columns: 1fr auto;
-                    gap: 6px;
-                    padding: 14px 16px;
-                }
-                .feed-repo {
-                    grid-column: 1;
-                    grid-row: 1;
-                }
-                .feed-time {
-                    grid-column: 2;
-                    grid-row: 1;
-                }
-                .feed-msg {
-                    grid-column: 1 / -1;
-                    grid-row: 2;
-                    white-space: normal;
-                    overflow: visible;
-                    line-height: 1.5;
-                }
-            }
-
-            .feed-empty {
-                padding: 32px 20px;
-                text-align: center;
-                font-family: var(--mono);
-                font-size: 13px;
-                color: var(--text-subtle);
-            }
-            .feed-empty a {
-                color: var(--accent);
-                border-bottom: 1px solid currentColor;
-            }
-
-            .contact-inner {
-                display: flex;
-                flex-direction: column;
-                gap: 28px;
-                align-items: flex-start;
-            }
-
-            .contact-line {
-                font-size: clamp(24px, 4vw, 40px);
-                font-weight: 600;
-                letter-spacing: -0.025em;
-                line-height: 1.2;
-                max-width: 22ch;
-            }
-            .contact-line .accent {
-                color: var(--accent);
-            }
-
-            .contact-actions {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-
-            footer {
-                border-top: 1px solid var(--border);
-                padding: 32px 0;
-                margin-top: 32px;
-            }
-
-            .footer-inner {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 16px;
-                font-family: var(--mono);
-                font-size: 12px;
-                color: var(--text-subtle);
-                flex-wrap: wrap;
-            }
-
-            .footer-links {
-                display: flex;
-                gap: 16px;
-            }
-            .footer-links a {
-                color: var(--text-subtle);
-                transition: color 0.15s;
-            }
-            .footer-links a:hover {
-                color: var(--text);
-            }
-
-            /* =====================================================================
-               MOBILE — one section per screen
-               Everything below only applies at ≤767px. Desktop is untouched.
-               ===================================================================== */
-            @media (max-width: 767px) {
-                /* The page becomes a snap scroller, so a section locks to the
-                   top of the screen instead of bleeding into the next one. */
-                html {
-                    scroll-snap-type: y proximity;
-                    /* Want a harder, one-slide-at-a-time feel? Swap
-                       `proximity` for `mandatory`. It can feel sticky on
-                       sections taller than the screen, so proximity is safer. */
-                }
-
-                body {
-                    -webkit-tap-highlight-color: transparent;
-                }
-
-                .container {
-                    padding-left: max(20px, env(safe-area-inset-left));
-                    padding-right: max(20px, env(safe-area-inset-right));
-                }
-
-                /* ---------- 1 screen = 1 section ---------- */
-                main > section,
-                main > .hero {
-                    min-height: 100vh; /* fallback for old browsers */
-                    min-height: 100svh; /* fits even with the mobile URL bar */
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    justify-content: safe center; /* never clip tall content */
-                    scroll-snap-align: start;
-                    scroll-snap-stop: always;
-                    padding: 76px 0 48px;
-                }
-
-                /* ---------- header ---------- */
-                .header-inner {
-                    height: 56px;
-                }
-                .brand {
-                    font-size: 14px;
-                }
-                .nav {
-                    gap: 0;
-                }
-                .nav a {
-                    font-size: 11.5px;
-                    padding: 10px 7px;
-                    white-space: nowrap;
-                }
-
-                /* ---------- hero ---------- */
-                .hero-eyebrow {
-                    font-size: 11px;
-                    padding: 5px 10px;
-                    margin-bottom: 20px;
-                }
-                .hero h1 {
-                    font-size: clamp(38px, 13vw, 56px);
-                    margin-bottom: 18px;
-                }
-                .hero-sub {
-                    font-size: 16px;
-                    line-height: 1.55;
-                    margin-bottom: 28px;
-                }
-
-                /* ---------- shared: full-width, thumb-friendly buttons ---------- */
-                .hero-actions,
-                .contact-actions {
-                    flex-direction: column;
-                    width: 100%;
-                    gap: 10px;
-                }
-                .btn {
-                    width: 100%;
-                    justify-content: center;
-                    min-height: 48px;
-                    padding: 13px 16px;
-                    font-size: 12.5px;
-                }
-
-                /* ---------- section headings ---------- */
-                .section-head {
-                    gap: 10px;
-                    margin-bottom: 20px;
-                }
-                .section-tag {
-                    font-size: 11px;
-                }
-                .section-title {
-                    font-size: 20px;
-                }
-
-                /* ---------- about ---------- */
-                .about-grid {
-                    gap: 22px;
-                }
-                .about-text {
-                    font-size: 15px;
-                    line-height: 1.65;
-                }
-                .about-text p + p {
-                    margin-top: 0.9em;
-                }
-                .about-meta {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 14px 12px;
-                    padding: 16px;
-                }
-                .meta-label {
-                    font-size: 10px;
-                }
-                .meta-value {
-                    font-size: 13px;
-                }
-
-                /* ---------- work ---------- */
-                .work-grid {
-                    gap: 10px;
-                }
-                .project {
-                    gap: 8px;
-                    padding: 16px;
-                }
-                .project h3 {
-                    font-size: 14px;
-                }
-                .project-desc {
-                    font-size: 13px;
-                    -webkit-line-clamp: 2;
-                }
-                .project-tech span {
-                    font-size: 10px;
-                    padding: 2px 6px;
-                }
-
-                /* ---------- feed ---------- */
-                .feed-row {
-                    padding: 12px 14px;
-                    font-size: 12px;
-                }
-                .feed-repo {
-                    font-size: 12.5px;
-                }
-                .feed-empty {
-                    padding: 24px 16px;
-                    font-size: 12px;
-                }
-
-                /* ---------- contact ---------- */
-                .contact-inner {
-                    gap: 22px;
-                    width: 100%;
-                }
-                .contact-line {
-                    font-size: clamp(22px, 7vw, 30px);
-                    max-width: none;
-                }
-
-                /* ---------- footer ---------- */
-                footer {
-                    padding: 24px 0;
-                    margin-top: 0;
-                }
-                .footer-inner {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 12px;
-                    font-size: 11px;
-                }
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                *,
-                *::before,
-                *::after {
-                    animation-duration: 0.01ms !important;
-                    animation-iteration-count: 1 !important;
-                    transition-duration: 0.01ms !important;
+                    opacity: 0.4;
                 }
             }
         </style>
@@ -893,470 +257,147 @@
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
 
-        <header class="site-header" id="siteHeader">
-            <div class="container header-inner">
-                <a href="#" class="brand" aria-label="Home">
-                    0xProgress<span class="dot">_</span>
-                </a>
-                <nav class="nav" aria-label="Primary">
-                    <a href="#about">About</a>
-                    <a href="#work">Work</a>
-                    <a href="#feed">Feed</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-            </div>
-        </header>
+        <div class="container">
+            <header>
+                <h1>Hi, I'm 0xProgress (Bobby™).</h1>
+                <p>Student · Builder · Go · Python</p>
+            </header>
 
-        <main id="main">
-            <section class="hero">
-                <div class="container">
-                    <span class="hero-eyebrow">
-                        <span class="pulse" aria-hidden="true"></span>
-                        Building · Open to work
-                    </span>
+            <main id="main">
+                <div class="stat-card">
+                    <div class="number loading" id="stat">...</div>
+                    <div class="label">Total Lifetime Contributions</div>
+                </div>
 
-                    <h1>0<span class="x">x</span>Progress_</h1>
-
-                    <p class="hero-sub">
-                        I build tools that work. Fast, reliable, low-resource
-                        software in Go and Python, the kind you can actually
-                        depend on.
+                <div class="bio-container">
+                    <p>
+                        This is my portfolio, though the real work happens on my
+                        <a href="https://github.com/0xProgress" target="_blank"
+                            >GitHub</a
+                        >.
                     </p>
-
-                    <div class="hero-actions">
-                        <a href="#work" class="btn btn-primary">
-                            See the work
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                aria-hidden="true"
-                            >
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg>
-                        </a>
-                        <a href="#contact" class="btn">Get in touch</a>
-                    </div>
+                    <p>
+                        I'm a student learning software development, and I love
+                        building fast, reliable, low-resource tools. I'm big on
+                        automation; if I can script it, I will.
+                    </p>
+                    <p>That's me in a nutshell.</p>
                 </div>
-            </section>
+            </main>
 
-            <section id="about">
-                <div class="container">
-                    <div class="section-head">
-                        <span class="section-tag">01</span>
-                        <h2 class="section-title">About</h2>
-                    </div>
-
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <p>
-                                I've been writing code since I was 14, learning
-                                by breaking and rebuilding systems. AI
-                                accelerated my learning, but I still write the
-                                code and still understand what's underneath it.
-                            </p>
-                            <p>
-                                I don't have a niche. I solve problems I notice.
-                                If something is broken, hard to use, or missing
-                                good docs, I fix it. I automate everything I can
-                                so I can ship more, faster.
-                            </p>
-                            <p>
-                                <span class="accent">I'm not finished.</span>
-                                I'm just getting started.
-                            </p>
-                        </div>
-
-                        <aside class="about-meta" aria-label="Quick facts">
-                            <div class="meta-item">
-                                <span class="meta-label">Focus</span>
-                                <span class="meta-value">Go · Python · AI</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Shipped</span>
-                                <span class="meta-value" id="repoCount">—</span>
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Currently on</span>
-                                <span class="meta-value" id="currentFocus"
-                                    >Golang</span
-                                >
-                            </div>
-                            <div class="meta-item">
-                                <span class="meta-label">Commits</span>
-                                <span class="meta-value" id="commitCount"
-                                    >—</span
-                                >
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            </section>
-
-            <section id="work">
-                <div class="container">
-                    <div class="section-head">
-                        <span class="section-tag">02</span>
-                        <h2 class="section-title">Work</h2>
-                    </div>
-
-                    <div
-                        class="work-grid"
-                        id="workGrid"
-                        aria-live="polite"
-                    ></div>
-                </div>
-            </section>
-
-            <section id="feed">
-                <div class="container">
-                    <div class="section-head">
-                        <span class="section-tag">03</span>
-                        <h2 class="section-title">Latest activity</h2>
-                    </div>
-
-                    <div class="feed" id="feedList" aria-live="polite">
-                        <noscript>
-                            <div class="feed-empty">
-                                Enable JavaScript to see recent activity, or
-                                visit
-                                <a href="https://github.com/0xProgress"
-                                    >github.com/0xProgress</a
-                                >.
-                            </div>
-                        </noscript>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="container">
-                    <div class="section-head">
-                        <span class="section-tag">04</span>
-                        <h2 class="section-title">Contact</h2>
-                    </div>
-
-                    <div class="contact-inner">
-                        <p class="contact-line">
-                            Got something worth
-                            <span class="accent">building</span>? Reach out. I
-                            read everything.
-                        </p>
-
-                        <div class="contact-actions">
-                            <a
-                                href="mailto:progressuwhuseba@gmail.com"
-                                class="btn btn-primary"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    aria-hidden="true"
-                                >
-                                    <rect
-                                        x="3"
-                                        y="5"
-                                        width="18"
-                                        height="14"
-                                        rx="2"
-                                    />
-                                    <path d="m3 7 9 6 9-6" />
-                                </svg>
-                                progressuwhuseba@gmail.com
-                            </a>
-                            <a
-                                href="https://github.com/0xProgress"
-                                target="_blank"
-                                rel="noopener"
-                                class="btn"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.42.36.78 1.06.78 2.14v3.18c0 .31.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
-                                    />
-                                </svg>
-                                GitHub
-                            </a>
-                            <a
-                                href="https://x.com/0xProgress_"
-                                target="_blank"
-                                rel="noopener"
-                                class="btn"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644Z"
-                                    />
-                                </svg>
-                                @0xProgress_
-                            </a>
-                            <a
-                                href="resume.pdf"
-                                download
-                                class="btn"
-                                id="resumeBtn"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"
-                                    />
-                                </svg>
-                                Résumé
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="container footer-inner">
-                <span>© <span id="footerYear">2026</span> 0xProgress_</span>
-                <div class="footer-links">
+            <footer>
+                <div id="update-date">Last updated: -</div>
+                <div class="links">
                     <a
                         href="https://github.com/0xProgress"
                         target="_blank"
-                        rel="noopener"
-                        >GitHub</a
+                        aria-label="GitHub"
                     >
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.42.36.78 1.06.78 2.14v3.18c0 .31.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+                            />
+                        </svg>
+                    </a>
                     <a
                         href="https://x.com/0xProgress_"
                         target="_blank"
-                        rel="noopener"
-                        >X</a
+                        aria-label="X (Twitter)"
                     >
-                    <a href="mailto:progressuwhuseba@gmail.com">Email</a>
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644Z"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://discord.com/users/1214231706698252320"
+                        target="_blank"
+                        aria-label="Discord"
+                    >
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+                            />
+                        </svg>
+                    </a>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
 
         <script>
-            (function () {
-                "use strict";
+            async function loadStats() {
+                try {
+                    const res = await fetch(
+                        "https://github-contributions-api.jogruber.de/v4/0xProgress",
+                    );
+                    if (!res.ok) throw new Error("API error");
+                    const data = await res.json();
 
-                var yearEl = document.getElementById("footerYear");
-                if (yearEl)
-                    yearEl.textContent = String(new Date().getFullYear());
+                    let total = 0;
 
-                var header = document.getElementById("siteHeader");
-                if (header) {
-                    var onScroll = function () {
-                        header.classList.toggle("scrolled", window.scrollY > 4);
-                    };
-                    onScroll();
-                    window.addEventListener("scroll", onScroll, {
-                        passive: true,
-                    });
+                    if (
+                        data &&
+                        typeof data.total === "number" &&
+                        data.total > 100
+                    ) {
+                        total = data.total;
+                    }
+                    else if (data && Array.isArray(data.contributions)) {
+                        total = data.contributions.reduce(
+                            (sum, day) => sum + (day.count || 0),
+                            0,
+                        );
+                    }
+                    else if (
+                        data &&
+                        data.years &&
+                        typeof data.years === "object"
+                    ) {
+                        total = Object.values(data.years).reduce(
+                            (sum, yearData) => {
+                                if (
+                                    yearData &&
+                                    typeof yearData.total === "number"
+                                ) {
+                                    return sum + yearData.total;
+                                }
+                                return sum;
+                            },
+                            0,
+                        );
+                    }
+
+                    const statEl = document.getElementById("stat");
+                    statEl.classList.remove("loading");
+
+                    if (total > 0) {
+                        statEl.innerText = total.toLocaleString();
+                    } else {
+                        const res2 = await fetch(
+                            "https://api.github.com/users/0xProgress",
+                        );
+                        const data2 = await res2.json();
+                        statEl.innerText = data2.public_repos.toLocaleString();
+                        document.querySelector(".label").innerText =
+                            "Public Repositories";
+                    }
+
+                    const today = new Date();
+                    document.getElementById("update-date").innerText =
+                        "Last updated: " +
+                        today.toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                        });
+                } catch (e) {
+                    console.error("Stats fetch failed:", e);
+                    document.getElementById("stat").innerText = "—";
+                    document.getElementById("stat").classList.remove("loading");
                 }
-
-                var dataPromise = fetch("data/site-data.json", {
-                    cache: "no-cache",
-                }).then(function (r) {
-                    if (!r.ok) throw new Error("Failed to load data");
-                    return r.json();
-                });
-
-                (function () {
-                    var grid = document.getElementById("workGrid");
-                    if (!grid) return;
-
-                    dataPromise
-                        .then(function (data) {
-                            var projects = Array.isArray(data.projects)
-                                ? data.projects.slice()
-                                : [];
-
-                            projects = projects.filter(function (p) {
-                                return (
-                                    p.name !== "0xprogress.pages.dev" &&
-                                    p.repoUrl !==
-                                        "https://github.com/0xProgress/0xprogress.pages.dev"
-                                );
-                            });
-
-                            if (projects.length === 0) {
-                                grid.innerHTML =
-                                    '<div class="work-empty">No projects yet.</div>';
-                                return;
-                            }
-
-                            grid.innerHTML = projects
-                                .map(function (p) {
-                                    var name = p.name || p.displayName || "";
-                                    var desc = p.description || "";
-                                    var url = p.repoUrl || p.html_url || "#";
-                                    var status = p.status || "";
-                                    var tech = Array.isArray(p.tech)
-                                        ? p.tech
-                                        : [];
-
-                                    return (
-                                        '<a class="project" href="' +
-                                        url +
-                                        '" target="_blank" rel="noopener">' +
-                                        '<div class="project-head">' +
-                                        "<h3>" +
-                                        name +
-                                        "</h3>" +
-                                        '<span class="project-arrow" aria-hidden="true">↗</span>' +
-                                        "</div>" +
-                                        (status
-                                            ? '<span class="project-status">' +
-                                              status +
-                                              "</span>"
-                                            : "") +
-                                        '<p class="project-desc">' +
-                                        desc +
-                                        "</p>" +
-                                        (tech.length
-                                            ? '<div class="project-tech">' +
-                                              tech
-                                                  .map(function (t) {
-                                                      return (
-                                                          "<span>" +
-                                                          t +
-                                                          "</span>"
-                                                      );
-                                                  })
-                                                  .join("") +
-                                              "</div>"
-                                            : "") +
-                                        "</a>"
-                                    );
-                                })
-                                .join("");
-                        })
-                        .catch(function (err) {
-                            console.warn("Work grid error:", err);
-                            grid.innerHTML =
-                                '<div class="work-empty">Could not load projects. <a href="https://github.com/0xProgress" target="_blank" rel="noopener" style="color:var(--accent)">View on GitHub</a></div>';
-                        });
-                })();
-
-                (function () {
-                    var repoEl = document.getElementById("repoCount");
-                    var focusEl = document.getElementById("currentFocus");
-                    var commitEl = document.getElementById("commitCount");
-
-                    dataPromise
-                        .then(function (data) {
-                            var repoCount = Array.isArray(data.projects)
-                                ? data.projects.filter(function (p) {
-                                      return p.name !== "0xprogress.pages.dev";
-                                  }).length
-                                : null;
-                            if (repoEl && repoCount != null) {
-                                repoEl.textContent = repoCount + " projects";
-                            }
-
-                            if (focusEl && data.currentFocus) {
-                                focusEl.textContent = data.currentFocus;
-                            }
-
-                            if (commitEl && data.totalCommits != null) {
-                                commitEl.textContent = Number(
-                                    data.totalCommits,
-                                ).toLocaleString();
-                            }
-                        })
-                        .catch(function () {
-                            if (repoEl) repoEl.textContent = "—";
-                            if (commitEl) commitEl.textContent = "—";
-                        });
-                })();
-
-                (function () {
-                    var feedEl = document.getElementById("feedList");
-                    if (!feedEl) return;
-                    var SKIP_RE = /\[skip ci\]/i;
-
-                    dataPromise
-                        .then(function (data) {
-                            var all = Array.isArray(data.commits)
-                                ? data.commits
-                                : [];
-                            var commits = all.filter(function (c) {
-                                return (
-                                    !SKIP_RE.test(c.message || "") &&
-                                    c.repo !== "0xprogress.pages.dev"
-                                );
-                            });
-
-                            if (commits.length === 0) {
-                                feedEl.innerHTML =
-                                    '<div class="feed-empty">No recent commits.</div>';
-                                return;
-                            }
-
-                            feedEl.innerHTML = commits
-                                .map(function (c) {
-                                    return (
-                                        '<div class="feed-row">' +
-                                        '<span class="feed-repo">' +
-                                        (c.repo || "") +
-                                        "</span>" +
-                                        '<span class="feed-msg" title="' +
-                                        (c.message || "").replace(
-                                            /"/g,
-                                            "&quot;",
-                                        ) +
-                                        '">' +
-                                        (c.message || "") +
-                                        "</span>" +
-                                        '<span class="feed-time">' +
-                                        (c.date || "") +
-                                        "</span>" +
-                                        "</div>"
-                                    );
-                                })
-                                .join("");
-                        })
-                        .catch(function (err) {
-                            console.warn("Feed error:", err);
-                            feedEl.innerHTML =
-                                '<div class="feed-empty">Feed unavailable. <a href="https://github.com/0xProgress" target="_blank" rel="noopener">View on GitHub</a></div>';
-                        });
-                })();
-
-                (function () {
-                    var btn = document.getElementById("resumeBtn");
-                    if (!btn) return;
-
-                    fetch("resume.pdf", { method: "HEAD" })
-                        .then(function (res) {
-                            if (!res.ok) throw new Error("not found");
-                        })
-                        .catch(function () {
-                            btn.setAttribute("aria-disabled", "true");
-                            btn.setAttribute("href", "#");
-                            btn.innerHTML =
-                                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Résumé (soon)';
-                        });
-                })();
-            })();
+            }
+            loadStats();
         </script>
     </body>
 </html>
