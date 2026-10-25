@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #1c1917;
+    color: #fafaf9;
+  }
+}
+
+@layer utilities {
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  .hover-wonk {
+    font-variation-settings: 'WONK' 0;
+    transition: font-variation-settings 0.4s ease;
+  }
+
+  .hover-wonk:hover {
+    font-variation-settings: 'WONK' 1;
+  }
+
+  .card-hover-border {
+    border-left: 4px solid transparent;
+    transition: border-left-color 0.2s ease;
+  }
+
+  .card-hover-border:hover {
+    border-left-color: #c084fc;
+  }
+
+  .nav-rail {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: var(--font-dm-mono);
+    font-size: 0.75rem;
+    z-index: 50;
+  }
+
+  @media (max-width: 768px) {
+    .nav-rail {
+      display: none;
+    }
+  }
+
+  .nav-link {
+    color: #78716c;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link.active {
+    color: #c084fc;
+  }
+
+  .nav-link:hover {
+    color: #c084fc;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
